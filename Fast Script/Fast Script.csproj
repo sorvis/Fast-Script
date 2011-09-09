@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC91093F-899F-4D0F-A579-C1041724C7A7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fast_Script</RootNamespace>
+    <AssemblyName>Fast Script</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudioFileMaker.cs" />
+    <Compile Include="backEndInitializer.cs" />
+    <Compile Include="bible_data\bible.cs" />
+    <Compile Include="bible_data\BibleHashTable.cs" />
+    <Compile Include="bible_data\book.cs" />
+    <Compile Include="bible_data\bookManipulator.cs" />
+    <Compile Include="bible_data\chapter.cs" />
+    <Compile Include="data_index\indexBuilder.cs" />
+    <Compile Include="data_index\indexReaderWriter.cs" />
+    <Compile Include="data_index\verse.cs" />
+    <Compile Include="data_index\word.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectSerializing.cs" />
+    <Compile Include="PagePrinter.cs" />
+    <Compile Include="Presenter.cs" />
+    <Compile Include="Extentions.cs" />
+    <Compile Include="PresenterFolder\FileCopier.cs" />
+    <Compile Include="PresenterFolder\ReferenceItem.cs" />
+    <Compile Include="PresenterFolder\ReferenceList.cs" />
+    <Compile Include="PresenterFolder\searchParsing.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StopWatch.cs" />
+    <Compile Include="To_MP3_Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="To_MP3_Options.Designer.cs">
+      <DependentUpon>To_MP3_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerseSelecter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VerseSelecter.Designer.cs">
+      <DependentUpon>VerseSelecter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresenterFolder\GUI_Settings.cs" />
+    <Compile Include="WebpageCreator.cs" />
+    <Compile Include="XLM_bible_reader\BibleBuilder.cs" />
+    <Compile Include="XLM_bible_reader\openXML_Zefania_XML_Bible_Markup_Language.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="To_MP3_Options.resx">
+      <DependentUpon>To_MP3_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerseSelecter.resx">
+      <DependentUpon>VerseSelecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="yeti.mmedia\yeti.mmedia.csproj">
+      <Project>{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}</Project>
+      <Name>yeti.mmedia</Name>
+    </ProjectReference>
+    <ProjectReference Include="yeti.mp3\yeti.mp3.csproj">
+      <Project>{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}</Project>
+      <Name>yeti.mp3</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

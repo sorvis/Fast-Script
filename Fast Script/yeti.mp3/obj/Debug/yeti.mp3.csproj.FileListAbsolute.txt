@@ -1,0 +1,20 @@
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\bin\Debug\yeti.mp3.dll
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\bin\Debug\yeti.mp3.pdb
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\bin\Debug\yeti.mmedia.dll
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\bin\Debug\yeti.mmedia.pdb
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\obj\Debug\Yeti.MMedia.Mp3.EditMp3Writer.resources
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\obj\Debug\yeti.mp3.dll
+C:\Users\Steven\Downloads\MP3Compressor\MP3Compressor\yeti.mp3\obj\Debug\yeti.mp3.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\bin\Debug\yeti.mmedia.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\bin\Debug\yeti.mmedia.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\obj\Debug\Yeti.MMedia.Mp3.EditMp3Writer.resources
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.pdb

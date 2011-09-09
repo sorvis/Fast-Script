@@ -1,0 +1,10 @@
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\bin\LameShell.exe
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\bin\LameShell.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\bin\LameShell.xml
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\LameShell.Form1.resources
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\LameShell.exe
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\LameShell.xml
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast Script\Fast Script\LameShell_src\obj\Debug\LameShell.pdb
