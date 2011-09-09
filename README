@@ -1,0 +1,19 @@
+Fast Script
+
+Fast Script is a program used to building lists of verses from the Bible. It offers three ways to find the verses to put into the list.
+
+1. By mouse selection. Click verse selector highlight a book range or click a book. Then repeat for the rest of the reference.
+
+2. By typing reference into search bar. As you type the program will provide possible reference combinations.
+
+3. By typing search terms into the search bar. As you type the search the program will begin to display possible words after there are no possible books. Search words can be stacked and are not case-sensitive or order-sensitive.
+
+After a list of verses has been selected there are four things you can do with the list.
+
+1. View -- Click the display icon then all the verses in the list will go into the display panel.
+
+2. Save -- Click the save verse list from the file menu which will allow you to select a file to save the verse list into. Later you can restore this list by chosing open verse list from the menu.
+
+3. Print -- Click the print icon and it will print the verses. Options are avalible from the file menu to change print font size and font.
+
+4. TTS (Text-To-Speech) -- From the file menu pick save to mp3 file to use the windows speach API to convert the list into spoken word. Options are avalible form the file menu to change voice rate and other voices (if your system has more than one installed). Since Converting then encoding a large verse list might take a long while the program will show a progress bar at the bottom of the window and allow you to continue using the program without affecting the conversion. If you try to close the program while the conversion is in progress the program will warn you, but give you the option of quitting anyways.
