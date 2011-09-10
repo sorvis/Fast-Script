@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Fast_Script
 {
@@ -20,11 +21,23 @@ namespace Fast_Script
                 "<script src=\"script.js\" type=\"text/javascript\"></script>" + 
                 "</head><body>";
             _htmlTail = "</body></html>";
+
+            // check for HTML Directory (installer does not seem to create empty folder)
+            string folderPath = Path.GetDirectoryName(fileName); 
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if (!File.Exists(fileName)) // check to see if need to create the file
+            {
+                File.Create(fileName);
+            }
         }
         public void writeHTMLPage(string pageContent)
         {
             string pageBody = _htmlHead + pageContent + _htmlTail;
-            System.IO.File.WriteAllText(_fileName, pageBody);
+            File.WriteAllText(_fileName, pageBody);
         }
     }
 }
