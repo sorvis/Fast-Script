@@ -27,9 +27,16 @@ namespace Fast_Script
         private GUI_Settings _settings;
         public GUI_Settings Settings
         { get { return _settings; } }
+        private string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
         public Presenter(MainWindow view)
         {
-            _defaultPageLocation = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "HTML\\page.html");
+            // create a program path in ApplicationData folder if needed
+            if (!Directory.Exists(_appDataStorageFolder))
+            {
+                Directory.CreateDirectory(_appDataStorageFolder);
+            }
+
+            _defaultPageLocation = Path.Combine(_appDataStorageFolder, "HTML\\page.html");
             _backend = new backEndInitializer(this);
             _view = view;
             _ParseSearch = new PresenterFolder.searchParsing(this);
@@ -38,11 +45,9 @@ namespace Fast_Script
             {
                 _settings = (GUI_Settings) ObjectSerializing.DeSerializeObject("Settings.data", _backend);
             }
-            else if (File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Settings.data")))
+            else if (File.Exists(Path.Combine(_appDataStorageFolder, "Settings.data")))
             {
-                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject(
-                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Settings.data")
-                    , _backend);
+                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject(Path.Combine(_appDataStorageFolder, "Settings.data"), _backend);
             }
             else
             {
@@ -59,16 +64,7 @@ namespace Fast_Script
         }
         public void saveSettings()
         {
-            try
-            {
-                ObjectSerializing.SerializeObject("Settings.data", Settings);
-            }
-            catch
-            {
-                ObjectSerializing.SerializeObject(
-                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Settings.data")
-                    , Settings);
-            }
+             ObjectSerializing.SerializeObject(Path.Combine(_appDataStorageFolder, "Settings.data"), Settings);
         }
         public void addToVerseList(ReferenceItem item)
         {
