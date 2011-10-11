@@ -170,7 +170,7 @@ namespace Fast_Script
             }
             if (refList.getList.Count > 0)
             {
-                _presenter.Backend.PrintText(_presenter.putVersesToString(refList));
+                _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
             }
         }
         private void bibleToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
@@ -309,7 +309,7 @@ namespace Fast_Script
             
             if (refList.getList.Count > 0)
             {
-                _presenter.Backend.printPreview(_presenter.putVersesToString(refList));
+                _presenter.Backend.printPreview(_presenter.putVersesForPlainText(refList));
             }
         }
         private PresenterFolder.ReferenceList getCurrentVerseList()
@@ -345,6 +345,7 @@ namespace Fast_Script
                 {
                     case DialogResult.No:
                         {
+                            MakeMP3backgroundWorker.CancelAsync();
                             e.Cancel = true;
                             break;
                         }
@@ -426,7 +427,7 @@ namespace Fast_Script
 
             string fileName = (string) e.Argument;
             PresenterFolder.ReferenceList tempRefList = getCurrentVerseList();
-            AudioFileMaker.NetFrameWorkTTS(fileName, _presenter.putVersesToString(tempRefList),
+            AudioFileMaker.NetFrameWorkTTS(fileName, _presenter.putVersesToStringForTTS( tempRefList),
                 _presenter.Settings.CurrentTTSVoice.VoiceInfo.Name, _presenter.Settings.TTS_Rate, (BackgroundWorker) sender);
         }
 

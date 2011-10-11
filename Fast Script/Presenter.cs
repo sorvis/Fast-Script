@@ -89,15 +89,23 @@ namespace Fast_Script
         {
             displayVersesToWebView(new ReferenceList(_currentItemsInWebview.ToList()), _currentBoldWord);
         }
-        public string putVersesToString(ReferenceList list)
+        private string putVersesToStringGeneric(string[] verseArray)
         {
             string finalText = "";
-            foreach (string item in verseListToText(list))
+            foreach (string item in verseArray)
             {
                 finalText += item + '\n' + '\n';
             }
             finalText = finalText.Substring(0, finalText.Count() - 2);//drop off last two \n
             return finalText;
+        }
+        public string putVersesForPlainText(ReferenceList list)
+        {
+            return putVersesToStringGeneric(verseListToText(list));
+        }
+        public string putVersesToStringForTTS(ReferenceList list)
+        {
+            return putVersesToStringGeneric(verseListToTextForTTS(list));
         }
         public void putVersesToClipBoard(ReferenceList list)
         {
@@ -108,6 +116,49 @@ namespace Fast_Script
             }
             finalText = finalText.Substring(0,finalText.Count() - 2);//drop off last two \n
             Clipboard.SetText(finalText);
+        }
+        private string[] verseListToTextForTTS(ReferenceList list)
+        {
+            string[] verseText = new string[list.getList.Count];
+            string tempVerse = "";
+            string tempTitle = "";
+            list.completeReferences(_backend);
+            int counter = 0;
+            int verseNumber;
+            foreach (ReferenceItem refItem in list.getList)
+            {
+                tempTitle = refItem.startBook + " " + refItem.startChapter + ":" +
+                    refItem.startVerse;
+                if (refItem.range == false) // just one verse
+                {
+                    tempVerse = _backend.getVerse(refItem.startBook,
+                        (int)refItem.startChapter, (int)refItem.startVerse);
+                }
+                else // range of verses in one refItem
+                {
+                    tempTitle += " - " + refItem.endBook + " " + refItem.endChapter + ":" +
+                        refItem.endVerse;
+                    tempVerse = "";//clear it just in case
+
+                    // get range of verses and format the sting
+                    foreach (data_index.verse verseItem in _backend.getVerseRange(
+                        refItem.startBook + " " + refItem.startChapter + ":" +
+                        refItem.startVerse, refItem.endBook + " " + refItem.endChapter +
+                        ":" + refItem.endVerse))
+                    {
+                        verseNumber = verseItem.Verse;
+                        if (verseNumber == 1) // at first verse print book and chapter num
+                        {
+                            tempVerse += "\n Chapter " + verseItem.Chapter + " of the of " + verseItem.Book;
+                        }
+                        tempVerse += "\n" + verseItem.getVerseText();   // apend that verses text
+                    }// end foreach
+                }
+
+                verseText[counter] = tempTitle + '\n' + tempVerse;
+                counter++;
+            }
+            return verseText;
         }
         private string[] verseListToText(ReferenceList list)
         {
