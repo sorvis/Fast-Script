@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Fast_Script.PresenterFolder;
 
 namespace Fast_Script.PresenterFolder
 {
@@ -12,6 +13,37 @@ namespace Fast_Script.PresenterFolder
         {
             _presenter = presenter;
         }
+        private void foundWholeBookName(ref bool foundBook, ref string lastFoundBook, ref string[] text, 
+            ref int i, ref List<string> suggestionList, ref backEndInitializer _backend, ref MainWindow _view,
+            ref string originalSearch, ref ReferenceList refList)
+        {
+            foundBook = true;
+            lastFoundBook = capitalizeWord(text[i]);
+            if (i < text.Count() - 1) //something after book
+            {
+
+            }
+            else // nothing after book
+            {
+                // return a list of possible chapters for the book
+                suggestionList = _backend.currentChapters(lastFoundBook).ToList().ToStringList();
+                suggestionList = suggestionList.addPrefixToList(originalSearch + " ");
+                _view.searchBoxSuggestions(suggestionList, originalSearch);
+            }
+
+            // save book reference
+            if (refList.currentRefernce == null || refList.currentRefernce.range == false)
+            {
+                refList.addReference(lastFoundBook);
+            }
+            else // if expecting another book reference
+            {
+                refList.currentRefernce.endBook = lastFoundBook;
+                refList.addReference(null);
+            }
+
+            //foundBook(text, originalSearch);
+        }
         public void searchString(string originalSearch, backEndInitializer _backend, 
             MainWindow _view)
         {
@@ -19,7 +51,7 @@ namespace Fast_Script.PresenterFolder
             string[] text = originalSearch.Replace(";", " ; ").Split(' ');
 
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList(); // list of references to display
-            List<string> suggestionList; // list of what user might want to type next
+            List<string> suggestionList = new List<string>(); // list of what user might want to type next
             string searchPhrase = "";
 
             // fix all books that begin with a number
@@ -65,32 +97,7 @@ namespace Fast_Script.PresenterFolder
                 // look for a whole book name
                 else if (!foundBook && _backend.currentBooks.Contains(text[i], false))
                 {
-                    foundBook = true;
-                    lastFoundBook = capitalizeWord(text[i]);
-                    if (i < text.Count() - 1) //something after book
-                    {
-
-                    }
-                    else // nothing after book
-                    {
-                        // return a list of possible chapters for the book
-                        suggestionList = _backend.currentChapters(lastFoundBook).ToList().ToStringList();
-                        suggestionList = suggestionList.addPrefixToList(originalSearch + " ");
-                        _view.searchBoxSuggestions(suggestionList, originalSearch);
-                    }
-
-                    // save book reference
-                    if (refList.currentRefernce == null || refList.currentRefernce.range == false)
-                    {
-                        refList.addReference(lastFoundBook);
-                    }
-                    else // if expecting another book reference
-                    {
-                        refList.currentRefernce.endBook = lastFoundBook;
-                        refList.addReference(null);
-                    }
-
-                    //foundBook(text, originalSearch);
+                    foundWholeBookName(ref foundBook, ref lastFoundBook, ref text, ref i, ref suggestionList, ref _backend, ref _view, ref originalSearch, ref refList);
                 }
                 // look for -
                 else if (text[i] == "-") // found a book range reference
