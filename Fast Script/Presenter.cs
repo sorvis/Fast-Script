@@ -127,7 +127,7 @@ namespace Fast_Script
             int verseNumber;
             foreach (ReferenceItem refItem in list.getList)
             {
-                tempTitle = refItem.startBook + " " + refItem.startChapter + ":" +
+                tempTitle = refItem.startBook + " Chapter " + refItem.startChapter + " verse " +
                     refItem.startVerse;
                 if (refItem.range == false) // just one verse
                 {
@@ -136,7 +136,7 @@ namespace Fast_Script
                 }
                 else // range of verses in one refItem
                 {
-                    tempTitle += " - " + refItem.endBook + " " + refItem.endChapter + ":" +
+                    tempTitle += "; To " + refItem.endBook + " Chapter " + refItem.endChapter + " Verse " +
                         refItem.endVerse;
                     tempVerse = "";//clear it just in case
 
@@ -149,9 +149,9 @@ namespace Fast_Script
                         verseNumber = verseItem.Verse;
                         if (verseNumber == 1) // at first verse print book and chapter num
                         {
-                            tempVerse += "\n Chapter " + verseItem.Chapter + " of the of " + verseItem.Book;
+                            tempVerse += ". Chapter " + verseItem.Chapter + " of the book of " + verseItem.Book +". .";
                         }
-                        tempVerse += "\n" + verseItem.getVerseText();   // apend that verses text
+                        tempVerse += ". " + verseItem.getVerseText();   // apend that verses text
                     }// end foreach
                 }
 
