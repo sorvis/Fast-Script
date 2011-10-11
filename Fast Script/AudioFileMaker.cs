@@ -120,9 +120,9 @@ namespace Fast_Script
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.SpeakProgress += delegate(object sender, SpeakProgressEventArgs e) 
                 { synth_SpeakProgress(sender, e, worker, textToConvert.Length); };
-            //Stream audioStream = new MemoryStream();
-            //synth.SetOutputToWaveStream(audioStream); // set to wave file stream
-            synth.SetOutputToWaveFile(fileNameToCreate+".wav");
+            Stream audioStream = new MemoryStream();
+            synth.SetOutputToWaveStream(audioStream); // set to wave file stream
+            //synth.SetOutputToWaveFile(fileNameToCreate+".wav");
             synth.SelectVoice(voiceName);
             synth.Rate = voiceRate;
             //synth.Rate
@@ -131,7 +131,10 @@ namespace Fast_Script
             //audioStream.Close();
             synth.Dispose();
 
-            WaveStream waveStream = new WaveStream(fileNameToCreate + ".wav");
+            audioStream.Position = 0;   // reset position for audio stream so it can be read
+
+            //WaveStream waveStream = new WaveStream(fileNameToCreate + ".wav");    // read from file
+            WaveStream waveStream = new WaveStream(audioStream);                    // read from stream
 
             string mp3FileName = fileNameToCreate;
             //before convert check for and add .mp3 file extention if nessary
@@ -174,7 +177,8 @@ namespace Fast_Script
             }
 
             // remove wave file
-            File.Delete(fileNameToCreate + ".wav");
+            //File.Delete(fileNameToCreate + ".wav");
+            audioStream.Close();        // close audio stream
         }
 
         static private void synth_SpeakProgress(object sender, SpeakProgressEventArgs e, BackgroundWorker worker,
