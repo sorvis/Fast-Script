@@ -176,8 +176,7 @@ namespace Fast_Script
                 waveStream.Close();
             }
 
-            // remove wave file
-            //File.Delete(fileNameToCreate + ".wav");
+            //File.Delete(fileNameToCreate + ".wav");       // remove wave file
             audioStream.Close();        // close audio stream
         }
 
