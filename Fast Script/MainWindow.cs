@@ -427,7 +427,7 @@ namespace Fast_Script
 
             string fileName = (string) e.Argument;
             PresenterFolder.ReferenceList tempRefList = getCurrentVerseList();
-            AudioFileMaker.NetFrameWorkTTS(fileName, _presenter.putVersesToStringForTTS( tempRefList),
+            AudioFileMaker.MakeFileFromText(fileName, _presenter.putVersesToStringForTTS( tempRefList),
                 _presenter.Settings.CurrentTTSVoice.VoiceInfo.Name, _presenter.Settings.TTS_Rate, (BackgroundWorker) sender);
         }
 

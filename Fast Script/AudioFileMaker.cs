@@ -14,11 +14,17 @@ namespace Fast_Script
 {
     class AudioFileMaker
     {
-        static public void NetFrameWorkTTS(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
+        static public void MakeFileFromText(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
+        {
+            Stream audioStream = TextToAudioStream(textToConvert, voiceName, voiceRate, worker);    // get audio stream of TTS
+            saveWaveStreamToMP3File(fileNameToCreate, worker, audioStream);    
+            audioStream.Close();        // close audio stream
+        }
+        static private Stream TextToAudioStream(string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
-            synth.SpeakProgress += delegate(object sender, SpeakProgressEventArgs e) 
-                { synth_SpeakProgress(sender, e, worker, textToConvert.Length); };
+            synth.SpeakProgress += delegate(object sender, SpeakProgressEventArgs e)
+            { synth_SpeakProgress(sender, e, worker, textToConvert.Length); };
             Stream audioStream = new MemoryStream();
             synth.SetOutputToWaveStream(audioStream); // set to wave file stream
             //synth.SetOutputToWaveFile(fileNameToCreate+".wav");
@@ -32,15 +38,19 @@ namespace Fast_Script
 
             audioStream.Position = 0;   // reset position for audio stream so it can be read
 
+            return audioStream;
+        }
+        static private void saveWaveStreamToMP3File(string fileNameToCreate, BackgroundWorker worker, Stream audioStream)
+        {
             //WaveStream waveStream = new WaveStream(fileNameToCreate + ".wav");    // read from file
             WaveStream waveStream = new WaveStream(audioStream);                    // read from stream
 
-            string mp3FileName = fileNameToCreate;
             //before convert check for and add .mp3 file extention if nessary
+            string mp3FileName = fileNameToCreate;
             if (Path.GetExtension(fileNameToCreate).ToLower() != ".mp3".ToLower())
             { mp3FileName += ".mp3"; }
 
-            // convert wav stream to mp3 stream
+            // convert wav stream to mp3 stream then write
             Mp3WriterConfig mp3_Config = new Mp3WriterConfig(waveStream.Format);
             try
             {
