@@ -65,6 +65,7 @@
     <Compile Include="data_index\indexReaderWriter.cs" />
     <Compile Include="data_index\verse.cs" />
     <Compile Include="data_index\word.cs" />
+    <Compile Include="GoogleAudioFileMaker.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
