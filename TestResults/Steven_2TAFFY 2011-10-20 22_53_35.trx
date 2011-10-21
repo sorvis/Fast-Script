@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="4d86280e-85b1-418a-acb5-57136f11ba56" name="Steven@2TAFFY 2011-10-20 22:53:35" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4410de8a-38d1-403a-bdf5-078b41739082">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2011-10-20 22_53_35">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\bin\Debug\Fast Script.exe" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-20T22:53:35.4883359-04:00" queuing="2011-10-20T22:53:35.5107968-04:00" start="2011-10-20T22:53:35.5361874-04:00" finish="2011-10-20T22:53:36.1719296-04:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="2TAFFY" outcome="Warning" timestamp="2011-10-20T22:53:35.5098202-04:00">
+        <Text>Deployment is currently disabled. The deployment item 'Fast Script.exe' on test 'TestFastScript.searchParsingTest.combineHyphenAndDashInArrayTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="combineHyphenAndDashInArrayTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="c0cf9d6e-7b88-47df-1621-0d7b80e9037d">
+      <DeploymentItems>
+        <DeploymentItem filename="Fast Script.exe" />
+      </DeploymentItems>
+      <Execution id="8df55366-bdab-43a9-8620-af3220447951" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.searchParsingTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="combineHyphenAndDashInArrayTest" />
+    </UnitTest>
+    <UnitTest name="capitalizeWordTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="6f645d4d-24d2-e102-b8c9-3d9427c422dc">
+      <DeploymentItems>
+        <DeploymentItem filename="Fast Script.exe" />
+      </DeploymentItems>
+      <Execution id="984fad36-1034-4471-9cc2-01595d265adc" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.searchParsingTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="capitalizeWordTest" />
+    </UnitTest>
+    <UnitTest name="fixBookNumberTitlesInSearchArrayTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="e1487494-3e49-0cef-2a49-75c75dc7fc2e">
+      <DeploymentItems>
+        <DeploymentItem filename="Fast Script.exe" />
+      </DeploymentItems>
+      <Execution id="26add1d2-2b09-4ebb-bf66-89c0e561b01d" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.searchParsingTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="fixBookNumberTitlesInSearchArrayTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="6f645d4d-24d2-e102-b8c9-3d9427c422dc" executionId="984fad36-1034-4471-9cc2-01595d265adc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0cf9d6e-7b88-47df-1621-0d7b80e9037d" executionId="8df55366-bdab-43a9-8620-af3220447951" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1487494-3e49-0cef-2a49-75c75dc7fc2e" executionId="26add1d2-2b09-4ebb-bf66-89c0e561b01d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="984fad36-1034-4471-9cc2-01595d265adc" testId="6f645d4d-24d2-e102-b8c9-3d9427c422dc" testName="capitalizeWordTest" computerName="2TAFFY" duration="00:00:00.0512692" startTime="2011-10-20T22:53:35.5596249-04:00" endTime="2011-10-20T22:53:36.0430234-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="984fad36-1034-4471-9cc2-01595d265adc">
+    </UnitTestResult>
+    <UnitTestResult executionId="8df55366-bdab-43a9-8620-af3220447951" testId="c0cf9d6e-7b88-47df-1621-0d7b80e9037d" testName="combineHyphenAndDashInArrayTest" computerName="2TAFFY" duration="00:00:00.0082013" startTime="2011-10-20T22:53:36.0527890-04:00" endTime="2011-10-20T22:53:36.0723202-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8df55366-bdab-43a9-8620-af3220447951">
+    </UnitTestResult>
+    <UnitTestResult executionId="26add1d2-2b09-4ebb-bf66-89c0e561b01d" testId="e1487494-3e49-0cef-2a49-75c75dc7fc2e" testName="fixBookNumberTitlesInSearchArrayTest" computerName="2TAFFY" duration="00:00:00.0062410" startTime="2011-10-20T22:53:36.0830624-04:00" endTime="2011-10-20T22:53:36.1113827-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="26add1d2-2b09-4ebb-bf66-89c0e561b01d">
+    </UnitTestResult>
+  </Results>
+</TestRun>

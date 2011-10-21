@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="366f76bf-e3cb-4c5f-b1fb-2d8140063dcb" name="Steven@2TAFFY 2011-10-20 22:47:28" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4410de8a-38d1-403a-bdf5-078b41739082">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2011-10-20 22_47_28">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\bin\Debug\Fast Script.exe" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-20T22:47:28.8809140-04:00" queuing="2011-10-20T22:47:28.9033749-04:00" start="2011-10-20T22:47:28.9404843-04:00" finish="2011-10-20T22:47:29.4619687-04:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="2TAFFY" outcome="Warning" timestamp="2011-10-20T22:47:28.9023984-04:00">
+        <Text>Deployment is currently disabled. The deployment item 'Fast Script.exe' on test 'TestFastScript.searchParsingTest.capitalizeWordTest' was not deployed.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="capitalizeWordTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="6f645d4d-24d2-e102-b8c9-3d9427c422dc">
+      <DeploymentItems>
+        <DeploymentItem filename="Fast Script.exe" />
+      </DeploymentItems>
+      <Execution id="3678696d-d2bb-4959-940d-683c6ad03264" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.searchParsingTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="capitalizeWordTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="6f645d4d-24d2-e102-b8c9-3d9427c422dc" executionId="3678696d-d2bb-4959-940d-683c6ad03264" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3678696d-d2bb-4959-940d-683c6ad03264" testId="6f645d4d-24d2-e102-b8c9-3d9427c422dc" testName="capitalizeWordTest" computerName="2TAFFY" duration="00:00:00.0727888" startTime="2011-10-20T22:47:28.9492734-04:00" endTime="2011-10-20T22:47:29.4082577-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3678696d-d2bb-4959-940d-683c6ad03264">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;cat&gt;. Actual:&lt;Cat&gt;. </Message>
+          <StackTrace>   at TestFastScript.searchParsingTest.capitalizeWordTest() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\searchParsingTest.cs:line 111
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

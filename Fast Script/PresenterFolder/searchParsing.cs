@@ -79,23 +79,17 @@ namespace Fast_Script.PresenterFolder
                     tempList[i] = "";
                 }
             }
-            return tempList.ToList().RemoveAll("").ToArray();
+            return tempList.ToList().RemoveAll("").ToArray(); 
         }
-        public void searchString(string originalSearch, backEndInitializer _backend, 
-            MainWindow _view)
+        public void searchString(string originalSearch, backEndInitializer _backend, MainWindow _view)
         {
-            // put to space seperated array and seperate the ;'s
-            string[] text = originalSearch.Replace(";", " ; ").Split(' ');
-
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList(); // list of references to display
             List<string> suggestionList = new List<string>(); // list of what user might want to type next
             string searchPhrase = "";
 
-
+            string[] text = originalSearch.Replace(";", " ; ").Split(' ');  // put to space seperated array and seperate the ;'s
             text = fixBookNumberTitlesInSearchArray(text);
-
             text = combineHyphenAndDashInArray(text);
-
 
             bool foundBook = false; // keeps track of whether this is part way into a reference ie. just found the a book name
             string lastFoundBook = "";

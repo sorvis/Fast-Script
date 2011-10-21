@@ -96,5 +96,19 @@ namespace TestFastScript
                 Assert.AreEqual(expected[i], actual[i]);
             }
         }
+
+        /// <summary>
+        ///A test for capitalizeWord
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("Fast Script.exe")]
+        public void capitalizeWordTest()
+        {
+            searchParsing_Accessor target = new searchParsing_Accessor(); 
+            Assert.AreEqual(target.capitalizeWord("cat"), "Cat");
+            Assert.AreEqual(target.capitalizeWord("CAT"), "Cat");
+            Assert.AreEqual(target.capitalizeWord("cAT"), "Cat");
+            Assert.AreEqual(target.capitalizeWord("Cat"), "Cat");
+        }
     }
 }
