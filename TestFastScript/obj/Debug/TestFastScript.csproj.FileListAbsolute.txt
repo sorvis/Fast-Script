@@ -1,0 +1,13 @@
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\TestFastScript.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\TestFastScript.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\Fast Script.exe
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\yeti.mmedia.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\yeti.mp3.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\Fast Script.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\yeti.mmedia.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\yeti.mp3.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\Fast Script_Accessor.exe
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\bin\Debug\Fast Script_Accessor.pdb
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\obj\Debug\TestFastScript.dll
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\obj\Debug\TestFastScript.pdb

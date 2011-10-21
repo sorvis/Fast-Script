@@ -13,6 +13,10 @@ namespace Fast_Script.PresenterFolder
         {
             _presenter = presenter;
         }
+        public searchParsing()
+        {
+
+        }
         private void foundWholeBookName(ref bool foundBook, ref string lastFoundBook, ref string[] text, 
             ref int i, ref List<string> suggestionList, ref backEndInitializer _backend, ref MainWindow _view,
             ref string originalSearch, ref ReferenceList refList)
@@ -44,16 +48,8 @@ namespace Fast_Script.PresenterFolder
 
             //foundBook(text, originalSearch);
         }
-        public void searchString(string originalSearch, backEndInitializer _backend, 
-            MainWindow _view)
+        private string[] fixBookNumberTitlesInSearchArray(string[] text)
         {
-            // put to space seperated array and seperate the ;'s
-            string[] text = originalSearch.Replace(";", " ; ").Split(' ');
-
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList(); // list of references to display
-            List<string> suggestionList = new List<string>(); // list of what user might want to type next
-            string searchPhrase = "";
-
             // fix all books that begin with a number
             int bookNumber;
             List<string> tempList = text.ToList();
@@ -65,25 +61,40 @@ namespace Fast_Script.PresenterFolder
                     tempList[1 + i] = tempList[i] + " " + tempList[1 + i];
                     tempList[i] = "";
                 }
-
-                //drop out the ;'s
-                //tempList[i] = tempList[i].removeAll(";");
             }
-            tempList = tempList.RemoveAll("");
-            text = tempList.ToArray();
-
+            return tempList.RemoveAll("").ToArray();
+        }
+        private string[] combineHyphenAndDashInArray(string[] tempList)
+        {
             // combine numbers, :, and - together
-            for (int i = 0; i < text.Count() - 1; i++)
+            int bookNumber;
+            //List<string> tempList = text.ToList();
+            for (int i = 0; i < tempList.Count() - 1; i++)
             {
-                if ((int.TryParse(text[i], out bookNumber) || int.TryParse(text[i + 1], out bookNumber))
-                    && (text[i].Contains(':') || text[i + 1].Contains(':')/*||
-                    text[i].Contains('-')||text[i+1].Contains('-')*/))
+                if ((int.TryParse(tempList[i], out bookNumber) || int.TryParse(tempList[i + 1], out bookNumber))
+                    && (tempList[i].Contains(':') || tempList[i + 1].Contains(':')||
+                    tempList[i].Contains('-') || tempList[i + 1].Contains('-')))
                 {
                     tempList[1 + i] = tempList[i] + tempList[1 + i];
                     tempList[i] = "";
                 }
             }
-            text = tempList.RemoveAll("").ToArray();
+            return tempList.ToList().RemoveAll("").ToArray();
+        }
+        public void searchString(string originalSearch, backEndInitializer _backend, 
+            MainWindow _view)
+        {
+            // put to space seperated array and seperate the ;'s
+            string[] text = originalSearch.Replace(";", " ; ").Split(' ');
+
+            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList(); // list of references to display
+            List<string> suggestionList = new List<string>(); // list of what user might want to type next
+            string searchPhrase = "";
+
+
+            text = fixBookNumberTitlesInSearchArray(text);
+
+            text = combineHyphenAndDashInArray(text);
 
 
             bool foundBook = false; // keeps track of whether this is part way into a reference ie. just found the a book name

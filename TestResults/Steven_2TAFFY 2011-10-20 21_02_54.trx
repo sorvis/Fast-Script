@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d13eb7de-9723-4ab6-993e-c1f536709867" name="Steven@2TAFFY 2011-10-20 21:02:54" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4410de8a-38d1-403a-bdf5-078b41739082">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2011-10-20 21_02_54">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\bin\Debug\Fast Script.exe" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-20T21:02:54.0752499-04:00" queuing="2011-10-20T21:02:55.7549374-04:00" start="2011-10-20T21:02:56.0820859-04:00" finish="2011-10-20T21:03:08.0596249-04:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="2TAFFY" outcome="Warning" timestamp="2011-10-20T21:02:54.0908749-04:00">
+        <Text>Deployment is currently disabled. The deployment item 'Fast Script.exe' on test 'TestFastScript.searchParsingTest.combineHyphenAndDashInArrayTest' was not deployed.</Text>
+      </RunInfo>
+      <RunInfo computerName="2TAFFY" outcome="Error" timestamp="2011-10-20T21:03:08.0547421-04:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="combineHyphenAndDashInArrayTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="c0cf9d6e-7b88-47df-1621-0d7b80e9037d">
+      <DeploymentItems>
+        <DeploymentItem filename="Fast Script.exe" />
+      </DeploymentItems>
+      <Execution id="87b315ba-1472-4cf1-a33d-a5f1cd32a8b9" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.searchParsingTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="combineHyphenAndDashInArrayTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c0cf9d6e-7b88-47df-1621-0d7b80e9037d" executionId="87b315ba-1472-4cf1-a33d-a5f1cd32a8b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="87b315ba-1472-4cf1-a33d-a5f1cd32a8b9" testId="c0cf9d6e-7b88-47df-1621-0d7b80e9037d" testName="combineHyphenAndDashInArrayTest" computerName="2TAFFY" duration="00:00:11.6972656" startTime="2011-10-20T21:02:56.3623593-04:00" endTime="2011-10-20T21:03:08.0596249-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="87b315ba-1472-4cf1-a33d-a5f1cd32a8b9">
+    </UnitTestResult>
+  </Results>
+</TestRun>
