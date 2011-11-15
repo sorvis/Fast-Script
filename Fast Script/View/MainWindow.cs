@@ -239,7 +239,7 @@ namespace Fast_Script
             {
                 if (textBox.Text != "")
                 {
-                    textBox.Text = Convert.ToString(_presenter.Backend.Printer.PrinterFont.Size);
+                    textBox.Text = Convert.ToString(_presenter.Backend._settings.PrinterFont.Size);
                 }
             }
         }

@@ -10,28 +10,35 @@ namespace Fast_Script
 {
     public class PagePrinter
     {
-        private Font _font;
         private int PageNumber;
-        public Font PrinterFont
-        {
-            get { return _font; }
-            set { _font = value; }
-        }
         private string _textToPrint;
         public string TextToPrint
         {
             get { return _textToPrint; }
             set { _textToPrint = value; }
         }
+        public Font printFont 
+        {
+            get
+            {
+                return _printerSettings.PrinterFont;
+            }
+            set
+            {
+                _printerSettings.PrinterFont = value;
+            }
+        }
         private int curChar=0;
 
         private PrintDocument printDoc = new PrintDocument();
         private PageSettings pgSettings = new PageSettings();
         private PrinterSettings prtSettings = new PrinterSettings();
+        private PresenterFolder.IprinterSettings _printerSettings;
 
-        public PagePrinter()
+        public PagePrinter(PresenterFolder.IprinterSettings printerSettings)
         {
             printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
+            _printerSettings = printerSettings;
         }
         public void filePrintMenuItem_Click(Object sender, EventArgs e)
         {
@@ -49,7 +56,7 @@ namespace Fast_Script
         {
             PageNumber += 1;
             //_textToPrint = ".NET Printing is easyasdd dddd\n23ddddddddddddd\nfive\nsss ddddddddddd\n ddddddddddf \nsdaf\n saf\n sadf\n asdf\n sad\n sda\n fasdsd\n sd\n sad\n sdafsdaf asdfffff sdafffffffff ddddddd \nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\n18\n19\n20\n21\n22\n23\n24\n25\nend\nend\nend\nend\nend\nend\nend\nend\nend\n30\nend\nend\nend\nend\nend\nend\nend\n35\nend\nend\nend\nend\nend\n40\nsdf asldkfj lkjdfl asjlkfj alskdjflksdjlk jalskdjf asldjflksa djlkfsajd lkjf laksjdflkas djlfkjasd lkjfasldkj fkasdjfalsdkjflaksdjf laskjksdlfjflksdjlkasjdlfkj lkdjs";
-            Font printFont = _font;
+            //Font printFont = _font;
             //printFont = new Font("Courier New", 12);
 
             int printHeight = (int)e.MarginBounds.Height;

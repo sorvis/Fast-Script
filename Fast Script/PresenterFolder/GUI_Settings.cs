@@ -10,16 +10,12 @@ using System.Speech.Synthesis;
 namespace Fast_Script.PresenterFolder
 {
     [Serializable()]
-    public class GUI_Settings : ISerializable
+    public class GUI_Settings : ISerializable, IprinterSettings
     {
         public bool VerseSelecterEnabled{ get; set; }
 
         // print settings
-        public Font PrinterFont
-        {
-            get { return _backend.Printer.PrinterFont; }
-            set { _backend.Printer.PrinterFont = value; }
-        }
+        public Font PrinterFont{get; set;}
         // end print settings
 
         // bibles
@@ -81,11 +77,11 @@ namespace Fast_Script.PresenterFolder
         public int TTS_Rate { get; set; }
         // end text to speech
 
-        private backEndInitializer _backend;
-
-        public GUI_Settings(backEndInitializer backend)
+        /// <summary>
+        /// Create then load settings with default values.
+        /// </summary>
+        public GUI_Settings()
         {
-            _backend = backend;
 
             //load in some defaults since a settings file was not found
 
@@ -101,6 +97,7 @@ namespace Fast_Script.PresenterFolder
             CurrentTTSVoice = Get_TTS_byName( new SpeechSynthesizer().Voice.Name); // loads in default voice
             TTS_Rate = new SpeechSynthesizer().Rate; //load default rate for TTS
         }
+
         private void loadDefaultBibleIfNone()
         {
             if (CurrentBible == null)// to prevent errors load first bible in list
@@ -169,7 +166,7 @@ namespace Fast_Script.PresenterFolder
         }
         public GUI_Settings(SerializationInfo info, StreamingContext ctxt)
         {
-            _backend = (backEndInitializer) ctxt.Context;
+            //_backend = (backEndInitializer) ctxt.Context;
             _bibles = new List<bible_data.bible>();
             loadAllBiblesInFolder(); // load in all bibles in folder
             setBible( (string)info.GetValue("CurrentBible", typeof(string)));

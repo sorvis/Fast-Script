@@ -4,26 +4,63 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.IO;
+using Fast_Script.PresenterFolder;
 
 namespace Fast_Script
 {
     public class backEndInitializer
     {
+        public PresenterFolder.GUI_Settings _settings { get; set; }
         public bible_data.bible Bible
-        { get { return _presenter.Settings.CurrentBible; } 
-            set { _presenter.Settings.CurrentBible = value; } }
-        private PagePrinter _printer = new PagePrinter();
+        { get { return _settings.CurrentBible; } 
+            set { _settings.CurrentBible = value; } }
         public PagePrinter Printer
         { get { return _printer; } }
+        private PagePrinter _printer;
         private WebpageCreator webpage;
         private Presenter _presenter;
-        public backEndInitializer(Presenter presenter)
+        string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
+        public backEndInitializer(Presenter presenter) //TODO this method requiring presenter should be phased out in favor of requring GUI_Settings
         {
             _presenter = presenter;
             //_bible = new XLM_bible_reader.BibleBuilder("kjv.xml").GetBible;
             //_bible.BuildIndex();
-            _printer.PrinterFont = new Font("Times New Roman", 12);
+            initialize();
+        }
+        public backEndInitializer()
+        {
+            initialize();
+        }
+        private void initialize()
+        {
+            checkAppDataStorageFolder();
+            loadSettings();
+            _printer = new PagePrinter(_settings);
+            _settings.PrinterFont = new Font("Times New Roman", 12);
             webpage = new WebpageCreator(_presenter.DefaultWebPage, "");
+        }
+        private void checkAppDataStorageFolder()
+        {
+            // create a program path in ApplicationData folder if needed
+            if (!Directory.Exists(_appDataStorageFolder))
+            {
+                Directory.CreateDirectory(_appDataStorageFolder);
+            }
+        }
+        private void loadSettings()
+        {
+            if (File.Exists("Settings.data"))
+            {
+                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject("Settings.data", this);
+            }
+            else if (File.Exists(Path.Combine(_appDataStorageFolder, "Settings.data")))
+            {
+                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
+            }
+            else
+            {
+                _settings = new GUI_Settings();
+            }
         }
         // allows for serialization of bible index
         private data_index.indexBuilder loadIndex(bible_data.bible Bible)

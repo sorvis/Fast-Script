@@ -14,7 +14,7 @@ namespace Fast_Script
         private backEndInitializer _backend;
         public backEndInitializer Backend {get { return _backend; }}
         private MainWindow _view;
-        private PresenterFolder.searchParsing _ParseSearch;
+        private PresenterFolder.Searching.searchParsing _ParseSearch;
         private string _defaultPageLocation;
         public string DefaultWebPage
         { get { return _defaultPageLocation; } }
@@ -24,35 +24,15 @@ namespace Fast_Script
         private string _currentBoldWord;
         public string CurrentBoldWord
         { get { return _currentBoldWord; } }
-        private GUI_Settings _settings;
         public GUI_Settings Settings
-        { get { return _settings; } }
+        { get { return _backend._settings; } }
         private string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
         public Presenter(MainWindow view)
         {
-            // create a program path in ApplicationData folder if needed
-            if (!Directory.Exists(_appDataStorageFolder))
-            {
-                Directory.CreateDirectory(_appDataStorageFolder);
-            }
-
             _defaultPageLocation = Path.Combine(_appDataStorageFolder, "HTML\\page.html");
             _backend = new backEndInitializer(this);
             _view = view;
-            _ParseSearch = new PresenterFolder.searchParsing(this);
-
-            if (File.Exists("Settings.data"))
-            {
-                _settings = (GUI_Settings) ObjectSerializing.DeSerializeObject("Settings.data", _backend);
-            }
-            else if (File.Exists(Path.Combine(_appDataStorageFolder, "Settings.data")))
-            {
-                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject(Path.Combine(_appDataStorageFolder, "Settings.data"), _backend);
-            }
-            else
-            {
-                _settings = new GUI_Settings(_backend);
-            }
+            _ParseSearch = new PresenterFolder.Searching.searchParsing(this);
         }
         public void saveVerseListToFile(ReferenceList list, string fileName)
         {
