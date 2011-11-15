@@ -17,5 +17,10 @@ namespace Fast_Script.PresenterFolder.Searching
         {
             return _backEnd.currentChapters(book).ToList().ToStringList();
         }
+
+        public bool containsBook(string book)
+        {
+            return _backEnd.currentBooks.Contains(book, false);
+        }
     }
 }

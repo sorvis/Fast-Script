@@ -23,7 +23,7 @@ namespace Fast_Script.PresenterFolder.Searching
         }
 
         private void foundWholeBookName(ref bool foundBook, ref string lastFoundBook, ref string[] text, 
-            ref int i, ref List<string> suggestionList, ref backEndInitializer _backend, ref MainWindow _view,
+            ref int i, ref List<string> suggestionList,  ref MainWindow _view,
             ref string originalSearch, ref ReferenceList refList)
         {
             foundBook = true;
@@ -35,8 +35,7 @@ namespace Fast_Script.PresenterFolder.Searching
             else // nothing after book
             {
                 // return a list of possible chapters for the book
-                suggestionList = _backend.currentChapters(lastFoundBook).ToList().ToStringList();
-                suggestionList = suggestionList.addPrefixToList(originalSearch + " ");
+                suggestionList = _index.getChapters(lastFoundBook).addPrefixToList(originalSearch + " ");
                 _view.searchBoxSuggestions(suggestionList, originalSearch);
             }
 
@@ -105,9 +104,9 @@ namespace Fast_Script.PresenterFolder.Searching
                     foundBook = false;
                 }
                 // look for a whole book name
-                else if (!foundBook && _backend.currentBooks.Contains(text[i], false))
+                else if (!foundBook && _index.containsBook(text[i]))
                 {
-                    foundWholeBookName(ref foundBook, ref lastFoundBook, ref text, ref i, ref suggestionList, ref _backend, ref _view, ref originalSearch, ref refList);
+                    foundWholeBookName(ref foundBook, ref lastFoundBook, ref text, ref i, ref suggestionList, ref _view, ref originalSearch, ref refList);
                 }
                 // look for -
                 else if (text[i] == "-") // found a book range reference
