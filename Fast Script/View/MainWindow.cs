@@ -69,7 +69,7 @@ namespace Fast_Script
             }
             else
             {
-                webResualts.Url = new Uri(_presenter.DefaultWebPage);
+                webResualts.Url = new Uri(_presenter.Settings.DefaultWebPage);
             }
         }
         public bool verseListContains(string item)

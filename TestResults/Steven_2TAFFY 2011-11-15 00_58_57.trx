@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="02750afe-8094-4076-9e71-6558d3fc7177" name="Steven@2TAFFY 2011-11-15 00:58:57" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4410de8a-38d1-403a-bdf5-078b41739082">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2011-11-15 00_58_57">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\bin\Debug\Fast Script.exe" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-15T00:58:57.9648437-05:00" queuing="2011-11-15T00:59:08.5546875-05:00" start="2011-11-15T00:59:08.6357421-05:00" finish="2011-11-15T00:59:09.3466796-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="getChaptersTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="b58b5f83-b5f6-7edd-8bd5-58ae279ea551">
+      <Execution id="a8589701-d00d-4af9-b1ec-d00985a461ae" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.indexLookerTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="getChaptersTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b58b5f83-b5f6-7edd-8bd5-58ae279ea551" executionId="a8589701-d00d-4af9-b1ec-d00985a461ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a8589701-d00d-4af9-b1ec-d00985a461ae" testId="b58b5f83-b5f6-7edd-8bd5-58ae279ea551" testName="getChaptersTest" computerName="2TAFFY" duration="00:00:00.1681674" startTime="2011-11-15T00:59:08.6660156-05:00" endTime="2011-11-15T00:59:09.2646484-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a8589701-d00d-4af9-b1ec-d00985a461ae">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestFastScript.indexLookerTest.getChaptersTest threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at Fast_Script.backEndInitializer.initialize() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\backEndInitializer.cs:line 40
+   at Fast_Script.backEndInitializer..ctor() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\backEndInitializer.cs:line 32
+   at TestFastScript.indexLookerTest.getChaptersTest() in C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\TestFastScript\indexLookerTest.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

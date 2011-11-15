@@ -35,9 +35,10 @@ namespace Fast_Script
         {
             checkAppDataStorageFolder();
             loadSettings();
+            _settings.DefaultWebPage = Path.Combine(_appDataStorageFolder, "HTML\\page.html"); ;
             _printer = new PagePrinter(_settings);
             _settings.PrinterFont = new Font("Times New Roman", 12);
-            webpage = new WebpageCreator(_presenter.DefaultWebPage, "");
+            webpage = new WebpageCreator(_settings.DefaultWebPage, "");
         }
         private void checkAppDataStorageFolder()
         {

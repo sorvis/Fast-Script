@@ -14,6 +14,8 @@ namespace Fast_Script.PresenterFolder
     {
         public bool VerseSelecterEnabled{ get; set; }
 
+        public string DefaultWebPage { get; set; }
+
         // print settings
         public Font PrinterFont{get; set;}
         // end print settings

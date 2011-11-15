@@ -15,9 +15,6 @@ namespace Fast_Script
         public backEndInitializer Backend {get { return _backend; }}
         private MainWindow _view;
         private PresenterFolder.Searching.searchParsing _ParseSearch;
-        private string _defaultPageLocation;
-        public string DefaultWebPage
-        { get { return _defaultPageLocation; } }
         private ReferenceItem[] _currentItemsInWebview;
         public ReferenceItem[] ItemstInWebView
         {get{return _currentItemsInWebview;}}
@@ -29,7 +26,6 @@ namespace Fast_Script
         private string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
         public Presenter(MainWindow view)
         {
-            _defaultPageLocation = Path.Combine(_appDataStorageFolder, "HTML\\page.html");
             _backend = new backEndInitializer(this);
             _view = view;
             _ParseSearch = new PresenterFolder.Searching.searchParsing(this);
@@ -276,7 +272,7 @@ namespace Fast_Script
         public void writeWebView(string page)
         {
             _backend.saveWebpage(page);
-            _view.loadWebPage(_defaultPageLocation);
+            _view.loadWebPage(Settings.DefaultWebPage);
         }
     }
 }
