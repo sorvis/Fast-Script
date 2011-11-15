@@ -41,6 +41,10 @@ namespace Fast_Script.bible_data
             indexBuilderWorker.RunWorkerAsync(this);
             //Index = new data_index.indexBuilder(this);
         }
+        public void BuildIndex_withOutThreading()
+        {
+            Index = new data_index.indexBuilder(this);
+        }
         private void indexBuilderWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             Index = new data_index.indexBuilder((bible) e.Argument);

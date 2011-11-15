@@ -15,7 +15,12 @@ namespace TestFastScript
     [TestClass()]
     public class indexLookerTest
     {
+        backEndInitializer backEnd = new backEndInitializer();
 
+        public indexLookerTest()
+        {
+            backEnd.Bible.BuildIndex_withOutThreading();
+        }
 
         private TestContext testContextInstance;
 
@@ -72,7 +77,6 @@ namespace TestFastScript
         [TestMethod()]
         public void getChaptersTest()
         {
-            backEndInitializer backEnd = new backEndInitializer();
             indexLooker target = new indexLooker(backEnd);
             string book = "Jude";
             List<string> expected = new List<string>(new string[]
@@ -81,7 +85,12 @@ namespace TestFastScript
             });
             List<string> actual;
             actual = target.getChapters(book);
-            Assert.AreEqual(expected, actual);
+
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i], actual[i]);
+            }
         }
     }
 }
