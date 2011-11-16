@@ -100,10 +100,8 @@ namespace TestFastScript
         public void containsBookTest()
         {
             indexLooker target = new indexLooker(backEnd);
-            string book = "john";
-            bool actual;
-            actual = target.containsBook(book);
-            Assert.IsTrue(actual);
+
+            Assert.IsTrue(target.containsBook("john"));
             Assert.IsTrue(target.containsBook("JOHN"));
             Assert.IsFalse(target.containsBook("FakeBook"));
         }

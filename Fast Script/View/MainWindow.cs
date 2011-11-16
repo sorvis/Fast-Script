@@ -8,10 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing.Text;
+using Fast_Script.PresenterFolder.Searching;
 
 namespace Fast_Script
 {
-    public partial class MainWindow : Form
+    public partial class MainWindow : Form, IMainWindow
     {
         private List<FontFamily> _avalibleFonts=null;
         // give credit to http://dryicons.com for icons

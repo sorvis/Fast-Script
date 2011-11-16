@@ -1,6 +1,7 @@
 ﻿using Fast_Script.PresenterFolder.Searching;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Fast_Script;
 
 namespace TestFastScript
 {
@@ -14,6 +15,12 @@ namespace TestFastScript
     public class searchParsingTest
     {
 
+        backEndInitializer backEnd = new backEndInitializer();
+
+        public searchParsingTest()
+        {
+            backEnd.Bible.BuildIndex_withOutThreading();
+        }
 
         private TestContext testContextInstance;
 
@@ -97,6 +104,26 @@ namespace TestFastScript
             }
         }
 
+        private bool areArraysEqual(object[] expected, object[] actual)
+        {
+            //check length
+            if (expected.Length != actual.Length)
+            {
+                return false;
+            }
+
+            //check whole array
+            for (int i = 0; i < expected.Length; i++)
+            {
+                if (expected[i].ToString() != actual[i].ToString())
+                {
+                    return false;
+                }
+            }
+
+            return true;    // must be the same
+        }
+
         /// <summary>
         ///A test for capitalizeWord
         ///</summary>
@@ -109,6 +136,23 @@ namespace TestFastScript
             Assert.AreEqual(target.capitalizeWord("CAT"), "Cat");
             Assert.AreEqual(target.capitalizeWord("cAT"), "Cat");
             Assert.AreEqual(target.capitalizeWord("Cat"), "Cat");
+        }
+
+        /// <summary>
+        ///A test for searchString
+        ///</summary>
+        [TestMethod()]
+        public void searchStringTest()
+        {
+            FakeMainWindow fakeView = new FakeMainWindow();
+            FakePresenter fakePresenter = new FakePresenter();
+            fakePresenter.Backend = backEnd;
+            searchParsing target = new searchParsing(fakePresenter);
+
+            string originalSearch = "Jud";
+            string[] expected = {"Judges","Jude"};
+            target.searchString(originalSearch, backEnd, fakeView);
+            Assert.IsTrue(areArraysEqual(expected, fakeView.getSuggestionsList().ToArray())); 
         }
     }
 }

@@ -8,10 +8,10 @@ namespace Fast_Script.PresenterFolder.Searching
 {
     class searchParsing
     {
-        private Presenter _presenter;
+        private IPresenter _presenter;
         private indexLooker _index;
 
-        public searchParsing(Presenter presenter)
+        public searchParsing(IPresenter presenter)
         {
             _presenter = presenter;
             _index = new indexLooker(_presenter.Backend);
@@ -23,7 +23,7 @@ namespace Fast_Script.PresenterFolder.Searching
         }
 
         private void foundWholeBookName(ref bool foundBook, ref string lastFoundBook, ref string[] text, 
-            ref int i, ref List<string> suggestionList,  ref MainWindow _view,
+            ref int i, ref List<string> suggestionList,  ref IMainWindow _view,
             ref string originalSearch, ref ReferenceList refList)
         {
             foundBook = true;
@@ -85,7 +85,8 @@ namespace Fast_Script.PresenterFolder.Searching
             }
             return tempList.ToList().RemoveAll("").ToArray(); 
         }
-        public void searchString(string originalSearch, backEndInitializer _backend, MainWindow _view)
+        public void searchString(string originalSearch, backEndInitializer _backend, IMainWindow _view)
+        
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList(); // list of references to display
             List<string> suggestionList = new List<string>(); // list of what user might want to type next

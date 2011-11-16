@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Fast_Script
 {
-    public class Presenter
+    public class Presenter : Fast_Script.PresenterFolder.Searching.IPresenter
     {
         private backEndInitializer _backend;
         public backEndInitializer Backend {get { return _backend; }}
