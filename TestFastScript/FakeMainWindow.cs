@@ -18,5 +18,10 @@ namespace TestFastScript
         {
             return suggestions;
         }
+        public void reset()
+        {
+            suggestions.Clear();
+            originalSearch = null;
+        }
     }
 }

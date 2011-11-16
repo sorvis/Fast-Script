@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Fast_Script;
+using System.Collections.Generic;
 
 namespace TestFastScript
 {
@@ -136,10 +137,11 @@ namespace TestFastScript
             Assert.AreEqual(target.capitalizeWord("CAT"), "Cat");
             Assert.AreEqual(target.capitalizeWord("cAT"), "Cat");
             Assert.AreEqual(target.capitalizeWord("Cat"), "Cat");
+            Assert.AreEqual(target.capitalizeWord("1 cat"), "1 Cat");
         }
 
         /// <summary>
-        ///A test for searchString
+        ///A test for searchString in relation to returning a suggestions array
         ///</summary>
         [TestMethod()]
         public void searchStringTest()
@@ -149,10 +151,66 @@ namespace TestFastScript
             fakePresenter.Backend = backEnd;
             searchParsing target = new searchParsing(fakePresenter);
 
+            // test book suggest
             string originalSearch = "Jud";
-            string[] expected = {"Judges","Jude"};
+            List<string> expected = new List<string>();
+            expected.Add("Judges");
+            expected.Add("Jude");
             target.searchString(originalSearch, backEnd, fakeView);
-            Assert.IsTrue(areArraysEqual(expected, fakeView.getSuggestionsList().ToArray())); 
+            Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            expected.Clear();
+            fakeView.reset();
+
+            // test word suggest
+            originalSearch = "Horselea";
+            expected.Add("horseleach");
+            target.searchString(originalSearch, backEnd, fakeView);
+            Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            expected.Clear();
+            fakeView.reset();
+
+
+            //test chapter suggest
+            originalSearch = "Jude";
+            expected.Add("Jude 1");
+            target.searchString(originalSearch, backEnd, fakeView);
+            Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            expected.Clear();
+            fakeView.reset();
+
+            //test verse suggest
+            originalSearch = "1 John 1:";
+            expected.AddRange(new string[] { "1 John 1:1", "1 John 1:2", "1 John 1:3", "1 John 1:4", "1 John 1:5", "1 John 1:6", "1 John 1:7", "1 John 1:8", "1 John 1:9", "1 John 1:10" });
+            target.searchString(originalSearch, backEnd, fakeView);
+            Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            expected.Clear();
+            fakeView.reset();
+
+            // tests that break program:
+
+            ////test book range suggest with space before hyphen
+            //originalSearch = "1 John -";
+            //expected.AddRange(new string[] { "2 John", "3 John", "Jude", "Revelations"});
+            //target.searchString(originalSearch, backEnd, fakeView);
+            //Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            //expected.Clear();
+            //fakeView.reset();
+
+            ////test chapter range suggest with space before hyphen
+            //originalSearch = "1 John 1 -";
+            //expected.AddRange(new string[] { "1 John 1:1", "1 John 1:2", "1 John 1:3", "1 John 1:4", "1 John 1:5", "1 John 1:6", "1 John 1:7", "1 John 1:8", "1 John 1:9", "1 John 1:10" });
+            //target.searchString(originalSearch, backEnd, fakeView);
+            //Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            //expected.Clear();
+            //fakeView.reset();
+            
+            ////test verse range suggest
+            //originalSearch = "1 John 1-";
+            //expected.AddRange(new string[] { "1 John 1:1", "1 John 1:2", "1 John 1:3", "1 John 1:4", "1 John 1:5", "1 John 1:6", "1 John 1:7", "1 John 1:8", "1 John 1:9", "1 John 1:10" });
+            //target.searchString(originalSearch, backEnd, fakeView);
+            //Assert.IsTrue(areArraysEqual(expected.ToArray(), fakeView.getSuggestionsList().ToArray()));
+            //expected.Clear();
+            //fakeView.reset();
         }
     }
 }

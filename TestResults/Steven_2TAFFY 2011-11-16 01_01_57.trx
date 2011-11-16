@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="eb784f55-6094-44a5-be8d-c5556138ceb3" name="Steven@2TAFFY 2011-11-16 01:01:57" runUser="2taffy\Steven" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4410de8a-38d1-403a-bdf5-078b41739082">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Steven_2TAFFY 2011-11-16 01_01_57">
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\bin\Debug\Fast Script.exe" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.dll" />
+      <DeploymentItem filename="C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-16T01:01:57.8837890-05:00" queuing="2011-11-16T01:01:59.5634765-05:00" start="2011-11-16T01:01:59.7119140-05:00" finish="2011-11-16T01:02:27.3515625-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="2TAFFY" outcome="Error" timestamp="2011-11-16T01:02:27.3486328-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="searchStringTest" storage="c:\users\steven\documents\visual studio 2010\projects\fast_script\testfastscript\bin\debug\testfastscript.dll" id="c57f7621-8cb9-1ea6-5c48-ed761f1ea727">
+      <Execution id="7107f54c-01cf-43a8-827c-2b5cc5b7ed1b" />
+      <TestMethod codeBase="C:/Users/Steven/Documents/Visual Studio 2010/Projects/Fast_Script/TestFastScript/bin/Debug/TestFastScript.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestFastScript.searchParsingTest, TestFastScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="searchStringTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="c57f7621-8cb9-1ea6-5c48-ed761f1ea727" executionId="7107f54c-01cf-43a8-827c-2b5cc5b7ed1b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7107f54c-01cf-43a8-827c-2b5cc5b7ed1b" testId="c57f7621-8cb9-1ea6-5c48-ed761f1ea727" testName="searchStringTest" computerName="2TAFFY" duration="00:00:27.5341797" startTime="2011-11-16T01:01:59.8173828-05:00" endTime="2011-11-16T01:02:27.3515625-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7107f54c-01cf-43a8-827c-2b5cc5b7ed1b">
+    </UnitTestResult>
+  </Results>
+</TestRun>
