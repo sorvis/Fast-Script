@@ -46,7 +46,9 @@ namespace Fast_Script
         {
             if (item.ToString() != "")
             {
-                _view.verseListBox.Items.Add(new ReferenceItemWrapper(item), true);
+                ReferenceItemWrapper refItem = new ReferenceItemWrapper(item);
+                _view.verseListBox.Items.Add(refItem, true);
+                _view.verseListBox.SelectedItem = refItem;  // select it so scroll bar will go down
             }
         }
         public void setNewVerseList(ReferenceList list)
@@ -54,7 +56,7 @@ namespace Fast_Script
             _view.verseListBox.Items.Clear();
             foreach (ReferenceItem item in list.getList)
             {
-                _view.verseListBox.Items.Add(new ReferenceItemWrapper(item), true);
+                addToVerseList(item);
             }
         }
         public void searchString(string originalSearch)

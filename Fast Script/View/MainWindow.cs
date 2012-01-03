@@ -53,6 +53,7 @@ namespace Fast_Script
 
         public CheckedListBox verseListBox
         {get { return checkedVerses; }}
+
         private void webResualts_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
             string pageURL = e.Url.ToString();
@@ -149,7 +150,6 @@ namespace Fast_Script
                 clb.Items.RemoveAt(index);
             }
         }
-
         private void buttonCopySelectedVersesToClipboard_Click(object sender, EventArgs e)
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();

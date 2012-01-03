@@ -168,19 +168,19 @@
   <data name="buttonCopySelectedVersesToClipboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKjSURBVDhPlZLbSxRxFMd//0DvQXSB6MV66TWiKKQig4oe
-        lArEMKGip4peFFEEMYIgxlQKCipCSNJNCqG8FIZ5y53N3Z3ddfYyO7edy87s7JhG9e33G9nALKIfHAYO
-        cz7ne77nEEVROhVFRSajFlRVM1RNN/RCwWDPNM3CTDK1Mh/mQ+RvT5bVbgZQZBWarsO0LZQ8D+WyD88r
-        05yGaDQOx3FBmx3bwJFlmasAVPqzZdtw3RJKJS8IiwKXxDRyOQmKpoM2fLQO8i9AsehAUTXkpDyKjgPb
-        LuK/AEw6U8UKmSJd11c3AGTqgZyXqUQVpmkF81ZGYF+n6MJx13IbABL1QJYVSDRkRQO1nkp1Ax8qXri0
-        kBnq+8t/AEgyl6fdczTyVAndYCCXqWCgZc8HfgBfyytwbaai5K8bQcxmuSx1mJmUpyqCVVo2XWcRfokW
-        rwLNoV60DPUCy9/Q0N+MsZmPfb8gqZTIZbI5MIhEVdBjQsEw6SgWsALUP2wDuboVTUOdYG9/6BQODNVi
-        Yn5qIIAkEilOTGeQzmQDCPOD7bvsljEd5UEatoO0VuHii44AcHSkDscn6nB+8CYikXgtWYwJXDK1FBxL
-        moLYwTAl371VtA/0gTRuw6auI2h72RMAWia7cPZ9Ew711+PN3OQ9wvOLXFxIgEFSSREVNV9sD3eGH4Nc
-        2ILNt04iERECwEjsLU6MnkN1fwMmPk3fJnPzC9znxRgYREgk10BL9HSzElJiBuTSHpDmKuzoPY3700+x
-        73UN9r46jCuhDohR8SD5MDXVvbDAg0GisThicSGAxQUBjmzhweggyDUKad8J0rMLuweqcSZ0GUJMvBGY
-        OD7+rnNmdhbhcKQQ5nmD/y081TDmaO7687tG47NW88nYsC8Jak1ljT8BO4Pp3k3B358AAAAASUVORK5C
-        YII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKiSURBVDhPlZLbSxRxFMd//0DvQXSB6MV66TWiKKQig4oe
+        lArEMKGip4peFFEEMYIgxlQKCipCSMpNCqG8FIb33Nnc3dldZy+zc9u57MzOjmlU336/kQ3MIvrBYeAw
+        53O+53sOURSlU1FUZDJqQVU1Q9V0Qy8UDPZM0yxMJVMr82E+RP72ZFntZgBFVqHpOkzbQsnzUC778Lwy
+        zWmIRuNwHBe02bENHFmWuQpApT9btg3XLaFU8oKwKHBJTCOXk6BoOmjDR+sg/wIUiw4UVUNOyqPoOLDt
+        Iv4LwKQzVayQKdJ1fXUDQKYeyHmZSlRhmlYwb2UE9nWKLhx3LbcBIFEPZFmBRENWNFDrqVQ38KHihUsL
+        maG+v/wHgCRzedo9RyNPldANBnKZCgZa9nzgB/C1vALXZipK/roRxGyWy1KHmUl5qiJYpWXTdRbhl2jx
+        KtAc6kXLYC+w/A0N/c0YnZnq+wVJpUQuk82BQSSqgh4TCoZJR7GAFaD+YRvI1a1oGuwEe/tDp3BgsBbj
+        85MDASSRSHFiOoN0JhtAmB9s32W3jOkoD9KwHaS1ChdfdASAo8N1OD5eh/MvbyISideSxZjAJVNLwbGk
+        KYgdDFPy3VtF+0AfSOM2bOo6grZXPQGgZaILZz804VB/Pd7OTdwjPL/IxYUEGCSVFFFR88X2cGfoMciF
+        Ldh86yQSESEADMfe4cTIOVT3N2D80/RtMje/wH1ejIFBhERyDbRETzcrISVmQC7tAWmuwo7e07g//RT7
+        3tRg7+vDuBLqgBgVD5KPk5PdCws8GCQaiyMWFwJYXBDgyBYejLwEuUYh7TtBenZh90A1zoQuQ4iJNwIT
+        x8bed87MziIcjhTCPG/wv4WnGsYczV1/ftdofNZqPhkd8iVBrams8SczpencX5sjqwAAAABJRU5ErkJg
+        gg==
 </value>
   </data>
   <data name="SelectVersesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

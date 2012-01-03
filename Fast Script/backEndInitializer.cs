@@ -68,16 +68,9 @@ namespace Fast_Script
         {
             string indexFileName = Bible._bibleVersion + ".index";
             data_index.indexReaderWriter indexStorage = new data_index.indexReaderWriter();
-            if (false && File.Exists(indexFileName))
-            {
-                return indexStorage.DeSerializeObject(indexFileName, Bible);
-            }
-            else
-            {
-                data_index.indexBuilder index = new data_index.indexBuilder(Bible);
-                //indexStorage.SerializeObject(indexFileName, index);
-                return index;
-            }
+            data_index.indexBuilder index = new data_index.indexBuilder(Bible);
+            //indexStorage.SerializeObject(indexFileName, index);
+            return index;
         }
         public void saveWebpage(string page)
         {

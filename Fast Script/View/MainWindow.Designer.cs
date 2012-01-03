@@ -48,6 +48,8 @@
             this.menuFontSize = new System.Windows.Forms.ToolStripTextBox();
             this.saveToMP3OptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -62,8 +64,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MakeMP3backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.MainprogressBar = new System.Windows.Forms.ProgressBar();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -233,6 +233,21 @@
             this.bibleToolStripMenuItem.Text = "Bible";
             this.bibleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.bibleToolStripMenuItem_DropDownOpening);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
@@ -307,7 +322,6 @@
             // 
             // checkedVerses
             // 
-            this.checkedVerses.CheckOnClick = true;
             this.checkedVerses.FormattingEnabled = true;
             this.checkedVerses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.checkedVerses.Location = new System.Drawing.Point(7, 20);
@@ -357,21 +371,6 @@
             this.MainprogressBar.Size = new System.Drawing.Size(453, 23);
             this.MainprogressBar.TabIndex = 5;
             this.MainprogressBar.Visible = false;
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
