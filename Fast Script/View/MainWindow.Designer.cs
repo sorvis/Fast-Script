@@ -64,6 +64,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MakeMP3backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.MainprogressBar = new System.Windows.Forms.ProgressBar();
+            this.saveToMP3Dialog = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -372,6 +373,11 @@
             this.MainprogressBar.TabIndex = 5;
             this.MainprogressBar.Visible = false;
             // 
+            // saveToMP3Dialog
+            // 
+            this.saveToMP3Dialog.DefaultExt = "mp3";
+            this.saveToMP3Dialog.Filter = "MP3 Audio|*.mp3|All files|*.*";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +443,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToMP3OptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveToMP3Dialog;
 
     }
 }

@@ -392,9 +392,9 @@ namespace Fast_Script
 
         private void saveListToMP3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog.ShowDialog() != DialogResult.Cancel)
+            if (saveToMP3Dialog.ShowDialog() != DialogResult.Cancel)
             {
-                MakeMP3backgroundWorker.RunWorkerAsync(saveFileDialog.FileName);
+                MakeMP3backgroundWorker.RunWorkerAsync(saveToMP3Dialog.FileName);
                 //_presenter.putVersesToAudioMP3(saveFileDialog.FileName, getCurrentVerseList());
             }
         }
