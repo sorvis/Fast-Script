@@ -1,26 +1,19 @@
 ﻿using Fast_Script.PresenterFolder.Searching;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Fast_Script;
-using System.Collections.Generic;
 
 namespace TestFastScript
 {
     
     
     /// <summary>
-    ///This is a test class for indexLookerTest and is intended
-    ///to contain all indexLookerTest Unit Tests
+    ///This is a test class for preSearchStringBuilderTest and is intended
+    ///to contain all preSearchStringBuilderTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class indexLookerTest
+    public class preSearchStringBuilderTest
     {
-        backEndInitializer backEnd = new backEndInitializer();
 
-        public indexLookerTest()
-        {
-            backEnd.Bible.BuildIndex_withOutThreading();
-        }
 
         private TestContext testContextInstance;
 
@@ -72,38 +65,37 @@ namespace TestFastScript
 
 
         /// <summary>
-        ///A test for getChapters
+        ///A test for fixBookNumberTitlesInSearchArray
         ///</summary>
         [TestMethod()]
-        public void getChaptersTest()
+        [DeploymentItem("Fast Script.exe")]
+        public void fixBookNumberTitlesInSearchArrayTest()
         {
-            indexLooker target = new indexLooker(backEnd);
-            string book = "Jude";
-            List<string> expected = new List<string>(new string[]
-            {
-                "1"
-            });
-            List<string> actual;
-            actual = target.getPossibleChapters(book);
-
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
+            searchParsing_Accessor target = new searchParsing_Accessor();
+            string[] text = { "1", "John", "-", "2", "John", ";", "3", "John", "4", "FakeBook" };
+            string[] expected = { "1 John", "-", "2 John", ";", "3 John", "4", "FakeBook" };
+            string[] actual;
+            actual = preSearchStringBuilder.fixBookNumberTitlesInSearchArray(text);
+            Assert.AreEqual(expected.Length, actual.Length);
+            for (int i = 0; i < expected.Length; i++)
             {
                 Assert.AreEqual(expected[i], actual[i]);
             }
         }
 
         /// <summary>
-        ///A test for containsBook
+        ///A test for combineHyphenAndDashInArray
         ///</summary>
         [TestMethod()]
-        public void containsBookTest()
+        [DeploymentItem("Fast Script.exe")]
+        public void combineHyphenAndDashInArrayTest()
         {
-            indexLooker target = new indexLooker(backEnd);
+            string[] tempList = { "John", "5", "-", "6", "Jude", "5", ":", "4" };
+            string[] expected = { "John", "5-6", "Jude", "5:4" };
+            string[] actual;
+            actual = preSearchStringBuilder.combineHyphenAndDashInArray(tempList);
 
-            Assert.IsTrue(target.containsBook("john"));
-            Assert.IsTrue(target.containsBook("JOHN"));
-            Assert.IsFalse(target.containsBook("FakeBook"));
+            Assert.IsTrue(actual.areArraysEqual(expected));
         }
     }
 }

@@ -41,3 +41,4 @@ C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\ye
 C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.dll
 C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.pdb
 C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\obj\Debug\GenerateResource.write.3.tlog
+C:\Users\Steven\Documents\Visual Studio 2010\Projects\Fast_Script\Fast Script\yeti.mmedia\obj\Debug\GenerateResource.write.6.tlog

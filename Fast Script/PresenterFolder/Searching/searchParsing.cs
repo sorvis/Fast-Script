@@ -22,12 +22,11 @@ namespace Fast_Script.PresenterFolder.Searching
 
         }
 
-        private void foundWholeBookName(ref bool foundBook, ref string lastFoundBook, ref string[] text, 
+        private void foundWholeBookName(ref string lastFoundBook, ref string[] text, 
             ref int i, ref List<string> suggestionList,  ref IMainWindow _view,
             ref string originalSearch, ref ReferenceList refList)
         {
-            foundBook = true;
-            lastFoundBook = capitalizeWord(text[i]);
+            lastFoundBook = text[i].capitalizeWord();
             if (i < text.Count() - 1) //something after book
             {
 
@@ -35,7 +34,7 @@ namespace Fast_Script.PresenterFolder.Searching
             else // nothing after book
             {
                 // return a list of possible chapters for the book
-                suggestionList = _index.getChapters(lastFoundBook).addPrefixToList(originalSearch + " ");
+                suggestionList = _index.getPossibleChapters(lastFoundBook).addPrefixToList(originalSearch + " ");
                 _view.searchBoxSuggestions(suggestionList, originalSearch);
             }
 
@@ -52,39 +51,8 @@ namespace Fast_Script.PresenterFolder.Searching
 
             //foundBook(text, originalSearch);
         }
-        private string[] fixBookNumberTitlesInSearchArray(string[] text)
-        {
-            // fix all books that begin with a number
-            int bookNumber;
-            List<string> tempList = text.ToList();
-            for (int i = 0; i < text.Count() - 1; i++)
-            {
-                if ((i == 0 || text[i - 1] == "-" || text[i - 1].EndsWith(";")) &&
-                        (int.TryParse(text[i], out bookNumber) && text.Count() > i + 1))
-                {
-                    tempList[1 + i] = tempList[i] + " " + tempList[1 + i];
-                    tempList[i] = "";
-                }
-            }
-            return tempList.RemoveAll("").ToArray();
-        }
-        private string[] combineHyphenAndDashInArray(string[] tempList)
-        {
-            // combine numbers, :, and - together
-            int bookNumber;
-            //List<string> tempList = text.ToList();
-            for (int i = 0; i < tempList.Count() - 1; i++)
-            {
-                if ((int.TryParse(tempList[i], out bookNumber) || int.TryParse(tempList[i + 1], out bookNumber))
-                    && (tempList[i].Contains(':') || tempList[i + 1].Contains(':')||
-                    tempList[i].Contains('-') || tempList[i + 1].Contains('-')))
-                {
-                    tempList[1 + i] = tempList[i] + tempList[1 + i];
-                    tempList[i] = "";
-                }
-            }
-            return tempList.ToList().RemoveAll("").ToArray(); 
-        }
+        
+        
         public void searchString(string originalSearch, backEndInitializer _backend, IMainWindow _view)
         
         {
@@ -93,8 +61,8 @@ namespace Fast_Script.PresenterFolder.Searching
             string searchPhrase = "";
 
             string[] text = originalSearch.Replace(";", " ; ").Split(' ');  // put to space seperated array and seperate the ;'s
-            text = fixBookNumberTitlesInSearchArray(text);
-            text = combineHyphenAndDashInArray(text);
+            text = preSearchStringBuilder.fixBookNumberTitlesInSearchArray(text);
+            text = preSearchStringBuilder.combineHyphenAndDashInArray(text);
 
             bool foundBook = false; // keeps track of whether this is part way into a reference ie. just found the a book name
             string lastFoundBook = "";
@@ -107,7 +75,8 @@ namespace Fast_Script.PresenterFolder.Searching
                 // look for a whole book name
                 else if (!foundBook && _index.containsBook(text[i]))
                 {
-                    foundWholeBookName(ref foundBook, ref lastFoundBook, ref text, ref i, ref suggestionList, ref _view, ref originalSearch, ref refList);
+                    foundWholeBookName( ref lastFoundBook, ref text, ref i, ref suggestionList, ref _view, ref originalSearch, ref refList);
+                    foundBook = true;
                 }
                 // look for -
                 else if (text[i] == "-") // found a book range reference
@@ -158,7 +127,7 @@ namespace Fast_Script.PresenterFolder.Searching
                         if (text[i].EndsWith(":")) // only chap listed return possible verses
                         {
                             // return a list of possible verses for indicated chapter
-                            suggestionList = _backend.currentVerses(lastFoundBook, Convert.ToInt32(text[i].Substring(0, text[i].Length - 1)));
+                            suggestionList = _index.getPossibleVerses(lastFoundBook, text[i].Substring(0, text[i].Length - 1));
                             suggestionList = suggestionList.addPrefixToList(originalSearch);
                             _view.searchBoxSuggestions(suggestionList, originalSearch);
                         }
@@ -199,38 +168,6 @@ namespace Fast_Script.PresenterFolder.Searching
             {
                 _presenter.writeWebView("No results.");
             }
-        } // end search methode
-        private string capitalizeWord(string word)
-        {
-            char[] tempArray = word.ToCharArray();
-
-            // capitalize first char if not a number
-            // if number then probably a numbered book
-            int bookNumber;
-            if (int.TryParse(Convert.ToString(tempArray[0]), out bookNumber)) // first char is number
-            {
-                // assume spot 2 is what needs capitalized.
-                tempArray[2] = char.ToUpper(tempArray[2]);
-                for (int i = 3; i < word.Count(); i++)
-                {
-                    tempArray[i] = char.ToLower(tempArray[i]);
-                }
-            }
-            else // first char is not number so capitalize it
-            {
-                tempArray[0] = char.ToUpper(tempArray[0]);
-                for (int i = 1; i < word.Count(); i++)
-                {
-                    tempArray[i] = char.ToLower(tempArray[i]);
-                }
-            }
-
-            string tempString = "";
-            foreach (char i in tempArray)
-            {
-                tempString += i;
-            }
-            return tempString;
-        }
+        } // end search method
     }
 }

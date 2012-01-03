@@ -13,9 +13,14 @@ namespace Fast_Script.PresenterFolder.Searching
             _backEnd = backEnd;
         }
 
-        public List<string> getChapters(string book)
+        public List<string> getPossibleChapters(string book)
         {
             return _backEnd.currentChapters(book).ToList().ToStringList();
+        }
+
+        public List<string> getPossibleVerses(string book, string chapter)
+        {
+            return _backEnd.currentVerses(book, Convert.ToInt32(chapter));
         }
 
         public bool containsBook(string book)

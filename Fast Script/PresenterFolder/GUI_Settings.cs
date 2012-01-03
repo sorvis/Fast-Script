@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Drawing;
 using System.Reflection;
 using System.Speech.Synthesis;
+using System.IO;
 
 namespace Fast_Script.PresenterFolder
 {
@@ -129,12 +130,13 @@ namespace Fast_Script.PresenterFolder
         public string addBible(string fileName)
         {
             bible_data.bible tempBible = new XLM_bible_reader.BibleBuilder(fileName).GetBible;
-            tempBible.BuildIndex();
+            tempBible.BuildIndex(); // build the index
+            string newFileName = tempBible._bibleVersion + System.IO.Path.GetExtension(fileName);
+            //ObjectSerializing.deepCopyToFileFromObject(tempBible, System.IO.Path.GetFileNameWithoutExtension(newFileName) + ".bib"); // save a binary copy of built bible
             if (!listContainsBible(tempBible._bibleVersion))
             {
                 _bibles.Add(tempBible);
 
-                string newFileName = tempBible._bibleVersion+System.IO.Path.GetExtension(fileName);
                 if (!System.IO.File.Exists(System.IO.Path.Combine(_pathToXMLBibles, newFileName)))
                 {
                     // move a copy to the XML_Bibles folder for next time program runs if it does not exist
@@ -159,11 +161,24 @@ namespace Fast_Script.PresenterFolder
                 string[] files = System.IO.Directory.GetFiles(_pathToXMLBibles);
                 foreach (string file in files)
                 {
-                    if (System.IO.Path.GetExtension(file).ToLower() == ".xml")
+                    if (System.IO.Path.GetExtension(file).ToLower() == ".bib")
+                    {
+                        loadDataBible(file);
+                    }
+                    else if (System.IO.Path.GetExtension(file).ToLower() == ".xml")
                     {
                         addBible(file);
                     }
                 }
+            }
+        }
+        private void loadDataBible(string file)
+        {
+            bible_data.bible bible = (bible_data.bible)ObjectSerializing.deepCopyFromFileToObject(file);
+
+            if (!listContainsBible(bible._bibleVersion))
+            {
+                _bibles.Add(bible);
             }
         }
         public GUI_Settings(SerializationInfo info, StreamingContext ctxt)

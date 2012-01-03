@@ -52,11 +52,11 @@ namespace Fast_Script
         {
             if (File.Exists("Settings.data"))
             {
-                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject("Settings.data", this);
+                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObjectFromFile("Settings.data", this);
             }
             else if (File.Exists(Path.Combine(_appDataStorageFolder, "Settings.data")))
             {
-                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObject(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
+                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObjectFromFile(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
             }
             else
             {

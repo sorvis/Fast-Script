@@ -50,9 +50,11 @@
   <ItemGroup>
     <Compile Include="PresenterFolder\IprinterSettings.cs" />
     <Compile Include="PresenterFolder\printerSettings.cs" />
+    <Compile Include="PresenterFolder\Searching\Extentions.cs" />
     <Compile Include="PresenterFolder\Searching\IMainWindow.cs" />
     <Compile Include="PresenterFolder\Searching\indexLooker.cs" />
     <Compile Include="PresenterFolder\Searching\IPresenter.cs" />
+    <Compile Include="PresenterFolder\Searching\preSearchStringBuilder.cs" />
     <Compile Include="View\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

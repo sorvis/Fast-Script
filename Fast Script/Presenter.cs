@@ -32,15 +32,15 @@ namespace Fast_Script
         }
         public void saveVerseListToFile(ReferenceList list, string fileName)
         {
-            ObjectSerializing.SerializeObject(fileName, list);
+            ObjectSerializing.SerializeObjectToFile(fileName, list);
         }
         public ReferenceList getSavedVerseListFromFile(string fileName)
         {
-            return (ReferenceList)ObjectSerializing.DeSerializeObject(fileName);
+            return (ReferenceList)ObjectSerializing.DeSerializeObjectFromFile(fileName);
         }
         public void saveSettings()
         {
-             ObjectSerializing.SerializeObject(Path.Combine(_appDataStorageFolder, "Settings.data"), Settings);
+             ObjectSerializing.SerializeObjectToFile(Path.Combine(_appDataStorageFolder, "Settings.data"), Settings);
         }
         public void addToVerseList(ReferenceItem item)
         {

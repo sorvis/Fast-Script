@@ -55,9 +55,11 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extentions.cs" />
     <Compile Include="FakeMainWindow.cs" />
     <Compile Include="FakePresenter.cs" />
     <Compile Include="indexLookerTest.cs" />
+    <Compile Include="preSearchStringBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="searchParsingTest.cs" />
   </ItemGroup>
