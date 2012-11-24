@@ -69,13 +69,12 @@ namespace Fast_Script
         }
         private string putVersesToStringGeneric(string[] verseArray)
         {
-            string finalText = "";
+            StringBuilder finalText = new StringBuilder();
             foreach (string item in verseArray)
             {
-                finalText += item + '\n' + '\n';
+                finalText.AppendLine().AppendLine(item);
             }
-            finalText = finalText.Substring(0, finalText.Count() - 2);//drop off last two \n
-            return finalText;
+            return finalText.ToString();
         }
         public string putVersesForPlainText(ReferenceList list)
         {
@@ -87,14 +86,9 @@ namespace Fast_Script
         }
         public void putVersesToClipBoard(ReferenceList list)
         {
-            string finalText = "";
-            foreach (string item in verseListToText(list))
-            {
-                finalText += item + '\n'+'\n';
-            }
-            finalText = finalText.Substring(0,finalText.Count() - 2);//drop off last two \n
-            Clipboard.SetText(finalText);
+            Clipboard.SetText(putVersesToStringGeneric(verseListToText(list)));
         }
+
         private string[] verseListToTextForTTS(ReferenceList list)
         {
             string[] verseText = new string[list.getList.Count];

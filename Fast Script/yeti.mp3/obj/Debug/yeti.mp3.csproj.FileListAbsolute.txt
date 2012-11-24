@@ -46,9 +46,7 @@ C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Scri
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\Debug\yeti.mmedia.pdb
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\Yeti.MMedia.Mp3.EditMp3Writer.resources
-C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\GenerateResource-ResGen.read.1.tlog
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\ResGen.read.1.tlog
-C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\GenerateResource-ResGen.write.1.tlog
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\ResGen.write.1.tlog
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.dll
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.pdb
