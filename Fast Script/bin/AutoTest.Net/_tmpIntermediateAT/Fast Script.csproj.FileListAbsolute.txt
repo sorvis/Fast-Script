@@ -1,0 +1,17 @@
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast_Script.AboutBox.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast_Script.MainWindow.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast_Script.Properties.Resources.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast_Script.To_MP3_Options.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast_Script.VerseSelecter.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\GenerateResource.read.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\GenerateResource.write.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast Script.exe
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast Script.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\Fast Script.exe
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\Fast Script.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\yeti.mmedia.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\yeti.mp3.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\yeti.mmedia.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\yeti.mp3.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\bin\AutoTest.Net\_tmpIntermediateAT\Fast_Script.View.SelectedVersesControl.resources

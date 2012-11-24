@@ -94,11 +94,6 @@ namespace Fast_Script
         private void searchBox_Enter(object sender, EventArgs e)
         {
             _presenter.searchString(searchBox.Text);
-            //string[] items = searchBox.Text.Split(' ');
-            //if (items[0] != "")
-            //{
-            //    _presenter.searchString(items, searchBox.Text);
-            //}
         }
 
         private void searchBox_KeyUp(object sender, KeyEventArgs e)

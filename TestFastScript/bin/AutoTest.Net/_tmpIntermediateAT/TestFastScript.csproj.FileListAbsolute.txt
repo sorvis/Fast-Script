@@ -1,0 +1,13 @@
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\_tmpIntermediateAT\TestFastScript.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\_tmpIntermediateAT\TestFastScript.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\TestFastScript.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\TestFastScript.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\Fast Script.exe
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\yeti.mmedia.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\yeti.mp3.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\Fast Script.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\yeti.mmedia.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\yeti.mp3.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\Fast Script_Accessor.exe
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\bin\AutoTest.Net\Fast Script_Accessor.pdb

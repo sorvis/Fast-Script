@@ -90,6 +90,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopWatch.cs" />
+    <Compile Include="View\SelectedVersesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SelectedVersesControl.Designer.cs">
+      <DependentUpon>SelectedVersesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\To_MP3_Options.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\SelectedVersesControl.resx" />
     <EmbeddedResource Include="View\To_MP3_Options.resx">
       <DependentUpon>To_MP3_Options.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,0 +1,10 @@
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\_tmpIntermediateAT\Yeti.MMedia.Mp3.EditMp3Writer.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\_tmpIntermediateAT\ResGen.read.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\_tmpIntermediateAT\ResGen.write.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\_tmpIntermediateAT\yeti.mp3.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\_tmpIntermediateAT\yeti.mp3.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\yeti.mp3.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\yeti.mp3.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\yeti.mmedia.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mp3\bin\AutoTest.Net\yeti.mmedia.pdb

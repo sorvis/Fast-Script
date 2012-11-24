@@ -1,0 +1,10 @@
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\ResolveAssemblyReference.cache
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\Yeti.MMedia.EditWaveWriter.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\Yeti.MMedia.EditFormat.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\Yeti.Controls.NumericTextBox.resources
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\ResGen.read.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\ResGen.write.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\yeti.mmedia.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\_tmpIntermediateAT\yeti.mmedia.pdb
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\yeti.mmedia.dll
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\bin\AutoTest.Net\yeti.mmedia.pdb
