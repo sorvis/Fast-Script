@@ -159,15 +159,7 @@ namespace Fast_Script
         }
         private void toolStripQuickPrint_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
-            {
-                refList.addReferenceItem(item.getItem);
-            }
-            if (refList.getList.Count > 0)
-            {
-                _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
-            }
+            
         }
         private void bibleToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
@@ -292,7 +284,15 @@ namespace Fast_Script
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStripQuickPrint_Click(sender, e);
+            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
+            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
+            {
+                refList.addReferenceItem(item.getItem);
+            }
+            if (refList.getList.Count > 0)
+            {
+                _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
+            }
         }
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)

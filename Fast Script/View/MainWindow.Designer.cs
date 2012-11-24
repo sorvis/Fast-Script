@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripQuickPrint = new System.Windows.Forms.ToolStripButton();
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +48,7 @@
             this.bibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._selectedVersesControl = new Fast_Script.View.SelectedVersesControl();
+            this._selectedVersesGroupBox = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.SavetoolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -65,32 +62,12 @@
             this.MakeMP3backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.MainprogressBar = new System.Windows.Forms.ProgressBar();
             this.saveToMP3Dialog = new System.Windows.Forms.SaveFileDialog();
-            this.toolStrip1.SuspendLayout();
+            this._selectedVersesControl = new Fast_Script.View.SelectedVersesControl();
             this.MainMenuStrip.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this._selectedVersesGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripQuickPrint});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(698, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripQuickPrint
-            // 
-            this.toolStripQuickPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripQuickPrint.Image = ((System.Drawing.Image)(resources.GetObject("toolStripQuickPrint.Image")));
-            this.toolStripQuickPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripQuickPrint.Name = "toolStripQuickPrint";
-            this.toolStripQuickPrint.Size = new System.Drawing.Size(23, 22);
-            this.toolStripQuickPrint.Text = "Quick Print";
-            this.toolStripQuickPrint.Click += new System.EventHandler(this.toolStripQuickPrint_Click);
             // 
             // MainMenuStrip
             // 
@@ -122,6 +99,7 @@
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.printToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
@@ -251,24 +229,16 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // groupBox1
+            // _selectedVersesGroupBox
             // 
-            this.groupBox1.Controls.Add(this._selectedVersesControl);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 53);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(214, 500);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selected Verses";
-            // 
-            // _selectedVersesControl
-            // 
-            this._selectedVersesControl.AutoSize = true;
-            this._selectedVersesControl.Location = new System.Drawing.Point(6, 19);
-            this._selectedVersesControl.Name = "_selectedVersesControl";
-            this._selectedVersesControl.Size = new System.Drawing.Size(202, 448);
-            this._selectedVersesControl.TabIndex = 2;
+            this._selectedVersesGroupBox.Controls.Add(this._selectedVersesControl);
+            this._selectedVersesGroupBox.Controls.Add(this.panel1);
+            this._selectedVersesGroupBox.Location = new System.Drawing.Point(13, 27);
+            this._selectedVersesGroupBox.Name = "_selectedVersesGroupBox";
+            this._selectedVersesGroupBox.Size = new System.Drawing.Size(214, 526);
+            this._selectedVersesGroupBox.TabIndex = 2;
+            this._selectedVersesGroupBox.TabStop = false;
+            this._selectedVersesGroupBox.Text = "Selected Verses";
             // 
             // panel1
             // 
@@ -337,7 +307,7 @@
             this.searchBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.searchBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.searchBox.FormattingEnabled = true;
-            this.searchBox.Location = new System.Drawing.Point(233, 53);
+            this.searchBox.Location = new System.Drawing.Point(233, 27);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(453, 21);
             this.searchBox.TabIndex = 3;
@@ -346,10 +316,10 @@
             // 
             // webResualts
             // 
-            this.webResualts.Location = new System.Drawing.Point(233, 81);
+            this.webResualts.Location = new System.Drawing.Point(233, 54);
             this.webResualts.MinimumSize = new System.Drawing.Size(20, 20);
             this.webResualts.Name = "webResualts";
-            this.webResualts.Size = new System.Drawing.Size(453, 431);
+            this.webResualts.Size = new System.Drawing.Size(453, 458);
             this.webResualts.TabIndex = 4;
             this.webResualts.Url = new System.Uri("", System.UriKind.Relative);
             this.webResualts.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webResualts_Navigating);
@@ -378,6 +348,14 @@
             this.saveToMP3Dialog.DefaultExt = "mp3";
             this.saveToMP3Dialog.Filter = "MP3 Audio|*.mp3|All files|*.*";
             // 
+            // _selectedVersesControl
+            // 
+            this._selectedVersesControl.AutoSize = true;
+            this._selectedVersesControl.Location = new System.Drawing.Point(6, 19);
+            this._selectedVersesControl.Name = "_selectedVersesControl";
+            this._selectedVersesControl.Size = new System.Drawing.Size(202, 448);
+            this._selectedVersesControl.TabIndex = 2;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,18 +364,15 @@
             this.Controls.Add(this.MainprogressBar);
             this.Controls.Add(this.webResualts);
             this.Controls.Add(this.searchBox);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this._selectedVersesGroupBox);
             this.Controls.Add(this.MainMenuStrip);
             this.Name = "MainWindow";
             this.Text = "Fast Script";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this._selectedVersesGroupBox.ResumeLayout(false);
+            this._selectedVersesGroupBox.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -409,7 +384,6 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
@@ -422,8 +396,7 @@
         private System.Windows.Forms.ToolStripComboBox menuFontFamily;
         private System.Windows.Forms.ToolStripMenuItem fontSizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox menuFontSize;
-        private System.Windows.Forms.ToolStripButton toolStripQuickPrint;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox _selectedVersesGroupBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton buttonCopySelectedVersesToClipboard;
