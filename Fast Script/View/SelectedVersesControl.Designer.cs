@@ -40,6 +40,7 @@
             // 
             // _checkedVersesCheckedListBox
             // 
+            this._checkedVersesCheckedListBox.AllowDrop = true;
             this._checkedVersesCheckedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this._checkedVersesCheckedListBox.FormattingEnabled = true;
             this._checkedVersesCheckedListBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -49,6 +50,8 @@
             this._checkedVersesCheckedListBox.TabIndex = 1;
             this._checkedVersesCheckedListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragDrop);
             this._checkedVersesCheckedListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragOver);
+            this._checkedVersesCheckedListBox.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.checkedVersesCheckedListBox_GiveFeedback);
+            this._checkedVersesCheckedListBox.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.checkedVersesCheckedListBox_QueryContinueDrag);
             this._checkedVersesCheckedListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkedVersesCheckedListBox_MouseDown);
             // 
             // _mainTableLayoutPanel

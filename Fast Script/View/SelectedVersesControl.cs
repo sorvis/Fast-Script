@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Fast_Script.PresenterFolder;
 
 namespace Fast_Script.View
 {
@@ -28,6 +29,25 @@ namespace Fast_Script.View
 
         #endregion Properties
 
+        #region [--Private_Methods--]
+
+        private void moveCheckedVersesItemOrder(object item, int newIndex)
+        {
+            if (item != null
+                && _checkedVersesCheckedListBox.Items.Contains(item)
+                && _checkedVersesCheckedListBox.Items.Count > newIndex
+                && newIndex >= 0)
+            {
+                bool itemIsChecked = _checkedVersesCheckedListBox.CheckedItems.Contains(item);
+                _checkedVersesCheckedListBox.Items.Remove(item);
+                _checkedVersesCheckedListBox.Items.Insert(newIndex, item);
+                _checkedVersesCheckedListBox.SetItemChecked(newIndex, itemIsChecked);
+                _checkedVersesCheckedListBox.SetSelected(newIndex, true);
+            }
+        }
+
+        #endregion Private_Methods
+
         #region [--Event_Handlers--]
 
         private void checkedVersesCheckedListBox_MouseDown(object sender, MouseEventArgs e)
@@ -42,9 +62,7 @@ namespace Fast_Script.View
         {
             Point point = _checkedVersesCheckedListBox.PointToClient(new Point(e.X, e.Y));
             int index = this._checkedVersesCheckedListBox.IndexFromPoint(point);
-            if (index < 0) index = this._checkedVersesCheckedListBox.Items.Count - 1;
-            this._checkedVersesCheckedListBox.Items.Remove(e.Data);
-            this._checkedVersesCheckedListBox.Items.Insert(index, e.Data);
+            moveCheckedVersesItemOrder(e.Data.GetData(typeof(ReferenceItemWrapper)), index);
         }
 
         private void checkedVersesCheckedListBox_DragOver(object sender, DragEventArgs e)
@@ -62,26 +80,27 @@ namespace Fast_Script.View
             moveCheckedVersesItemOrder(_checkedVersesCheckedListBox.SelectedItem, _checkedVersesCheckedListBox.SelectedIndex + 1);
         }
 
-        #endregion Event_Handlers
-
-        #region [--Private_Methods--]
-
-        private void moveCheckedVersesItemOrder(object item, int newIndex)
+        private void checkedVersesCheckedListBox_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
-            if(item != null
-                && _checkedVersesCheckedListBox.Items.Contains(item) 
-                && _checkedVersesCheckedListBox.Items.Count > newIndex
-                && newIndex >= 0)
+            if (sender != _checkedVersesCheckedListBox || e.EscapePressed)
             {
-                bool itemIsChecked = _checkedVersesCheckedListBox.CheckedItems.Contains(item);
-                _checkedVersesCheckedListBox.Items.Remove(item);
-                _checkedVersesCheckedListBox.Items.Insert(newIndex, item);
-                _checkedVersesCheckedListBox.SetItemChecked(newIndex, itemIsChecked);
-                _checkedVersesCheckedListBox.SetSelected(newIndex, true);
+                e.Action = DragAction.Cancel;
             }
         }
 
-        #endregion Private_Methods
+        private void checkedVersesCheckedListBox_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            if (e.Effect == DragDropEffects.Move)
+            {
+                Cursor.Current = Cursors.Hand;
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+            }
+        }
+
+        #endregion Event_Handlers
 
     }
 }
