@@ -100,7 +100,19 @@ namespace Fast_Script.View
             }
         }
 
-        #endregion Event_Handlers
+        private void deleteVerseToolStripButton_Click(object sender, EventArgs e)
+        {
+            _checkedVersesCheckedListBox.Items.Remove(_checkedVersesCheckedListBox.SelectedItem);
+        }
 
+        private void checkedVersesCheckedListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                _checkedVersesCheckedListBox.Items.Remove(_checkedVersesCheckedListBox.SelectedItem);
+            }
+        }
+
+        #endregion Event_Handlers
     }
 }

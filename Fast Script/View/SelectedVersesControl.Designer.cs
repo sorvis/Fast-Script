@@ -34,6 +34,7 @@
             this._toolStrip = new System.Windows.Forms.ToolStrip();
             this._moveUptoolStripButton = new System.Windows.Forms.ToolStripButton();
             this._moveDownToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._deleteVerseToolStripButton = new System.Windows.Forms.ToolStripButton();
             this._mainTableLayoutPanel.SuspendLayout();
             this._toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             this._checkedVersesCheckedListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragOver);
             this._checkedVersesCheckedListBox.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.checkedVersesCheckedListBox_GiveFeedback);
             this._checkedVersesCheckedListBox.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.checkedVersesCheckedListBox_QueryContinueDrag);
+            this._checkedVersesCheckedListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkedVersesCheckedListBox_KeyDown);
             this._checkedVersesCheckedListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkedVersesCheckedListBox_MouseDown);
             // 
             // _mainTableLayoutPanel
@@ -73,7 +75,8 @@
             // 
             this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._moveUptoolStripButton,
-            this._moveDownToolStripButton});
+            this._moveDownToolStripButton,
+            this._deleteVerseToolStripButton});
             this._toolStrip.Location = new System.Drawing.Point(0, 0);
             this._toolStrip.Name = "_toolStrip";
             this._toolStrip.Size = new System.Drawing.Size(365, 25);
@@ -82,21 +85,33 @@
             // 
             // _moveUptoolStripButton
             // 
+            this._moveUptoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this._moveUptoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_moveUptoolStripButton.Image")));
             this._moveUptoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._moveUptoolStripButton.Name = "_moveUptoolStripButton";
-            this._moveUptoolStripButton.Size = new System.Drawing.Size(75, 22);
+            this._moveUptoolStripButton.Size = new System.Drawing.Size(23, 22);
             this._moveUptoolStripButton.Text = "Move Up";
             this._moveUptoolStripButton.Click += new System.EventHandler(this.moveUptoolStripButton_Click);
             // 
             // _moveDownToolStripButton
             // 
+            this._moveDownToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this._moveDownToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_moveDownToolStripButton.Image")));
             this._moveDownToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._moveDownToolStripButton.Name = "_moveDownToolStripButton";
-            this._moveDownToolStripButton.Size = new System.Drawing.Size(91, 22);
+            this._moveDownToolStripButton.Size = new System.Drawing.Size(23, 22);
             this._moveDownToolStripButton.Text = "Move Down";
             this._moveDownToolStripButton.Click += new System.EventHandler(this.moveDownToolStripButton_Click);
+            // 
+            // _deleteVerseToolStripButton
+            // 
+            this._deleteVerseToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._deleteVerseToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_deleteVerseToolStripButton.Image")));
+            this._deleteVerseToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._deleteVerseToolStripButton.Name = "_deleteVerseToolStripButton";
+            this._deleteVerseToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._deleteVerseToolStripButton.Text = "Delete";
+            this._deleteVerseToolStripButton.Click += new System.EventHandler(this.deleteVerseToolStripButton_Click);
             // 
             // SelectedVersesControl
             // 
@@ -121,5 +136,6 @@
         private System.Windows.Forms.ToolStrip _toolStrip;
         private System.Windows.Forms.ToolStripButton _moveUptoolStripButton;
         private System.Windows.Forms.ToolStripButton _moveDownToolStripButton;
+        private System.Windows.Forms.ToolStripButton _deleteVerseToolStripButton;
     }
 }
