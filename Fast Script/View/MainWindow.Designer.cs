@@ -57,7 +57,6 @@
             this.buttonCopySelectedVersesToClipboard = new System.Windows.Forms.ToolStripButton();
             this.SelectVersesButton = new System.Windows.Forms.ToolStripButton();
             this.SendToWebViewtoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.checkedVerses = new System.Windows.Forms.CheckedListBox();
             this.searchBox = new System.Windows.Forms.ComboBox();
             this.webResualts = new System.Windows.Forms.WebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -65,6 +64,7 @@
             this.MakeMP3backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.MainprogressBar = new System.Windows.Forms.ProgressBar();
             this.saveToMP3Dialog = new System.Windows.Forms.SaveFileDialog();
+            this._selectedVersesControl = new Fast_Script.View.SelectedVersesControl();
             this.toolStrip1.SuspendLayout();
             this.MainMenuStrip.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -251,8 +251,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this._selectedVersesControl);
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Controls.Add(this.checkedVerses);
             this.groupBox1.Location = new System.Drawing.Point(13, 53);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(214, 500);
@@ -321,16 +321,6 @@
             this.SendToWebViewtoolStripButton.Text = "Display Verses";
             this.SendToWebViewtoolStripButton.Click += new System.EventHandler(this.SendToWebViewtoolStripButton_Click);
             // 
-            // checkedVerses
-            // 
-            this.checkedVerses.FormattingEnabled = true;
-            this.checkedVerses.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.checkedVerses.Location = new System.Drawing.Point(7, 20);
-            this.checkedVerses.Name = "checkedVerses";
-            this.checkedVerses.Size = new System.Drawing.Size(199, 439);
-            this.checkedVerses.TabIndex = 0;
-            this.checkedVerses.SelectedIndexChanged += new System.EventHandler(this.checkedVerses_SelectedIndexChanged);
-            // 
             // searchBox
             // 
             this.searchBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -378,6 +368,14 @@
             this.saveToMP3Dialog.DefaultExt = "mp3";
             this.saveToMP3Dialog.Filter = "MP3 Audio|*.mp3|All files|*.*";
             // 
+            // _selectedVersesControl
+            // 
+            this._selectedVersesControl.AutoSize = true;
+            this._selectedVersesControl.Location = new System.Drawing.Point(6, 19);
+            this._selectedVersesControl.Name = "_selectedVersesControl";
+            this._selectedVersesControl.Size = new System.Drawing.Size(202, 448);
+            this._selectedVersesControl.TabIndex = 2;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,6 +395,7 @@
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -423,7 +422,6 @@
         private System.Windows.Forms.ToolStripTextBox menuFontSize;
         private System.Windows.Forms.ToolStripButton toolStripQuickPrint;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckedListBox checkedVerses;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton buttonCopySelectedVersesToClipboard;
@@ -444,6 +442,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveToMP3Dialog;
+        private View.SelectedVersesControl _selectedVersesControl;
 
     }
 }

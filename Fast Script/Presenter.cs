@@ -47,13 +47,13 @@ namespace Fast_Script
             if (item.ToString() != "")
             {
                 ReferenceItemWrapper refItem = new ReferenceItemWrapper(item);
-                _view.verseListBox.Items.Add(refItem, true);
-                _view.verseListBox.SelectedItem = refItem;  // select it so scroll bar will go down
+                _view.VerseListBox.Items.Add(refItem, true);
+                _view.VerseListBox.SelectedItem = refItem;  // select it so scroll bar will go down
             }
         }
         public void setNewVerseList(ReferenceList list)
         {
-            _view.verseListBox.Items.Clear();
+            _view.VerseListBox.Items.Clear();
             foreach (ReferenceItem item in list.getList)
             {
                 addToVerseList(item);

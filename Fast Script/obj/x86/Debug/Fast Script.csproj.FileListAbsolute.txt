@@ -72,3 +72,4 @@ C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Scri
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.VerseSelecter.resources
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.View.SelectedVersesControl.resources

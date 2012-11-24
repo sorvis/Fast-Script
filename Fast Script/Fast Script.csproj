@@ -127,7 +127,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\SelectedVersesControl.resx" />
+    <EmbeddedResource Include="View\SelectedVersesControl.resx">
+      <DependentUpon>SelectedVersesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\To_MP3_Options.resx">
       <DependentUpon>To_MP3_Options.cs</DependentUpon>
     </EmbeddedResource>

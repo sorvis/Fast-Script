@@ -51,8 +51,8 @@ namespace Fast_Script
             searchBox.Enabled = true;
         }
 
-        public CheckedListBox verseListBox
-        {get { return checkedVerses; }}
+        public CheckedListBox VerseListBox
+        { get { return _selectedVersesControl.SelectedVersesCheckedListBox; } }
 
         private void webResualts_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
@@ -62,7 +62,7 @@ namespace Fast_Script
                 if (pageURL.Contains("addReference"))
                 {
                     string[] link = e.Url.ToString().Split('=');
-                    checkedVerses.Items.Add(new PresenterFolder.ReferenceItemWrapper(
+                    VerseListBox.Items.Add(new PresenterFolder.ReferenceItemWrapper(
                         _presenter.ItemstInWebView[Convert.ToInt32(link[1])]), true);
 
                     //reload webview with last displayed verses
@@ -77,7 +77,7 @@ namespace Fast_Script
         public bool verseListContains(string item)
         {
             List<string> items = new List<string>();
-            foreach(PresenterFolder.ReferenceItemWrapper thing in checkedVerses.Items)
+            foreach (PresenterFolder.ReferenceItemWrapper thing in VerseListBox.Items)
             {
                  items.Add(thing.getItem.ToString());
             }
@@ -125,7 +125,7 @@ namespace Fast_Script
         private void SendToWebViewtoolStripButton_Click(object sender, EventArgs e)
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in verseListBox.Items)
+            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
                 refList.addReferenceItem(item.getItem);
             }
@@ -148,7 +148,7 @@ namespace Fast_Script
         private void buttonCopySelectedVersesToClipboard_Click(object sender, EventArgs e)
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in verseListBox.Items)
+            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
                 refList.addReferenceItem(item.getItem);
             }
@@ -160,7 +160,7 @@ namespace Fast_Script
         private void toolStripQuickPrint_Click(object sender, EventArgs e)
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in verseListBox.Items)
+            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
                 refList.addReferenceItem(item.getItem);
             }
@@ -298,7 +298,7 @@ namespace Fast_Script
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in verseListBox.Items)
+            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
                 refList.addReferenceItem(item.getItem);
             }
@@ -311,7 +311,7 @@ namespace Fast_Script
         private PresenterFolder.ReferenceList getCurrentVerseList()
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in verseListBox.Items)
+            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
                 refList.addReferenceItem(item.getItem);
             }

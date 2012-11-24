@@ -15,5 +15,17 @@ namespace Fast_Script.View
         {
             InitializeComponent();
         }
+
+        #region [--Properties--]
+
+        public CheckedListBox SelectedVersesCheckedListBox
+        {
+            get
+            {
+                return this._checkedVersesCheckedListBox;
+            }
+        }
+
+        #endregion Properties
     }
 }
