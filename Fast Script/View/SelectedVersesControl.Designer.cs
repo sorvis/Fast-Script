@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectedVersesControl));
             this._checkedVersesCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this._mainTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this._toolStrip = new System.Windows.Forms.ToolStrip();
+            this._moveUptoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this._moveDownToolStripButton = new System.Windows.Forms.ToolStripButton();
             this._mainTableLayoutPanel.SuspendLayout();
+            this._toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // _checkedVersesCheckedListBox
@@ -43,6 +47,9 @@
             this._checkedVersesCheckedListBox.Name = "_checkedVersesCheckedListBox";
             this._checkedVersesCheckedListBox.Size = new System.Drawing.Size(359, 447);
             this._checkedVersesCheckedListBox.TabIndex = 1;
+            this._checkedVersesCheckedListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragDrop);
+            this._checkedVersesCheckedListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragOver);
+            this._checkedVersesCheckedListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.checkedVersesCheckedListBox_MouseDown);
             // 
             // _mainTableLayoutPanel
             // 
@@ -61,11 +68,32 @@
             // 
             // _toolStrip
             // 
+            this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._moveUptoolStripButton,
+            this._moveDownToolStripButton});
             this._toolStrip.Location = new System.Drawing.Point(0, 0);
             this._toolStrip.Name = "_toolStrip";
             this._toolStrip.Size = new System.Drawing.Size(365, 25);
             this._toolStrip.TabIndex = 2;
             this._toolStrip.Text = "toolStrip1";
+            // 
+            // _moveUptoolStripButton
+            // 
+            this._moveUptoolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_moveUptoolStripButton.Image")));
+            this._moveUptoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._moveUptoolStripButton.Name = "_moveUptoolStripButton";
+            this._moveUptoolStripButton.Size = new System.Drawing.Size(75, 22);
+            this._moveUptoolStripButton.Text = "Move Up";
+            this._moveUptoolStripButton.Click += new System.EventHandler(this.moveUptoolStripButton_Click);
+            // 
+            // _moveDownToolStripButton
+            // 
+            this._moveDownToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_moveDownToolStripButton.Image")));
+            this._moveDownToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._moveDownToolStripButton.Name = "_moveDownToolStripButton";
+            this._moveDownToolStripButton.Size = new System.Drawing.Size(91, 22);
+            this._moveDownToolStripButton.Text = "Move Down";
+            this._moveDownToolStripButton.Click += new System.EventHandler(this.moveDownToolStripButton_Click);
             // 
             // SelectedVersesControl
             // 
@@ -77,6 +105,8 @@
             this.Size = new System.Drawing.Size(365, 478);
             this._mainTableLayoutPanel.ResumeLayout(false);
             this._mainTableLayoutPanel.PerformLayout();
+            this._toolStrip.ResumeLayout(false);
+            this._toolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -86,5 +116,7 @@
         private System.Windows.Forms.CheckedListBox _checkedVersesCheckedListBox;
         private System.Windows.Forms.TableLayoutPanel _mainTableLayoutPanel;
         private System.Windows.Forms.ToolStrip _toolStrip;
+        private System.Windows.Forms.ToolStripButton _moveUptoolStripButton;
+        private System.Windows.Forms.ToolStripButton _moveDownToolStripButton;
     }
 }
