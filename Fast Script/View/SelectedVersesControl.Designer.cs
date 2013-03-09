@@ -51,6 +51,7 @@
             this._checkedVersesCheckedListBox.TabIndex = 1;
             this._checkedVersesCheckedListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragDrop);
             this._checkedVersesCheckedListBox.DragOver += new System.Windows.Forms.DragEventHandler(this.checkedVersesCheckedListBox_DragOver);
+            this._checkedVersesCheckedListBox.DragLeave += new System.EventHandler(this._checkedVersesCheckedListBox_DragLeave);
             this._checkedVersesCheckedListBox.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.checkedVersesCheckedListBox_GiveFeedback);
             this._checkedVersesCheckedListBox.QueryContinueDrag += new System.Windows.Forms.QueryContinueDragEventHandler(this.checkedVersesCheckedListBox_QueryContinueDrag);
             this._checkedVersesCheckedListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.checkedVersesCheckedListBox_KeyDown);

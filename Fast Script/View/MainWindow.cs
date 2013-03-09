@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing.Text;
 using Fast_Script.PresenterFolder.Searching;
+using System.Runtime.InteropServices;
 
 namespace Fast_Script
 {
@@ -146,6 +147,11 @@ namespace Fast_Script
             }
         }
         private void buttonCopySelectedVersesToClipboard_Click(object sender, EventArgs e)
+        {
+            sendAllVersesToClipBoard();
+        }
+
+        private void sendAllVersesToClipBoard()
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
             foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
@@ -324,7 +330,6 @@ namespace Fast_Script
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this.Close();
             Application.Exit();
         }
 
@@ -390,7 +395,6 @@ namespace Fast_Script
             if (saveToMP3Dialog.ShowDialog() != DialogResult.Cancel)
             {
                 MakeMP3backgroundWorker.RunWorkerAsync(saveToMP3Dialog.FileName);
-                //_presenter.putVersesToAudioMP3(saveFileDialog.FileName, getCurrentVerseList());
             }
         }
 
@@ -445,5 +449,15 @@ namespace Fast_Script
             AboutBox about = new AboutBox();
             about.ShowDialog();
         }
+
+        private void pasteToProgramToolStripButton_Click(object sender, EventArgs e)
+        {
+            sendAllVersesToClipBoard();
+            BringWindowToTop(ProcessWatcher.LastHandle);
+            SendKeys.Send("^V");
+        }
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool BringWindowToTop(IntPtr hWnd);
     }
 }

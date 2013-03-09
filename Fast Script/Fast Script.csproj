@@ -55,6 +55,7 @@
     <Compile Include="PresenterFolder\Searching\indexLooker.cs" />
     <Compile Include="PresenterFolder\Searching\IPresenter.cs" />
     <Compile Include="PresenterFolder\Searching\preSearchStringBuilder.cs" />
+    <Compile Include="ProcessWatcher.cs" />
     <Compile Include="View\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Fast_Script.PresenterFolder;
+using System.Runtime.InteropServices;
 
 namespace Fast_Script.View
 {
@@ -114,5 +115,17 @@ namespace Fast_Script.View
         }
 
         #endregion Event_Handlers
+
+        private void _checkedVersesCheckedListBox_DragLeave(object sender, EventArgs e)
+        {
+            //DataObject dataObject = new DataObject();
+            //dataObject.SetData(DataFormats.Serializable, textToPast);
+            //dataObject.SetData(DataFormats.Text, textToPast);
+            //this.ParentForm.DoDragDrop(dataObject, DragDropEffects.Copy);
+
+            //DoDragDrop(new DataObject(DataFormats.Text, "test paste"), DragDropEffects.Copy);
+            // Copy the text in the datafield to Clipboard
+            
+        }
     }
 }

@@ -52,7 +52,7 @@ namespace Fast_Script
 
             //string testString = (testManipulator.getVerse("John", 1, 1) + "\n" +
             //    testManipulator.getVerse("John", 1, 2));
-
+            ProcessWatcher.StartWatch();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());

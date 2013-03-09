@@ -49,8 +49,9 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._selectedVersesGroupBox = new System.Windows.Forms.GroupBox();
+            this._selectedVersesControl = new Fast_Script.View.SelectedVersesControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this._selectedVerseOperationToolStrip = new System.Windows.Forms.ToolStrip();
             this.SavetoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.buttonCopySelectedVersesToClipboard = new System.Windows.Forms.ToolStripButton();
             this.SelectVersesButton = new System.Windows.Forms.ToolStripButton();
@@ -62,11 +63,10 @@
             this.MakeMP3backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.MainprogressBar = new System.Windows.Forms.ProgressBar();
             this.saveToMP3Dialog = new System.Windows.Forms.SaveFileDialog();
-            this._selectedVersesControl = new Fast_Script.View.SelectedVersesControl();
+            this._pasteToProgramToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.MainMenuStrip.SuspendLayout();
             this._selectedVersesGroupBox.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this._selectedVerseOperationToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenuStrip
@@ -231,6 +231,7 @@
             // 
             // _selectedVersesGroupBox
             // 
+            this._selectedVersesGroupBox.Controls.Add(this._selectedVerseOperationToolStrip);
             this._selectedVersesGroupBox.Controls.Add(this._selectedVersesControl);
             this._selectedVersesGroupBox.Controls.Add(this.panel1);
             this._selectedVersesGroupBox.Location = new System.Drawing.Point(13, 27);
@@ -240,26 +241,35 @@
             this._selectedVersesGroupBox.TabStop = false;
             this._selectedVersesGroupBox.Text = "Selected Verses";
             // 
+            // _selectedVersesControl
+            // 
+            this._selectedVersesControl.AutoSize = true;
+            this._selectedVersesControl.Location = new System.Drawing.Point(6, 19);
+            this._selectedVersesControl.Name = "_selectedVersesControl";
+            this._selectedVersesControl.Size = new System.Drawing.Size(202, 448);
+            this._selectedVersesControl.TabIndex = 2;
+            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Location = new System.Drawing.Point(3, 473);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(122, 24);
             this.panel1.TabIndex = 1;
             // 
-            // toolStrip2
+            // _selectedVerseOperationToolStrip
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this._selectedVerseOperationToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this._selectedVerseOperationToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SavetoolStripButton,
             this.buttonCopySelectedVersesToClipboard,
+            this._pasteToProgramToolStripButton,
             this.SelectVersesButton,
             this.SendToWebViewtoolStripButton});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(122, 25);
-            this.toolStrip2.TabIndex = 0;
-            this.toolStrip2.Text = "toolStrip2";
+            this._selectedVerseOperationToolStrip.Location = new System.Drawing.Point(6, 460);
+            this._selectedVerseOperationToolStrip.Name = "_selectedVerseOperationToolStrip";
+            this._selectedVerseOperationToolStrip.Size = new System.Drawing.Size(158, 25);
+            this._selectedVerseOperationToolStrip.TabIndex = 0;
+            this._selectedVerseOperationToolStrip.Text = "toolStrip2";
             // 
             // SavetoolStripButton
             // 
@@ -348,13 +358,16 @@
             this.saveToMP3Dialog.DefaultExt = "mp3";
             this.saveToMP3Dialog.Filter = "MP3 Audio|*.mp3|All files|*.*";
             // 
-            // _selectedVersesControl
+            // _pasteToProgramToolStripButton
             // 
-            this._selectedVersesControl.AutoSize = true;
-            this._selectedVersesControl.Location = new System.Drawing.Point(6, 19);
-            this._selectedVersesControl.Name = "_selectedVersesControl";
-            this._selectedVersesControl.Size = new System.Drawing.Size(202, 448);
-            this._selectedVersesControl.TabIndex = 2;
+            this._pasteToProgramToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._pasteToProgramToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("_pasteToProgramToolStripButton.Image")));
+            this._pasteToProgramToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._pasteToProgramToolStripButton.Name = "_pasteToProgramToolStripButton";
+            this._pasteToProgramToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this._pasteToProgramToolStripButton.Text = "Paste To Program";
+            this._pasteToProgramToolStripButton.ToolTipText = "Pastes to last open program";
+            this._pasteToProgramToolStripButton.Click += new System.EventHandler(this.pasteToProgramToolStripButton_Click);
             // 
             // MainWindow
             // 
@@ -373,10 +386,8 @@
             this.MainMenuStrip.PerformLayout();
             this._selectedVersesGroupBox.ResumeLayout(false);
             this._selectedVersesGroupBox.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this._selectedVerseOperationToolStrip.ResumeLayout(false);
+            this._selectedVerseOperationToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,7 +409,7 @@
         private System.Windows.Forms.ToolStripTextBox menuFontSize;
         private System.Windows.Forms.GroupBox _selectedVersesGroupBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStrip _selectedVerseOperationToolStrip;
         private System.Windows.Forms.ToolStripButton buttonCopySelectedVersesToClipboard;
         private System.Windows.Forms.ComboBox searchBox;
         private System.Windows.Forms.WebBrowser webResualts;
@@ -418,6 +429,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveToMP3Dialog;
         private View.SelectedVersesControl _selectedVersesControl;
+        private System.Windows.Forms.ToolStripButton _pasteToProgramToolStripButton;
 
     }
 }
