@@ -24,3 +24,16 @@ C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastS
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\obj\Debug\TestFastScript.dll
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\TestFastScript\obj\Debug\TestFastScript.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\TestFastScript.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\TestFastScript.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\Fast Script.exe
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\yeti.mmedia.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\yeti.mp3.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\Fast Script.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\yeti.mmedia.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\yeti.mp3.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\Fast Script_Accessor.exe
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\bin\Debug\Fast Script_Accessor.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\obj\Debug\TestFastScript.csprojResolveAssemblyReference.cache
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\obj\Debug\TestFastScript.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\TestFastScript\obj\Debug\TestFastScript.pdb

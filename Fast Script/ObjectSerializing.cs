@@ -36,10 +36,16 @@ namespace Fast_Script
             BinaryFormatter bFormatter = new BinaryFormatter(null, new StreamingContext(
                 StreamingContextStates.All,state)); // pass it in
 
-            object objectToSerialize;
+            object objectToSerialize = new object();
             Stream stream = File.Open(filename, FileMode.Open);
-            //BinaryFormatter bFormatter = new BinaryFormatter();
-            objectToSerialize = (object)bFormatter.Deserialize(stream);
+            try
+            {
+                objectToSerialize = (object)bFormatter.Deserialize(stream);
+            }
+            catch (Exception)
+            {
+                
+            }
             stream.Close();
             return objectToSerialize;
         }

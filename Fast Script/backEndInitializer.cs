@@ -56,7 +56,14 @@ namespace Fast_Script
             }
             else if (File.Exists(Path.Combine(_appDataStorageFolder, "Settings.data")))
             {
-                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObjectFromFile(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
+                try
+                {
+                    _settings = (GUI_Settings)ObjectSerializing.DeSerializeObjectFromFile(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
+                }
+                catch
+                {
+                    _settings = new GUI_Settings();
+                }
             }
             else
             {

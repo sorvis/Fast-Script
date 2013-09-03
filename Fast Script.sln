@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fast Script", "Fast Script\Fast Script.csproj", "{AC91093F-899F-4D0F-A579-C1041724C7A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeti.mmedia", "Fast Script\yeti.mmedia\yeti.mmedia.csproj", "{315EE7BF-EAE2-42C0-BFC6-CCA9160F3CFE}"
@@ -32,6 +32,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{AC91093F-899F-4D0F-A579-C1041724C7A7}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AC91093F-899F-4D0F-A579-C1041724C7A7}.Debug|Any CPU.Build.0 = Debug|x86
 		{AC91093F-899F-4D0F-A579-C1041724C7A7}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{AC91093F-899F-4D0F-A579-C1041724C7A7}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{AC91093F-899F-4D0F-A579-C1041724C7A7}.Debug|x86.ActiveCfg = Debug|x86

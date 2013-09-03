@@ -52,3 +52,12 @@ C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Scri
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\ResGen.write.1.tlog
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.dll
 C:\Users\Wayne Orvis\Documents\Visual Studio 2010\Projects\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\bin\Debug\yeti.mmedia.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.csprojResolveAssemblyReference.cache
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\Yeti.MMedia.EditWaveWriter.resources
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\Yeti.MMedia.EditFormat.resources
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\Yeti.Controls.NumericTextBox.resources
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.csproj.GenerateResource.Cache
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mmedia\obj\Debug\yeti.mmedia.pdb
