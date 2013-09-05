@@ -26,5 +26,9 @@ namespace Fast_Project.Properties
                 return defaultInstance;
             }
         }
+
+        public int MainScreenId { get; set; }
+
+        public int ProjectorScreenId { get; set; }
     }
 }
