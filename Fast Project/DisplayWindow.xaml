@@ -6,7 +6,7 @@
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded">
     <Viewbox>
         <StackPanel>
-        <TextBlock>test</TextBlock>
+            <TextBlock Text="{Binding Path=TextBody}"/>
         </StackPanel>
     </Viewbox>
 </Window>

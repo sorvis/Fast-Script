@@ -23,6 +23,19 @@ namespace Fast_Project
         public MainWindow()
         {
             InitializeComponent();
+            CurrentProjectedData = new ProjectionDataElement();
+        }
+
+        private ProjectionDataElement CurrentProjectedData
+        {
+            get
+            {
+                return this.DataContext as ProjectionDataElement;
+            }
+            set
+            {
+                this.DataContext = value;
+            }
         }
 
         private void ShowDisplayButton_Click(object sender, RoutedEventArgs e)
@@ -34,6 +47,7 @@ namespace Fast_Project
             else
             {
                 _display =  new DisplayWindow();
+                _display.ProjectedData = CurrentProjectedData;
                 _display.Show();
             }
         }

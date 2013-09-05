@@ -24,6 +24,18 @@ namespace Fast_Project
             InitializeComponent();
         }
 
+        public ProjectionDataElement ProjectedData
+        {
+            get
+            {
+                return this.DataContext as ProjectionDataElement;
+            }
+            set
+            {
+                this.DataContext = value;
+            }
+        }
+
         private void setScreen()
         {
             var projectorScreen = ScreenHandler.GetProjectorScreen();
