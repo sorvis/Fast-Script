@@ -24,5 +24,20 @@ namespace Fast_Project
         {
             InitializeComponent();
         }
+
+        private void ShowDisplayButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_display != null && _display.IsVisible)
+            {
+                _display.Close();
+            }
+            else
+            {
+                _display =  new DisplayWindow();
+                _display.Show();
+            }
+        }
+
+        private DisplayWindow _display;
     }
 }

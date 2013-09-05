@@ -11,3 +11,5 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast_Project
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.csproj.GenerateResource.Cache
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.exe
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\DisplayWindow.baml
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\DisplayWindow.g.cs
