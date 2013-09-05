@@ -39,5 +39,13 @@ namespace Fast_Project
         }
 
         private DisplayWindow _display;
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_display != null)
+            {
+                _display.Close();
+            }
+        }
     }
 }

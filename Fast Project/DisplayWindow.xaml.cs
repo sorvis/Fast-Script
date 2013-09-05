@@ -23,5 +23,25 @@ namespace Fast_Project
         {
             InitializeComponent();
         }
+
+        private void setScreen()
+        {
+            var projectorScreen = ScreenHandler.GetProjectorScreen();
+            var currentScreen = ScreenHandler.GetCurrentScreen(this);
+            if (projectorScreen.DeviceName != currentScreen.DeviceName)
+            {
+                this.WindowState = WindowState.Normal;
+                this.Left = projectorScreen.WorkingArea.Left;
+                this.Top = projectorScreen.WorkingArea.Top;
+                this.Width = projectorScreen.WorkingArea.Width;
+                this.Height = projectorScreen.WorkingArea.Height;
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            setScreen();
+        }
     }
 }

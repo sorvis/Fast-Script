@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ProjectionDataElement.cs" />
     <Compile Include="ScreenHandler.cs" />
     <Page Include="DisplayWindow.xaml">
       <SubType>Designer</SubType>

@@ -3,8 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="DisplayWindow" Height="300" Width="300"
         WindowStyle="None" ResizeMode="NoResize"  
-        WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded">
+    <Viewbox>
+        <StackPanel>
+        <TextBlock>test</TextBlock>
+        </StackPanel>
+    </Viewbox>
 </Window>
