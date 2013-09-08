@@ -89,3 +89,19 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Scri
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.To_MP3_Options.resources
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.VerseSelecter.resources
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast Script.csproj.GenerateResource.Cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\bin\Debug\Fast Script.exe
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\bin\Debug\Fast Script.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\bin\Debug\yeti.mmedia.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\bin\Debug\yeti.mp3.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\bin\Debug\yeti.mmedia.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\bin\Debug\yeti.mp3.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast Script.csprojResolveAssemblyReference.cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.AboutBox.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.MainWindow.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.Properties.Resources.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.View.SelectedVersesControl.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.To_MP3_Options.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast_Script.VerseSelecter.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast Script.csproj.GenerateResource.Cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast Script.exe
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\obj\x86\Debug\Fast Script.pdb

@@ -59,3 +59,12 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\Yeti
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.csproj.GenerateResource.Cache
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.dll
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\bin\Debug\yeti.mp3.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\bin\Debug\yeti.mmedia.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\bin\Debug\yeti.mmedia.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.csprojResolveAssemblyReference.cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\Yeti.MMedia.Mp3.EditMp3Writer.resources
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.csproj.GenerateResource.Cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\yeti.mp3\obj\Debug\yeti.mp3.pdb

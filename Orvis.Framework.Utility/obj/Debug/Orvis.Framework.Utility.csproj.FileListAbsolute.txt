@@ -2,3 +2,8 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\bin\Debug\O
 C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\bin\Debug\Orvis.Framework.Utility.pdb
 C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\obj\Debug\Orvis.Framework.Utility.dll
 C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\obj\Debug\Orvis.Framework.Utility.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\bin\Debug\Orvis.Framework.Utility.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\bin\Debug\Orvis.Framework.Utility.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\obj\Debug\Orvis.Framework.Utility.csprojResolveAssemblyReference.cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\obj\Debug\Orvis.Framework.Utility.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.Utility\obj\Debug\Orvis.Framework.Utility.pdb
