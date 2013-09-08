@@ -13,3 +13,6 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.pdb
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\DisplayWindow.baml
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\DisplayWindow.g.cs
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Fast Project.exe.config
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.exe
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.pdb
