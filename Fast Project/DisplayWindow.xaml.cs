@@ -28,11 +28,11 @@ namespace Fast_Project
         {
             get
             {
-                return this.DataContext as ProjectionDataElement;
+                return _projectorDisplay.ProjectedData;
             }
             set
             {
-                this.DataContext = value;
+                _projectorDisplay.ProjectedData = value;
             }
         }
 

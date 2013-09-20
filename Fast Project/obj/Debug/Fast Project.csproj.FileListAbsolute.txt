@@ -1,16 +1,9 @@
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Fast Project.exe.config
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Fast Project.exe
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Fast Project.pdb
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.csprojResolveAssemblyReference.cache
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\MainWindow.baml
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\MainWindow.g.cs
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\App.g.cs
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project_MarkupCompile.cache
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.g.resources
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast_Project.Properties.Resources.resources
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.csproj.GenerateResource.Cache
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.exe
-C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.pdb
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\DisplayWindow.baml
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\DisplayWindow.g.cs
 C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Fast Project.exe.config
@@ -30,3 +23,14 @@ C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Projec
 C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.g.resources
 C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast_Project.Properties.Resources.resources
 C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\Fast Project.csproj.GenerateResource.Cache
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\ProjectorDisplayControl.baml
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\ProjectorDisplayControl.g.cs
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject_MarkupCompile.cache
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\FastProject.exe.config
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\FastProject.exe
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\FastProject.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject_MarkupCompile.lref
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject.g.resources
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject.exe
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject.pdb

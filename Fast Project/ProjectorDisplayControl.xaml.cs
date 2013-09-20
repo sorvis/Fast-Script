@@ -24,5 +24,17 @@ namespace Fast_Project
         {
             InitializeComponent();
         }
+
+        public ProjectionDataElement ProjectedData
+        {
+            get
+            {
+                return this.DataContext as ProjectionDataElement;
+            }
+            set
+            {
+                this.DataContext = value;
+            }
+        }
     }
 }
