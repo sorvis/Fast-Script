@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +24,16 @@ namespace Fast_Project
         public MainWindow()
         {
             InitializeComponent();
-            CurrentProjectedData = new ProjectionDataElement();
+            ProjectedDataList = new ObservableCollection<ProjectionDataElement>();
+            ProjectedDataList.Add(new ProjectionDataElement() { TextBody = "testsf" });
         }
 
-        private ProjectionDataElement CurrentProjectedData
+
+        private ObservableCollection<ProjectionDataElement> ProjectedDataList
         {
             get
             {
-                return this.DataContext as ProjectionDataElement;
+                return this.DataContext as ObservableCollection<ProjectionDataElement>;
             }
             set
             {
@@ -47,7 +50,7 @@ namespace Fast_Project
             else
             {
                 _display =  new DisplayWindow();
-                _display.ProjectedData = CurrentProjectedData;
+                _display.ProjectedData = ProjectedDataList[0]; // TODO move line to XAML for current selected ProjectionDataElement
                 _display.Show();
             }
         }
@@ -60,6 +63,13 @@ namespace Fast_Project
             {
                 _display.Close();
             }
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectionDataElement projectedData = new ProjectionDataElement();
+            ProjectedDataList.Add(projectedData);
+            this.projectedDataListBox.SelectedItem = projectedData;
         }
     }
 }

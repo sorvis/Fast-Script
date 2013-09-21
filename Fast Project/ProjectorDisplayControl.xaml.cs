@@ -20,12 +20,37 @@ namespace Fast_Project
     /// </summary>
     public partial class ProjectorDisplayControl : UserControl
     {
+        static ProjectorDisplayControl()
+        {
+            ProjectedDataProperty = DependencyProperty.Register("ProjectedData", typeof(ProjectionDataElement), typeof(ProjectorDisplayControl),
+                new PropertyMetadata(new PropertyChangedCallback((objectInstance, arguments) =>
+                {
+                    ProjectorDisplayControl projectorDisplayControl = (ProjectorDisplayControl)objectInstance;
+                    projectorDisplayControl._projectedData = (ProjectionDataElement)arguments.NewValue;
+                })));
+        }
+
         public ProjectorDisplayControl()
         {
             InitializeComponent();
         }
 
+        public static readonly DependencyProperty ProjectedDataProperty;
+
         public ProjectionDataElement ProjectedData
+        {
+            get
+            {
+                return (ProjectionDataElement)GetValue(ProjectedDataProperty);
+            }
+            set
+            {
+                SetValue(ProjectedDataProperty, value);
+            }
+        }
+
+
+        private ProjectionDataElement _projectedData
         {
             get
             {
