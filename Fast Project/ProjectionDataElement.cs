@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orvis.Framework.Utility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fast_Project
 {
-    public class ProjectionDataElement : INotifyPropertyChanged
+    public class ProjectionDataElement : INotifyPropertyChanged, ViewModelObject
     {
         private String _textBody;
         public String TextBody
@@ -21,19 +22,6 @@ namespace Fast_Project
                 _textBody = value;
                 OnPropertyChanged("TextBody");
             } 
-        }
-
-        // Declare the event 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // Create the OnPropertyChanged method to raise the event 
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
         }
     }
 }
