@@ -24,8 +24,8 @@ namespace Fast_Project
         public MainWindow()
         {
             InitializeComponent();
+
             ProjectedDataList = new ObservableCollection<ProjectionDataElement>();
-            ProjectedDataList.Add(new ProjectionDataElement() { TextBody = "testsf" });
         }
 
 

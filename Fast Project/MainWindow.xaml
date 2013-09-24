@@ -8,16 +8,16 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding }" Template="{DynamicResource ProjectionDataListBoxControlTemplate}" Name="projectedDataListBox">
-            <ListBox.Resources>
-                <ControlTemplate x:Key="ProjectionDataListBoxControlTemplate" TargetType="{x:Type ListBox}">
+        <ListBox Grid.Column="0" ItemsSource="{Binding }" Name="projectedDataListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
                     <StackPanel>
                         <Border BorderThickness="1" BorderBrush="Black">
                             <controls:ProjectorDisplayControl x:Name="_projectorDisplay" ProjectedData="{Binding}"/>
                         </Border>
                     </StackPanel>
-                </ControlTemplate>
-            </ListBox.Resources>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
             <TextBox Text="{Binding ElementName=projectedDataListBox, Path=SelectedItem.TextBody, UpdateSourceTrigger=PropertyChanged}"
