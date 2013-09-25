@@ -34,3 +34,5 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject_
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject.g.resources
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject.exe
 C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\obj\Debug\FastProject.pdb
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Orvis.Framework.Utility.dll
+C:\Users\steven\Documents\GitHub\Fast-Script\Fast Project\bin\Debug\Orvis.Framework.Utility.pdb

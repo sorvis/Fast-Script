@@ -24,15 +24,15 @@ namespace Fast_Project
             InitializeComponent();
         }
 
-        public ProjectionDataElement ProjectedData
+        public ViewModel ViewModel
         {
             get
             {
-                return _projectorDisplay.ProjectedData;
+                return this.DataContext as ViewModel;
             }
             set
             {
-                _projectorDisplay.ProjectedData = value;
+                this.DataContext = value;
             }
         }
 

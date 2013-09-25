@@ -24,16 +24,15 @@ namespace Fast_Project
         public MainWindow()
         {
             InitializeComponent();
-
-            ProjectedDataList = new ObservableCollection<ProjectionDataElement>();
+            ViewModel = new ViewModel();
         }
 
 
-        private ObservableCollection<ProjectionDataElement> ProjectedDataList
+        private ViewModel ViewModel
         {
             get
             {
-                return this.DataContext as ObservableCollection<ProjectionDataElement>;
+                return this.DataContext as ViewModel;
             }
             set
             {
@@ -50,7 +49,7 @@ namespace Fast_Project
             else
             {
                 _display =  new DisplayWindow();
-                _display.ProjectedData = ProjectedDataList[0]; // TODO move line to XAML for current selected ProjectionDataElement
+                _display.ViewModel = ViewModel;
                 _display.Show();
             }
         }
@@ -68,7 +67,7 @@ namespace Fast_Project
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             ProjectionDataElement projectedData = new ProjectionDataElement();
-            ProjectedDataList.Add(projectedData);
+            ViewModel.ProjectionDataElementList.Add(projectedData);
             this.projectedDataListBox.SelectedItem = projectedData;
         }
     }

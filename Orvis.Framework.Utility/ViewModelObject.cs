@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Orvis.Framework.Utility
 {
-    public class ViewModelObject
+    public class ViewModelObject : INotifyPropertyChanged
     {
         // Declare the event 
         public event PropertyChangedEventHandler PropertyChanged;

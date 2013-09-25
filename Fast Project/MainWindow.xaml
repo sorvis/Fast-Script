@@ -8,12 +8,13 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding }" Name="projectedDataListBox">
+        <ListBox Grid.Column="0" ItemsSource="{Binding Path=ProjectionDataElementList}" Name="projectedDataListBox" 
+                 SelectedItem="{Binding Path=CurrentSelectedProjectionDataElement, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <Border BorderThickness="1" BorderBrush="Black">
-                            <controls:ProjectorDisplayControl x:Name="_projectorDisplay" ProjectedData="{Binding}"/>
+                            <controls:ProjectorDisplayControl x:Name="_projectorDisplay"/>
                         </Border>
                     </StackPanel>
                 </DataTemplate>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fast_Project
 {
-    public class ProjectionDataElement : INotifyPropertyChanged, ViewModelObject
+    public class ProjectionDataElement : ViewModelObject
     {
         private String _textBody;
         public String TextBody
