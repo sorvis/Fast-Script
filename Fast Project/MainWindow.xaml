@@ -14,7 +14,7 @@
                 <DataTemplate>
                     <StackPanel>
                         <Border BorderThickness="1" BorderBrush="Black">
-                            <controls:ProjectorDisplayControl x:Name="_projectorDisplay"/>
+                            <controls:ProjectorDisplayControl x:Name="_projectorDisplay" ProjectedData="{Binding}"/>
                         </Border>
                     </StackPanel>
                 </DataTemplate>

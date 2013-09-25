@@ -7,7 +7,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Viewbox>
         <StackPanel>
-            <TextBlock Text="{Binding Path=CurrentSelectedProjectionDataElement.TextBody}"/>
+            <TextBlock Text="{Binding Path=TextBody}"/>
         </StackPanel>
     </Viewbox>
 </UserControl>
