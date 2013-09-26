@@ -24,6 +24,7 @@ namespace Fast_Project
             InitializeComponent();
         }
 
+        
         public ViewModel ViewModel
         {
             get

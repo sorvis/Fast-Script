@@ -7,7 +7,8 @@
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded">
     <Viewbox>
         <StackPanel>
-            <controls:ProjectorDisplayControl x:Name="_projectorDisplay"/>
+            <controls:ProjectorDisplayControl x:Name="_projectorDisplay" ProjectedData="{Binding Path=ViewModel.CurrentSelectedProjectionDataElement, 
+                RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:DisplayWindow}}}"/>
         </StackPanel>
     </Viewbox>
 </Window>
