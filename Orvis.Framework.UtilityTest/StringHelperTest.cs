@@ -61,5 +61,16 @@ namespace Orvis.Framework.UtilityTest
             int numberOfLines = actual.Count(character => character == Environment.NewLine.ToCharArray()[0])+1;
             Assert.IsTrue(shortestLine.Length <= numberOfLines);
         }
+
+        [TestMethod]
+        public void SplitStringIntoNumberOfLines_should_return_five_lines_given_five_words_with_the_goal_of_five_lines()
+        {
+            String text = "one two three four five";
+            int expected = 5;
+            String result = StringHelper.SplitStringIntoNumberOfLines(text, expected);
+            int actual = result.Split(Environment.NewLine.ToCharArray()).Length;
+            Trace.WriteLine(result);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
