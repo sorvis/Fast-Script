@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orvis.Framework.Utility", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastProject.Test", "FastProject.Test\FastProject.Test.csproj", "{003089C2-2E6E-4B5F-BC6A-3105F09AD631}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orvis.Framework.UtilityTest", "Orvis.Framework.UtilityTest\Orvis.Framework.UtilityTest.csproj", "{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fast Script1.vsmdi
@@ -272,6 +274,31 @@ Global
 		{003089C2-2E6E-4B5F-BC6A-3105F09AD631}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{003089C2-2E6E-4B5F-BC6A-3105F09AD631}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
 		{003089C2-2E6E-4B5F-BC6A-3105F09AD631}.SingleImage|x86.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.CD_ROM|Mixed Platforms.Build.0 = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.CD_ROM|x86.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.DVD-5|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.DVD-5|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.DVD-5|x86.ActiveCfg = Debug|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.Release|x86.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
+		{CFAC9E08-DE96-4394-8100-B87CD21E4FC3}.SingleImage|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

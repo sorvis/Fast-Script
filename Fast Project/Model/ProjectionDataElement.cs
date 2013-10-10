@@ -24,9 +24,6 @@ namespace Fast_Project
             } 
         }
 
-        public static String SplitStringIntoEvenLines(String originalString)
-        {
-            return originalString;
-        }
+
     }
 }

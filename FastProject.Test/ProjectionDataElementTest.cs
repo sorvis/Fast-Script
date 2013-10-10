@@ -6,9 +6,6 @@ namespace FastProject.Test
     [TestClass]
     public class ProjectionDataElementTest
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+
     }
 }
