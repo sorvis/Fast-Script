@@ -23,5 +23,10 @@ namespace Fast_Project
                 OnPropertyChanged("TextBody");
             } 
         }
+
+        public static String SplitStringIntoEvenLines(String originalString)
+        {
+            return originalString;
+        }
     }
 }
