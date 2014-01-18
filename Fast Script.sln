@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeti.mmedia", "Fast Script\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeti.mp3", "Fast Script\yeti.mp3\yeti.mp3.csproj", "{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFastScript", "TestFastScript\TestFastScript.csproj", "{7A0D20EE-9970-4AF3-B122-8664D0CC3F4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E42DFF9-6406-4684-8A9E-EDB298467E5F}"
@@ -129,21 +127,6 @@ Global
 		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
 		{B564FD33-FA50-46B2-B669-2D83DE3AF5E4}.SingleImage|x86.ActiveCfg = Release|Any CPU
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.CD_ROM|Any CPU.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.CD_ROM|Mixed Platforms.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.CD_ROM|x86.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.Debug|Any CPU.ActiveCfg = Debug
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.Debug|x86.ActiveCfg = Debug
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.DVD-5|Any CPU.ActiveCfg = Debug
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.DVD-5|Mixed Platforms.ActiveCfg = Debug
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.DVD-5|x86.ActiveCfg = Debug
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.Release|Any CPU.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.Release|Mixed Platforms.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.Release|x86.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.SingleImage|Any CPU.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.SingleImage|Mixed Platforms.ActiveCfg = Release
-		{34A2F3AB-F727-4C76-9B1E-221B6D1B152A}.SingleImage|x86.ActiveCfg = Release
 		{7A0D20EE-9970-4AF3-B122-8664D0CC3F4B}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
 		{7A0D20EE-9970-4AF3-B122-8664D0CC3F4B}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{7A0D20EE-9970-4AF3-B122-8664D0CC3F4B}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
