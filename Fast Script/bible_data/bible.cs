@@ -6,16 +6,16 @@ using System.ComponentModel;
 
 namespace Fast_Script.bible_data
 {
-    public class bible
+    public class Bible
     {
-        public string _bibleVersion { get; set; }
-        private List<book> _books;
+        public string BibleVersion { get; set; }
+        private List<Book> _books;
         private List<string> _booksIndex;
-        private bookManipulator _manipulator;
-        private data_index.indexBuilder _bibleIndex;
-        public data_index.indexBuilder Index
+        private BookManipulator _manipulator;
+        private data_index.IndexBuilder _bibleIndex;
+        public data_index.IndexBuilder Index
         {get { return _bibleIndex; }set { _bibleIndex = value; }}
-        public List<book> getAllBooks()
+        public List<Book> GetAllBooks()
         {
             return _books;
         }
@@ -27,56 +27,56 @@ namespace Fast_Script.bible_data
             }
         }
         private BackgroundWorker _indexBuilderWorker;
-        public BackgroundWorker indexBuilderWorker { get{return _indexBuilderWorker;} }
-        public bible()
+        public BackgroundWorker IndexBuilderWorker { get{return _indexBuilderWorker;} }
+        public Bible()
         {
-            _books = new List<book>();
+            _books = new List<Book>();
             _booksIndex = new List<string>();
-            _manipulator = new bookManipulator(this);
+            _manipulator = new BookManipulator(this);
             _indexBuilderWorker = new BackgroundWorker();
             _indexBuilderWorker.DoWork += new DoWorkEventHandler(indexBuilderWorker_DoWork);
         }
         public void BuildIndex() // uses threading to allow gui to start while indexing happens
         {
-            indexBuilderWorker.RunWorkerAsync(this);
+            IndexBuilderWorker.RunWorkerAsync(this);
             //Index = new data_index.indexBuilder(this);
         }
         public void BuildIndex_withOutThreading()
         {
-            Index = new data_index.indexBuilder(this);
+            Index = new data_index.IndexBuilder(this);
         }
         private void indexBuilderWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            Index = new data_index.indexBuilder((bible) e.Argument);
+            Index = new data_index.IndexBuilder((Bible) e.Argument);
         }
-        public string getVerse(string book, int chapter, int verse)
+        public string GetVerse(string book, int chapter, int verse)
         {
-            return _manipulator.getVerse(book, chapter, verse);
+            return _manipulator.GetVerse(book, chapter, verse);
         }
-        public List<data_index.verse> getVerseRange(string startRef, string endRef)
+        public List<data_index.Verse> GetVerseRange(string startRef, string endRef)
         {
             return _manipulator.getVerseRange(startRef, endRef);
         }
-        public bookManipulator getManipulator()
+        public BookManipulator GetManipulator()
         {
             return _manipulator;
         }
-        public string getVersion()
+        public string GetVersion()
         {
-            return _bibleVersion;
+            return BibleVersion;
         }
-        public void addBook(book item)
+        public void AddBook(Book item)
         {
             _books.Add(item);
-            _booksIndex.Add(item.getTitle());
+            _booksIndex.Add(item.GetTitle());
         }
-        public void removeBook(string title)
+        public void RemoveBook(string title)
         {
             int index = _booksIndex.IndexOf(title);
             _booksIndex.RemoveAt(index);
             _books.RemoveAt(index);
         }
-        public book getBook(string title)
+        public Book GetBook(string title)
         {
             if (_booksIndex.Contains(title))
             {
@@ -85,7 +85,7 @@ namespace Fast_Script.bible_data
             }
             else
             {
-                return new book("null");
+                return new Book("null");
             }
         }
     }

@@ -16,7 +16,7 @@ namespace TestFastScript
     public class searchParsingTest
     {
 
-        backEndInitializer backEnd = new backEndInitializer();
+        BackEndInitializer backEnd = new BackEndInitializer();
 
         public searchParsingTest()
         {
@@ -98,12 +98,12 @@ namespace TestFastScript
         [DeploymentItem("Fast Script.exe")]
         public void capitalizeWordTest()
         {
-            searchParsing_Accessor target = new searchParsing_Accessor(); 
-            Assert.AreEqual("cat".capitalizeWord(), "Cat");
-            Assert.AreEqual("CAT".capitalizeWord(), "Cat");
-            Assert.AreEqual("cAT".capitalizeWord(), "Cat");
-            Assert.AreEqual("Cat".capitalizeWord(), "Cat");
-            Assert.AreEqual("1 cat".capitalizeWord(), "1 Cat");
+            SearchParsing_Accessor target = new SearchParsing_Accessor(); 
+            Assert.AreEqual("cat".CapitalizeWord(), "Cat");
+            Assert.AreEqual("CAT".CapitalizeWord(), "Cat");
+            Assert.AreEqual("cAT".CapitalizeWord(), "Cat");
+            Assert.AreEqual("Cat".CapitalizeWord(), "Cat");
+            Assert.AreEqual("1 cat".CapitalizeWord(), "1 Cat");
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace TestFastScript
             FakeMainWindow fakeView = new FakeMainWindow();
             FakePresenter fakePresenter = new FakePresenter();
             fakePresenter.Backend = backEnd;
-            searchParsing target = new searchParsing(fakePresenter);
+            SearchParsing target = new SearchParsing(fakePresenter);
 
             // test book suggest
             string originalSearch = "Jud";

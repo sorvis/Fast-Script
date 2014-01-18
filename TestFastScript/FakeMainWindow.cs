@@ -9,7 +9,7 @@ namespace TestFastScript
     {
         private List<string> suggestions = new List<string>();
         public string originalSearch { get; set; }
-        public void searchBoxSuggestions(object thing, string text)
+        public void SearchBoxSuggestions(object thing, string text)
         {
             suggestions = (List<string>) thing;
             originalSearch = text;

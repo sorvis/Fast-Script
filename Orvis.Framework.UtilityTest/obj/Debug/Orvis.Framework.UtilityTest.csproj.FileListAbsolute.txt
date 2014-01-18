@@ -5,3 +5,10 @@ C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\bin\Deb
 C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\obj\Debug\Orvis.Framework.UtilityTest.csprojResolveAssemblyReference.cache
 C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\obj\Debug\Orvis.Framework.UtilityTest.dll
 C:\Users\steven\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\obj\Debug\Orvis.Framework.UtilityTest.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\bin\Debug\Orvis.Framework.UtilityTest.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\bin\Debug\Orvis.Framework.UtilityTest.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\bin\Debug\Orvis.Framework.Utility.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\bin\Debug\Orvis.Framework.Utility.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\obj\Debug\Orvis.Framework.UtilityTest.csprojResolveAssemblyReference.cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\obj\Debug\Orvis.Framework.UtilityTest.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\Orvis.Framework.UtilityTest\obj\Debug\Orvis.Framework.UtilityTest.pdb

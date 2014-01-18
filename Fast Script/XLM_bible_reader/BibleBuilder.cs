@@ -8,15 +8,15 @@ namespace Fast_Script.XLM_bible_reader
 {
     class BibleBuilder
     {
-        openXML_Zefania_XML_Bible_Markup_Language _reader;
-        bible_data.bible _bible;
+        OpenXML_Zefania_XML_Bible_Markup_Language _reader;
+        bible_data.Bible _bible;
         public BibleBuilder(string fileLocation)
         {
             switch (getFormatName(fileLocation))
             {
                 case "Zefania XML Bible Markup Language":
-                    _bible = new bible_data.bible();
-                    _reader = new openXML_Zefania_XML_Bible_Markup_Language(fileLocation, _bible.getManipulator());
+                    _bible = new bible_data.Bible();
+                    _reader = new OpenXML_Zefania_XML_Bible_Markup_Language(fileLocation, _bible.GetManipulator());
                     break;
                 default:
                     throw new System.ArgumentException("XML format not recognized.", getFormatName(fileLocation));
@@ -29,7 +29,7 @@ namespace Fast_Script.XLM_bible_reader
             XMLreader.ReadToFollowing("format");
             return XMLreader.ReadElementContentAsString();
         }
-        public bible_data.bible GetBible
+        public bible_data.Bible GetBible
         { get { return _bible; } }
     }
 }

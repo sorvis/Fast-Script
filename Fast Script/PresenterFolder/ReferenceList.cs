@@ -9,41 +9,41 @@ namespace Fast_Script.PresenterFolder
     [Serializable()]
     public class ReferenceList : ISerializable
     {
-        ReferenceItem _currentRefernce;
-        public ReferenceItem currentRefernce
+        private ReferenceItem _currentReference;
+        public ReferenceItem CurrentReference
         {
-            get { return _currentRefernce; }
-            set { _currentRefernce = value; }
+            get { return _currentReference; }
+            set { _currentReference = value; }
         }
         List<ReferenceItem> _referenceList;
-        public List<ReferenceItem> getList
+        public List<ReferenceItem> GetList
         {
             get { return _referenceList; }
         }
         public ReferenceList()
         {
             _referenceList = new List<ReferenceItem>();
-            _currentRefernce = null;
+            _currentReference = null;
         }
         public ReferenceList(List<ReferenceItem> items)
         {
             _referenceList = items;
-            _currentRefernce = null;
+            _currentReference = null;
         }
-        public void addReferenceItem(ReferenceItem item)
+        public void AddReferenceItem(ReferenceItem item)
         {
             _referenceList.Add(item);
         }
         // assumes the ReferenceItem has already been built
-        public List<ReferenceItem> buildVerseListFromRange(ReferenceItem item, backEndInitializer backend)
+        public List<ReferenceItem> BuildVerseListFromRange(ReferenceItem item, BackEndInitializer backend)
         {
-            if (item.range)
+            if (item.Range)
             {
                 List<ReferenceItem> expandedReferenceList = new List<ReferenceItem>();
 
                 // get list of the books
-                int startBookIndex = Array.IndexOf(backend.currentBooks, item.startBook);
-                int endBookIndex = Array.IndexOf(backend.currentBooks, item.endBook);
+                int startBookIndex = Array.IndexOf(backend.CurrentBooks, item.StartBook);
+                int endBookIndex = Array.IndexOf(backend.CurrentBooks, item.EndBook);
                 int startingChapter;
                 int endingChapter;
                 int startingVerse;
@@ -52,34 +52,34 @@ namespace Fast_Script.PresenterFolder
                 // cycle through the books selected
                 for (int bookIndex = startBookIndex; bookIndex <= endBookIndex; bookIndex++)
                 {
-                    book = backend.currentBooks[bookIndex];
+                    book = backend.CurrentBooks[bookIndex];
 
-                    if (book == item.startBook) // get starting chapter and verse
-                    { startingChapter = (int)item.startChapter; }
+                    if (book == item.StartBook) // get starting chapter and verse
+                    { startingChapter = (int)item.StartChapter; }
                     else
                     { startingChapter = 1; }
-                    if (book == item.endBook) // get ending chapter and verse
-                    { endingChapter = (int)item.endChapter; }
+                    if (book == item.EndBook) // get ending chapter and verse
+                    { endingChapter = (int)item.EndChapter; }
                     else
-                    { endingChapter = backend.currentChapters(book).Count(); }
+                    { endingChapter = backend.CurrentChapters(book).Count(); }
 
                     // cycle through chapters for current book
                     for (int chapter = startingChapter; chapter <= endingChapter; chapter++)
                     {
-                        if (book == item.startBook && chapter == item.startChapter)
-                        { startingVerse = (int)item.startVerse; }
+                        if (book == item.StartBook && chapter == item.StartChapter)
+                        { startingVerse = (int)item.StartVerse; }
                         else
                         { startingVerse = 1; }
-                        if (book == item.endBook && chapter == item.endChapter)
-                        { endingVerse = (int)item.endVerse; }
+                        if (book == item.EndBook && chapter == item.EndChapter)
+                        { endingVerse = (int)item.EndVerse; }
                         else
-                        { endingVerse = backend.currentVerses(book, chapter).Count; }
+                        { endingVerse = backend.CurrentVerses(book, chapter).Count; }
 
                         // cycle through verses for currect chapter
                         for (int verse = startingVerse; verse <= endingVerse; verse++)
                         {
                             expandedReferenceList.Add(new ReferenceItem(book, chapter, 
-                                verse, false, backend.getVerse(book, chapter, verse)));
+                                verse, false, backend.GetVerse(book, chapter, verse)));
                         }
                     }
                 }
@@ -91,103 +91,103 @@ namespace Fast_Script.PresenterFolder
                 return null;
             }
         }
-        public ReferenceItem addReference(string startingBook)
+        public ReferenceItem AddReference(string startingBook)
         {
             ReferenceItem item = new ReferenceItem();
             _referenceList.Add(item);
-            _currentRefernce = item;
-            item.startBook = startingBook;
+            _currentReference = item;
+            item.StartBook = startingBook;
             return item;
         }
-        public ReferenceItem addReference(string startingBook, int startChapter, int startVerse)
+        public ReferenceItem AddReference(string startingBook, int startChapter, int startVerse)
         {
             ReferenceItem item = new ReferenceItem();
             _referenceList.Add(item);
-            _currentRefernce = item;
-            item.startBook = startingBook;
-            item.startChapter = startChapter;
-            item.startVerse = startVerse;
+            _currentReference = item;
+            item.StartBook = startingBook;
+            item.StartChapter = startChapter;
+            item.StartVerse = startVerse;
             return item;
         }
-        public void appendReferenceList(ReferenceList oldList)
+        public void AppendReferenceList(ReferenceList oldList)
         {
             if (oldList != null)
             {
-                foreach (ReferenceItem item in oldList.getList)
+                foreach (ReferenceItem item in oldList.GetList)
                 {
                     _referenceList.Add(item);
                 }
             }
         }
-        public void completeReferences(backEndInitializer backend) // copy over full reference data on each item
+        public void CompleteReferences(BackEndInitializer backend) // copy over full reference data on each item
         {
-            ReferenceItem reff;
+            ReferenceItem reference;
             for (int i = 0; i < _referenceList.Count; i++)
             {
-                reff = _referenceList[i];
+                reference = _referenceList[i];
                 // handle missing starting references
-                if (reff.startChapter == null) // whole book listed
+                if (reference.StartChapter == null) // whole book listed
                 {
-                    reff.startChapter = 1;
-                    if (reff.range == false)
+                    reference.StartChapter = 1;
+                    if (reference.Range == false)
                     {
-                        reff.endBook = reff.startBook;
-                        reff.endChapter = backend.currentChapters(reff.startBook).Last();
+                        reference.EndBook = reference.StartBook;
+                        reference.EndChapter = backend.CurrentChapters(reference.StartBook).Last();
                     }
                 }
-                if (reff.startVerse == null) // whole chapter listed
+                if (reference.StartVerse == null) // whole chapter listed
                 {
-                    reff.startVerse = 1;
-                    if (reff.range == false)
+                    reference.StartVerse = 1;
+                    if (reference.Range == false)
                     {
-                        reff.endBook = reff.startBook;
-                        if (reff.endChapter == null)
+                        reference.EndBook = reference.StartBook;
+                        if (reference.EndChapter == null)
                         {
-                            reff.endChapter = reff.startChapter;
+                            reference.EndChapter = reference.StartChapter;
                         }
-                        reff.endVerse = backend.currentVerses(reff.startBook, (int)reff.endChapter).Count;
+                        reference.EndVerse = backend.CurrentVerses(reference.StartBook, (int)reference.EndChapter).Count;
                     }
                 }
 
                 // handle missing ending references
-                if (reff.range == true)
+                if (reference.Range == true)
                 {
-                    if (reff.endBook == null) // no book -- john 3-4
+                    if (reference.EndBook == null) // no book -- john 3-4
                     {
-                        reff.endBook = reff.startBook;
+                        reference.EndBook = reference.StartBook;
                     }
 
-                    if(reff.endChapter == null && reff.startBook != reff.endBook) // 1 john - 2 john
+                    if(reference.EndChapter == null && reference.StartBook != reference.EndBook) // 1 john - 2 john
                     {
-                        reff.endChapter = backend.currentChapters(reff.endBook).Last();
+                        reference.EndChapter = backend.CurrentChapters(reference.EndBook).Last();
                     }
-                    else if (reff.endChapter == null) // no chapter --> john 3:3-5
+                    else if (reference.EndChapter == null) // no chapter --> john 3:3-5
                     {// so same chapter for start as end
-                        reff.endChapter = reff.startChapter;
+                        reference.EndChapter = reference.StartChapter;
                     }
-                    if (reff.endVerse == null) // no verse --> john 3 - john 4 or john 3 - 4
+                    if (reference.EndVerse == null) // no verse --> john 3 - john 4 or john 3 - 4
                     {// so last verse of endChapter
-                        reff.endVerse = backend.currentVerses(reff.endBook, (int)reff.endChapter).Count;
+                        reference.EndVerse = backend.CurrentVerses(reference.EndBook, (int)reference.EndChapter).Count;
                     }
                 }
 
                 // set reff range to true if range items have been filled in
-                if (reff.endBook != null)
+                if (reference.EndBook != null)
                 {
-                    reff.range = true;
+                    reference.Range = true;
                 }
             }
         }
         public ReferenceList(SerializationInfo info, StreamingContext ctxt)
         {
-            _currentRefernce = (ReferenceItem)info.GetValue("_currentRefernce",
+            _currentReference = (ReferenceItem)info.GetValue("_currentRefernce",
                 typeof(ReferenceItem));
             _referenceList = (List<ReferenceItem>)info.GetValue("_referenceList",
                 typeof(List<ReferenceItem>));
         }
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
-            info.AddValue("_currentRefernce", _currentRefernce);
+            info.AddValue("_currentRefernce", _currentReference);
             info.AddValue("_referenceList", _referenceList);
         }
     }

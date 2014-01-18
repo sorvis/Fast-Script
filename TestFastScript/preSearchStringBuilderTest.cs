@@ -71,11 +71,11 @@ namespace TestFastScript
         [DeploymentItem("Fast Script.exe")]
         public void fixBookNumberTitlesInSearchArrayTest()
         {
-            searchParsing_Accessor target = new searchParsing_Accessor();
+            SearchParsing_Accessor target = new SearchParsing_Accessor();
             string[] text = { "1", "John", "-", "2", "John", ";", "3", "John", "4", "FakeBook" };
             string[] expected = { "1 John", "-", "2 John", ";", "3 John", "4", "FakeBook" };
             string[] actual;
-            actual = preSearchStringBuilder.fixBookNumberTitlesInSearchArray(text);
+            actual = PreSearchStringBuilder.FixBookNumberTitlesInSearchArray(text);
             Assert.AreEqual(expected.Length, actual.Length);
             for (int i = 0; i < expected.Length; i++)
             {
@@ -93,7 +93,7 @@ namespace TestFastScript
             string[] tempList = { "John", "5", "-", "6", "Jude", "5", ":", "4" };
             string[] expected = { "John", "5-6", "Jude", "5:4" };
             string[] actual;
-            actual = preSearchStringBuilder.combineHyphenAndDashInArray(tempList);
+            actual = PreSearchStringBuilder.CombineHyphenAndDashInArray(tempList);
 
             Assert.IsTrue(actual.areArraysEqual(expected));
         }

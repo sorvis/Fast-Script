@@ -15,7 +15,7 @@ namespace TestFastScript
     [TestClass()]
     public class indexLookerTest
     {
-        backEndInitializer backEnd = new backEndInitializer();
+        BackEndInitializer backEnd = new BackEndInitializer();
 
         public indexLookerTest()
         {
@@ -77,14 +77,14 @@ namespace TestFastScript
         [TestMethod()]
         public void getChaptersTest()
         {
-            indexLooker target = new indexLooker(backEnd);
+            IndexLooker target = new IndexLooker(backEnd);
             string book = "Jude";
             List<string> expected = new List<string>(new string[]
             {
                 "1"
             });
             List<string> actual;
-            actual = target.getPossibleChapters(book);
+            actual = target.GetPossibleChapters(book);
 
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -99,11 +99,11 @@ namespace TestFastScript
         [TestMethod()]
         public void containsBookTest()
         {
-            indexLooker target = new indexLooker(backEnd);
+            IndexLooker target = new IndexLooker(backEnd);
 
-            Assert.IsTrue(target.containsBook("john"));
-            Assert.IsTrue(target.containsBook("JOHN"));
-            Assert.IsFalse(target.containsBook("FakeBook"));
+            Assert.IsTrue(target.ContainsBook("john"));
+            Assert.IsTrue(target.ContainsBook("JOHN"));
+            Assert.IsFalse(target.ContainsBook("FakeBook"));
         }
     }
 }

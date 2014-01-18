@@ -7,31 +7,31 @@ using System.Runtime.Serialization;
 namespace Fast_Script.data_index
 {
     [Serializable()]
-    public class verse : ISerializable
+    public class Verse : ISerializable
     {
         private string _book;
 
         private Int16 _chapterNum;
         private Int16 _verseNum;
         private string _verseText;
-        public verse(string book, int chapter, int verse)
+        public Verse(string book, int chapter, int verse)
         {
             _book = book;
             _chapterNum = (Int16)chapter;
             _verseNum = (Int16)verse;
         }
-        public verse(string book, int chapter, int verse, string verseText)
+        public Verse(string book, int chapter, int verse, string verseText)
         {
             _book = book;
             _chapterNum = (Int16)chapter;
             _verseNum = (Int16)verse;
             _verseText = verseText;
         }
-        public string getVerseText()
+        public string GetVerseText()
         {
             return _verseText;
         }
-        public verse(SerializationInfo info, StreamingContext ctxt)
+        public Verse(SerializationInfo info, StreamingContext ctxt)
         {
             _book = (string)info.GetValue("Book", typeof(string));
             _chapterNum = (Int16)info.GetValue("ChapterNum", typeof(int));
@@ -73,7 +73,7 @@ namespace Fast_Script.data_index
                 _chapterNum = (Int16)value;
             }
         }
-        public int Verse
+        public int VerseNumber
         {
             get
             {

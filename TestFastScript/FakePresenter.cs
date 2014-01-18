@@ -9,12 +9,12 @@ namespace TestFastScript
 {
     class FakePresenter : Fast_Script.PresenterFolder.Searching.IPresenter
     {
-        public backEndInitializer Backend { get; set; }
-        public void writeWebView(string page)
+        public BackEndInitializer Backend { get; set; }
+        public void WriteWebView(string page)
         {
 
         }
-         public void displayVersesToWebView(ReferenceList list, string boldWords)
+         public void DisplayVersesToWebView(ReferenceList list, string boldWords)
          {
 
          }

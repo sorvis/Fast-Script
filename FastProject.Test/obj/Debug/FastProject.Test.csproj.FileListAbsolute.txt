@@ -3,3 +3,8 @@ C:\Users\steven\Documents\GitHub\Fast-Script\FastProject.Test\bin\Debug\FastProj
 C:\Users\steven\Documents\GitHub\Fast-Script\FastProject.Test\obj\Debug\FastProject.Test.dll
 C:\Users\steven\Documents\GitHub\Fast-Script\FastProject.Test\obj\Debug\FastProject.Test.pdb
 C:\Users\steven\Documents\GitHub\Fast-Script\FastProject.Test\obj\Debug\FastProject.Test.csprojResolveAssemblyReference.cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\FastProject.Test\bin\Debug\FastProject.Test.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\FastProject.Test\bin\Debug\FastProject.Test.pdb
+C:\Users\Gateway\Documents\GitHub\Fast-Script\FastProject.Test\obj\Debug\FastProject.Test.csprojResolveAssemblyReference.cache
+C:\Users\Gateway\Documents\GitHub\Fast-Script\FastProject.Test\obj\Debug\FastProject.Test.dll
+C:\Users\Gateway\Documents\GitHub\Fast-Script\FastProject.Test\obj\Debug\FastProject.Test.pdb

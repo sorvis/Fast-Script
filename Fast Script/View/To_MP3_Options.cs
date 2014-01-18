@@ -13,7 +13,7 @@ namespace Fast_Script
     public partial class To_MP3_Options : Form
     {
         private Presenter _presenter;
-        private PresenterFolder.GUI_Settings _settings;
+        private PresenterFolder.GUISettings _settings;
         public To_MP3_Options(Presenter presenter)
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace Fast_Script
             _settings = presenter.Settings;
 
             // load avalible voices in to dropdown
-            Installed_Voices_comboBox.Items.AddRange(_presenter.Settings.Get_All_TTS_VoiceNames);
+            Installed_Voices_comboBox.Items.AddRange(_presenter.Settings.TTSVoiceNames);
 
             Installed_Voices_comboBox.Text = _settings.CurrentTTSVoice.VoiceInfo.Name; // set current voice
 
@@ -30,7 +30,7 @@ namespace Fast_Script
 
         private void Installed_Voices_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _settings.CurrentTTSVoice = _settings.Get_TTS_byName(Installed_Voices_comboBox.Text); // set current voice
+            _settings.CurrentTTSVoice = _settings.GetTTSByName(Installed_Voices_comboBox.Text); // set current voice
             updateTTSLabels();
         }
         private void updateTTSLabels()

@@ -11,24 +11,24 @@ namespace Fast_Script
 {
     public class Presenter : Fast_Script.PresenterFolder.Searching.IPresenter
     {
-        private backEndInitializer _backend;
-        public backEndInitializer Backend {get { return _backend; }}
+        private BackEndInitializer _backend;
+        public BackEndInitializer Backend {get { return _backend; }}
         private MainWindow _view;
-        private PresenterFolder.Searching.searchParsing _ParseSearch;
+        private PresenterFolder.Searching.SearchParsing _ParseSearch;
         private ReferenceItem[] _currentItemsInWebview;
         public ReferenceItem[] ItemstInWebView
         {get{return _currentItemsInWebview;}}
         private string _currentBoldWord;
         public string CurrentBoldWord
         { get { return _currentBoldWord; } }
-        public GUI_Settings Settings
+        public GUISettings Settings
         { get { return _backend._settings; } }
         private string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
         public Presenter(MainWindow view)
         {
-            _backend = new backEndInitializer(this);
+            _backend = new BackEndInitializer(this);
             _view = view;
-            _ParseSearch = new PresenterFolder.Searching.searchParsing(this);
+            _ParseSearch = new PresenterFolder.Searching.SearchParsing(this);
         }
         public void saveVerseListToFile(ReferenceList list, string fileName)
         {
@@ -54,7 +54,7 @@ namespace Fast_Script
         public void setNewVerseList(ReferenceList list)
         {
             _view.VerseListBox.Items.Clear();
-            foreach (ReferenceItem item in list.getList)
+            foreach (ReferenceItem item in list.GetList)
             {
                 addToVerseList(item);
             }
@@ -65,7 +65,7 @@ namespace Fast_Script
         }
         public void displayVersesToWebView() // reloading current verses
         {
-            displayVersesToWebView(new ReferenceList(_currentItemsInWebview.ToList()), _currentBoldWord);
+            DisplayVersesToWebView(new ReferenceList(_currentItemsInWebview.ToList()), _currentBoldWord);
         }
         private string putVersesToStringGeneric(string[] verseArray)
         {
@@ -91,39 +91,39 @@ namespace Fast_Script
 
         private string[] verseListToTextForTTS(ReferenceList list)
         {
-            string[] verseText = new string[list.getList.Count];
+            string[] verseText = new string[list.GetList.Count];
             string tempVerse = "";
             string tempTitle = "";
-            list.completeReferences(_backend);
+            list.CompleteReferences(_backend);
             int counter = 0;
             int verseNumber;
-            foreach (ReferenceItem refItem in list.getList)
+            foreach (ReferenceItem refItem in list.GetList)
             {
-                tempTitle = refItem.startBook + " Chapter " + refItem.startChapter + " verse " +
-                    refItem.startVerse;
-                if (refItem.range == false) // just one verse
+                tempTitle = refItem.StartBook + " Chapter " + refItem.StartChapter + " verse " +
+                    refItem.StartVerse;
+                if (refItem.Range == false) // just one verse
                 {
-                    tempVerse = _backend.getVerse(refItem.startBook,
-                        (int)refItem.startChapter, (int)refItem.startVerse);
+                    tempVerse = _backend.GetVerse(refItem.StartBook,
+                        (int)refItem.StartChapter, (int)refItem.StartVerse);
                 }
                 else // range of verses in one refItem
                 {
-                    tempTitle += "; To " + refItem.endBook + " Chapter " + refItem.endChapter + " Verse " +
-                        refItem.endVerse;
+                    tempTitle += "; To " + refItem.EndBook + " Chapter " + refItem.EndChapter + " Verse " +
+                        refItem.EndVerse;
                     tempVerse = "";//clear it just in case
 
                     // get range of verses and format the sting
-                    foreach (data_index.verse verseItem in _backend.getVerseRange(
-                        refItem.startBook + " " + refItem.startChapter + ":" +
-                        refItem.startVerse, refItem.endBook + " " + refItem.endChapter +
-                        ":" + refItem.endVerse))
+                    foreach (data_index.Verse verseItem in _backend.GetVerseRange(
+                        refItem.StartBook + " " + refItem.StartChapter + ":" +
+                        refItem.StartVerse, refItem.EndBook + " " + refItem.EndChapter +
+                        ":" + refItem.EndVerse))
                     {
-                        verseNumber = verseItem.Verse;
+                        verseNumber = verseItem.VerseNumber;
                         if (verseNumber == 1) // at first verse print book and chapter num
                         {
                             tempVerse += ". Chapter " + verseItem.Chapter + " of the book of " + verseItem.Book +". .";
                         }
-                        tempVerse += ". " + verseItem.getVerseText();   // apend that verses text
+                        tempVerse += ". " + verseItem.GetVerseText();   // apend that verses text
                     }// end foreach
                 }
 
@@ -134,39 +134,39 @@ namespace Fast_Script
         }
         private string[] verseListToText(ReferenceList list)
         {
-            string[] verseText = new string[list.getList.Count];
+            string[] verseText = new string[list.GetList.Count];
             string tempVerse="";
             string tempTitle ="";
-            list.completeReferences(_backend);
+            list.CompleteReferences(_backend);
             int counter = 0;
             int verseNumber;
-            foreach (ReferenceItem refItem in list.getList)
+            foreach (ReferenceItem refItem in list.GetList)
             {
-                tempTitle = refItem.startBook + " " + refItem.startChapter + ":" +
-                    refItem.startVerse;
-                if (refItem.range == false)
+                tempTitle = refItem.StartBook + " " + refItem.StartChapter + ":" +
+                    refItem.StartVerse;
+                if (refItem.Range == false)
                 {
-                    tempVerse = _backend.getVerse(refItem.startBook,
-                        (int)refItem.startChapter, (int)refItem.startVerse);
+                    tempVerse = _backend.GetVerse(refItem.StartBook,
+                        (int)refItem.StartChapter, (int)refItem.StartVerse);
                 }
                 else // range of verses in one refItem
                 {
-                    tempTitle += " - " + refItem.endBook + " " + refItem.endChapter + ":" +
-                        refItem.endVerse;
+                    tempTitle += " - " + refItem.EndBook + " " + refItem.EndChapter + ":" +
+                        refItem.EndVerse;
                     tempVerse = "";//clear it just in case
 
                     // get range of verses and format the sting
-                    foreach (data_index.verse verseItem in _backend.getVerseRange(
-                        refItem.startBook + " " + refItem.startChapter + ":" +
-                        refItem.startVerse, refItem.endBook + " " + refItem.endChapter +
-                        ":" + refItem.endVerse))
+                    foreach (data_index.Verse verseItem in _backend.GetVerseRange(
+                        refItem.StartBook + " " + refItem.StartChapter + ":" +
+                        refItem.StartVerse, refItem.EndBook + " " + refItem.EndChapter +
+                        ":" + refItem.EndVerse))
                     {
-                        verseNumber = verseItem.Verse;
+                        verseNumber = verseItem.VerseNumber;
                         if (verseNumber == 1) // at first verse pring book and chapter num
                         {
                             tempVerse += verseItem.Book + " " + verseItem.Chapter;
                         }
-                        tempVerse+="\n"+verseItem.Verse+" "+verseItem.getVerseText();
+                        tempVerse += "\n" + verseItem.VerseNumber + " " + verseItem.GetVerseText();
                     }
                 }
 
@@ -175,13 +175,13 @@ namespace Fast_Script
             }
             return verseText;
         }
-        public void displayVersesToWebView(ReferenceList list, string boldWords)
+        public void DisplayVersesToWebView(ReferenceList list, string boldWords)
         {
             // save verses in cas a refresh is needed later
-            _currentItemsInWebview = list.getList.ToArray();
+            _currentItemsInWebview = list.GetList.ToArray();
             _currentBoldWord = boldWords;
 
-            list.completeReferences(_backend);
+            list.CompleteReferences(_backend);
 
             string finalPage="<ul>";
             string title="";
@@ -190,18 +190,18 @@ namespace Fast_Script
 
             int limit = 20;
             ReferenceItem item;
-            for (int i = 0; i < list.getList.Count() && i < limit; i++)
+            for (int i = 0; i < list.GetList.Count() && i < limit; i++)
             {
-                item = list.getList[i];
+                item = list.GetList[i];
 
                 title = "";
                 verses = "";
 
-                title += item.startBook + " " + item.startChapter + ":" + item.startVerse;
+                title += item.StartBook + " " + item.StartChapter + ":" + item.StartVerse;
 
-                if (item.range == false) // get verse for single reference
+                if (item.Range == false) // get verse for single reference
                 {
-                    tempVerse = _backend.getVerse(item.startBook, (int)item.startChapter, (int)item.startVerse);
+                    tempVerse = _backend.GetVerse(item.StartBook, (int)item.StartChapter, (int)item.StartVerse);
                     foreach (string word in boldWords.Split(' '))
                     {
                         tempVerse = Regex.Replace(tempVerse, (word + @"\b"), // @"\b" forces whole case
@@ -212,13 +212,13 @@ namespace Fast_Script
                 else // the range of verses
                 {
                     // add title
-                    title += " - " + item.endBook + " " + item.endChapter + ":" + item.endVerse;
+                    title += " - " + item.EndBook + " " + item.EndChapter + ":" + item.EndVerse;
 
                     string currentBook = "";
                     int currentChapter = 0;
-                    foreach (data_index.verse verseItem in _backend.getVerseRange(
-                        item.startBook + " " + item.startChapter + ":" + item.startVerse,
-                        item.endBook + " " + item.endChapter + ":" + item.endVerse))
+                    foreach (data_index.Verse verseItem in _backend.GetVerseRange(
+                        item.StartBook + " " + item.StartChapter + ":" + item.StartVerse,
+                        item.EndBook + " " + item.EndChapter + ":" + item.EndVerse))
                     {
                         if (verseItem.Book != currentBook)
                         {
@@ -233,16 +233,10 @@ namespace Fast_Script
                             currentChapter = (int)verseItem.Chapter;
                         }
                         // print the verse itself
-                        verses += "</br><b>" + verseItem.Verse + "</b> " 
-                            + verseItem.getVerseText();
+                        verses += "</br><b>" + verseItem.VerseNumber + "</b> " 
+                            + verseItem.GetVerseText();
                     }
 
-                    //List<ReferenceItem> itemList = new ReferenceList().buildVerseListFromRange(item, _backend);
-                    
-                    //foreach (ReferenceItem Refitem in itemList)
-                    //{
-                        
-                    //}
                 }
 
                 // write html list item
@@ -258,16 +252,16 @@ namespace Fast_Script
 
             finalPage += "</ul>"; // put html end of list
 
-            if (list.getList.Count() > limit)
+            if (list.GetList.Count() > limit)
             { 
-                finalPage += "<b>Plus " + (list.getList.Count() - limit) + " more</b>"; 
+                finalPage += "<b>Plus " + (list.GetList.Count() - limit) + " more</b>"; 
             }
 
-            writeWebView(finalPage);
+            WriteWebView(finalPage);
         }
-        public void writeWebView(string page)
+        public void WriteWebView(string page)
         {
-            _backend.saveWebpage(page);
+            _backend.SaveWebpage(page);
             _view.loadWebPage(Settings.DefaultWebPage);
         }
     }

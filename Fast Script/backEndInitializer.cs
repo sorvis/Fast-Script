@@ -8,26 +8,26 @@ using Fast_Script.PresenterFolder;
 
 namespace Fast_Script
 {
-    public class backEndInitializer
+    public class BackEndInitializer
     {
-        public PresenterFolder.GUI_Settings _settings { get; set; }
-        public bible_data.bible Bible
+        public PresenterFolder.GUISettings _settings { get; set; }
+        public bible_data.Bible Bible
         { get { return _settings.CurrentBible; } 
             set { _settings.CurrentBible = value; } }
         public PagePrinter Printer
         { get { return _printer; } }
         private PagePrinter _printer;
-        private WebpageCreator webpage;
+        private WebpageCreator _webpage;
         private Presenter _presenter;
         string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
-        public backEndInitializer(Presenter presenter) //TODO this method requiring presenter should be phased out in favor of requring GUI_Settings
+        public BackEndInitializer(Presenter presenter) //TODO this method requiring presenter should be phased out in favor of requring GUI_Settings
         {
             _presenter = presenter;
             //_bible = new XLM_bible_reader.BibleBuilder("kjv.xml").GetBible;
             //_bible.BuildIndex();
             initialize();
         }
-        public backEndInitializer()
+        public BackEndInitializer()
         {
             initialize();
         }
@@ -38,7 +38,7 @@ namespace Fast_Script
             _settings.DefaultWebPage = Path.Combine(_appDataStorageFolder, "HTML\\page.html"); ;
             _printer = new PagePrinter(_settings);
             _settings.PrinterFont = new Font("Times New Roman", 12);
-            webpage = new WebpageCreator(_settings.DefaultWebPage, "");
+            _webpage = new WebpageCreator(_settings.DefaultWebPage, "");
         }
         private void checkAppDataStorageFolder()
         {
@@ -52,57 +52,57 @@ namespace Fast_Script
         {
             if (File.Exists("Settings.data"))
             {
-                _settings = (GUI_Settings)ObjectSerializing.DeSerializeObjectFromFile("Settings.data", this);
+                _settings = (GUISettings)ObjectSerializing.DeSerializeObjectFromFile("Settings.data", this);
             }
             else if (File.Exists(Path.Combine(_appDataStorageFolder, "Settings.data")))
             {
                 try
                 {
-                    _settings = (GUI_Settings)ObjectSerializing.DeSerializeObjectFromFile(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
+                    _settings = (GUISettings)ObjectSerializing.DeSerializeObjectFromFile(Path.Combine(_appDataStorageFolder, "Settings.data"), this);
                 }
                 catch
                 {
-                    _settings = new GUI_Settings();
+                    _settings = new GUISettings();
                 }
             }
             else
             {
-                _settings = new GUI_Settings();
+                _settings = new GUISettings();
             }
         }
         // allows for serialization of bible index
-        private data_index.indexBuilder loadIndex(bible_data.bible Bible)
+        private data_index.IndexBuilder loadIndex(bible_data.Bible Bible)
         {
-            string indexFileName = Bible._bibleVersion + ".index";
-            data_index.indexReaderWriter indexStorage = new data_index.indexReaderWriter();
-            data_index.indexBuilder index = new data_index.indexBuilder(Bible);
+            string indexFileName = Bible.BibleVersion + ".index";
+            data_index.IndexReaderWriter indexStorage = new data_index.IndexReaderWriter();
+            data_index.IndexBuilder index = new data_index.IndexBuilder(Bible);
             //indexStorage.SerializeObject(indexFileName, index);
             return index;
         }
-        public void saveWebpage(string page)
+        public void SaveWebpage(string page)
         {
-            webpage.writeHTMLPage(page);
+            _webpage.writeHTMLPage(page);
         }
 
         // Index Methods
-        public List<string> wordsThatStartWith(string prefix)
+        public List<string> WordsThatStartWith(string prefix)
         {
-            return Bible.Index.wordsThatStartWith(prefix);
+            return Bible.Index.WordsThatStartWith(prefix);
         }
-        public bool wordExists(string word)
+        public bool WordExists(string word)
         {
-            data_index.word temp;
+            data_index.Word temp;
             return Bible.Index.TryGetValue(word, out temp);
         }
         public PresenterFolder.ReferenceList searchPhrase(string phrase)
         {
-            List<data_index.verse> verses = Bible.Index.getVerses(phrase);
+            List<data_index.Verse> verses = Bible.Index.GetVerses(phrase);
             PresenterFolder.ReferenceList newList = new PresenterFolder.ReferenceList();
             if (verses != null)
             {
-                foreach (data_index.verse item in verses)
+                foreach (data_index.Verse item in verses)
                 {
-                    newList.addReference(item.Book, item.Chapter, item.Verse);
+                    newList.AddReference(item.Book, item.Chapter, item.VerseNumber);
                 }
             }
             else
@@ -113,20 +113,20 @@ namespace Fast_Script
         }
         // end index methods
 
-        public string[] currentBooks
+        public string[] CurrentBooks
         {
             get
             {
                 return Bible.Books;
             }
         }
-        public int[] currentChapters(string book)
+        public int[] CurrentChapters(string book)
         {
-            return Bible.getBook(book).Chapters;
+            return Bible.GetBook(book).Chapters;
         }
-        public List<string> currentVerses(string book, int chapter)
+        public List<string> CurrentVerses(string book, int chapter)
         {
-            int numberOfVerses = Bible.getBook(book).getChapter(chapter).getNumberOfVerses();
+            int numberOfVerses = Bible.GetBook(book).GetChapter(chapter).GetNumberOfVerses();
             List<string> verseList = new List<string>();
             for (int i = 0; i < numberOfVerses; i++)
             {
@@ -134,13 +134,13 @@ namespace Fast_Script
             }
             return verseList;
         }
-        public string getVerse(string book, int chapter, int verse)
+        public string GetVerse(string book, int chapter, int verse)
         {
-            return Bible.getVerse(book, chapter, verse);
+            return Bible.GetVerse(book, chapter, verse);
         }
-        public List<data_index.verse> getVerseRange(string startRef, string endRef)
+        public List<data_index.Verse> GetVerseRange(string startRef, string endRef)
         {
-            return Bible.getVerseRange(startRef, endRef);
+            return Bible.GetVerseRange(startRef, endRef);
         }
 
         // printing methods
@@ -149,16 +149,16 @@ namespace Fast_Script
             _printer.TextToPrint = text;
             _printer.filePrintMenuItem_Click(new object(), new EventArgs());
         }
-        public string getPrintText()
+        public string GetPrintText()
         {
             return _printer.TextToPrint;
         }
-        public void printPreview(string text)
+        public void PrintPreview(string text)
         {
             _printer.TextToPrint = text;
             _printer.filePrintPreviewMenuItem_Click(new object(),new EventArgs());
         }
-        public void printSetup(object sender, EventArgs e)
+        public void PrintSetup(object sender, EventArgs e)
         {
             _printer.filePageSetupMenuItem_Click(sender, e);
         }

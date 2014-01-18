@@ -10,7 +10,7 @@ namespace Fast_Script
     class GoogleAudioFileMaker
     {
         // Start Google Text-To-Speech
-        static public void googleTTS(string fileNameToCreate, string textToConvert)
+        static public void GoogleTTS(string fileNameToCreate, string textToConvert)
         {
             string[] wordsArray = textToConvert.Split(' ');
             List<string> wordPhrases = new List<string>();

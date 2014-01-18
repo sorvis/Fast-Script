@@ -5,25 +5,25 @@ using System.Text;
 
 namespace Fast_Script.bible_data
 {
-    public class chapter
+    public class Chapter
     {
         private int? _chapter_number;
         private List<string> _verse;
 
-        public List<string> getAllVerses()
+        public List<string> GetAllVerses()
         {
             return _verse;
         }
-        public int getNumberOfVerses()
+        public int GetNumberOfVerses()
         {
             return _verse.Count;
         }
-        public chapter(int? number)
+        public Chapter(int? number)
         {
             _chapter_number = number;
             _verse = new List<string>();
         }
-        public string getVerse(int num)
+        public string GetVerse(int num)
         {
             if (num > _verse.Count)
             {
@@ -34,7 +34,7 @@ namespace Fast_Script.bible_data
                 return _verse[num - 1];
             }
         }
-        public void addVerse(string verse, int number)
+        public void AddVerse(string verse, int number)
         {
             while (_verse.Count < number)
             {
@@ -42,7 +42,7 @@ namespace Fast_Script.bible_data
             }
             _verse[number-1] = verse;
         }
-        public int getChapterNumber()
+        public int GetChapterNumber()
         {
             if (_chapter_number != null)
             {

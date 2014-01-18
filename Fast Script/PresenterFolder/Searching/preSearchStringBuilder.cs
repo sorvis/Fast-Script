@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Fast_Script.PresenterFolder.Searching
 {
-    static class preSearchStringBuilder
+    static class PreSearchStringBuilder
     {
-        public static string[] fixBookNumberTitlesInSearchArray(string[] text)
+        public static string[] FixBookNumberTitlesInSearchArray(string[] text)
         {
             // fix all books that begin with a number
             int bookNumber;
@@ -24,7 +24,7 @@ namespace Fast_Script.PresenterFolder.Searching
             return tempList.RemoveAll("").ToArray();
         }
 
-        public static string[] combineHyphenAndDashInArray(string[] tempList)
+        public static string[] CombineHyphenAndDashInArray(string[] tempList)
         {
             // combine numbers, :, and - together
             int bookNumber;

@@ -10,14 +10,14 @@ namespace Fast_Script
 {
     public class PagePrinter
     {
-        private int PageNumber;
+        private int _pageNumber;
         private string _textToPrint;
         public string TextToPrint
         {
             get { return _textToPrint; }
             set { _textToPrint = value; }
         }
-        public Font printFont 
+        public Font PrintFont 
         {
             get
             {
@@ -28,52 +28,49 @@ namespace Fast_Script
                 _printerSettings.PrinterFont = value;
             }
         }
-        private int curChar=0;
+        private int _curChar=0;
 
-        private PrintDocument printDoc = new PrintDocument();
-        private PageSettings pgSettings = new PageSettings();
-        private PrinterSettings prtSettings = new PrinterSettings();
-        private PresenterFolder.IprinterSettings _printerSettings;
+        private PrintDocument _printDoc = new PrintDocument();
+        private PageSettings _pageSettings = new PageSettings();
+        private PrinterSettings _printSettings = new PrinterSettings();
+        private PresenterFolder.IPrinterSettings _printerSettings;
 
-        public PagePrinter(PresenterFolder.IprinterSettings printerSettings)
+        public PagePrinter(PresenterFolder.IPrinterSettings printerSettings)
         {
-            printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
+            _printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
             _printerSettings = printerSettings;
         }
         public void filePrintMenuItem_Click(Object sender, EventArgs e)
         {
-            PageNumber = 0;
+            _pageNumber = 0;
 
-            printDoc.DefaultPageSettings = pgSettings;
-            PrintDialog dlg = new PrintDialog();
-            dlg.Document = printDoc;
-            if (dlg.ShowDialog() == DialogResult.OK)
+            _printDoc.DefaultPageSettings = _pageSettings;
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = _printDoc;
+            if (printDialog.ShowDialog() == DialogResult.OK)
             {
-                printDoc.Print();
+                _printDoc.Print();
             }
         }
-        private void printDoc_PrintPage(Object sender, PrintPageEventArgs e)
+        private void printDoc_PrintPage(Object sender, PrintPageEventArgs eventArgs)
         {
-            PageNumber += 1;
-            //_textToPrint = ".NET Printing is easyasdd dddd\n23ddddddddddddd\nfive\nsss ddddddddddd\n ddddddddddf \nsdaf\n saf\n sadf\n asdf\n sad\n sda\n fasdsd\n sd\n sad\n sdafsdaf asdfffff sdafffffffff ddddddd \nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\nend\n18\n19\n20\n21\n22\n23\n24\n25\nend\nend\nend\nend\nend\nend\nend\nend\nend\n30\nend\nend\nend\nend\nend\nend\nend\n35\nend\nend\nend\nend\nend\n40\nsdf asldkfj lkjdfl asjlkfj alskdjflksdjlk jalskdjf asldjflksa djlkfsajd lkjf laksjdflkas djlfkjasd lkjfasldkj fkasdjfalsdkjflaksdjf laskjksdlfjflksdjlkasjdlfkj lkdjs";
-            //Font printFont = _font;
-            //printFont = new Font("Courier New", 12);
+            _pageNumber += 1;
 
-            int printHeight = (int)e.MarginBounds.Height;
-            int printWidth = (int)e.MarginBounds.Width;
-            if (e.PageSettings.Landscape)
+            int printHeight = (int)eventArgs.MarginBounds.Height;
+            int printWidth = (int)eventArgs.MarginBounds.Width;
+            if (eventArgs.PageSettings.Landscape)
             {
                 int tmp;
-                tmp = e.MarginBounds.Height;
+                tmp = eventArgs.MarginBounds.Height;
                 printHeight = printWidth;
                 printWidth = tmp;
             }
 
             // set number lines per page
-            Int32 numLines = (int)printHeight / printFont.Height;
+            Int32 numLines = (int)printHeight / PrintFont.Height;
 
             //Create a rectangle printing are for our document
-            RectangleF printArea = new RectangleF(e.MarginBounds.Left, e.MarginBounds.Right, printWidth, printHeight);
+            RectangleF printArea = new RectangleF(eventArgs.MarginBounds.Left, eventArgs.MarginBounds.Right, printWidth, printHeight);
 
             //Use the StringFormat class for the text layout of our document
             StringFormat format = new StringFormat(StringFormatFlags.LineLimit);
@@ -81,27 +78,27 @@ namespace Fast_Script
             //Fit as many characters as we can into the print area      
             int chars;
             int lines;
-            e.Graphics.MeasureString(_textToPrint.Substring(curChar), printFont, new SizeF(printWidth, printHeight), format, out chars, out lines);
+            eventArgs.Graphics.MeasureString(_textToPrint.Substring(_curChar), PrintFont, new SizeF(printWidth, printHeight), format, out chars, out lines);
 
             //Print the page
-            e.Graphics.DrawString("Page: "+PageNumber, printFont, Brushes.Black, new Point(5, 5));
-            e.Graphics.DrawString(_textToPrint.Substring(curChar), printFont, Brushes.Black, e.MarginBounds, format);
+            eventArgs.Graphics.DrawString("Page: "+_pageNumber, PrintFont, Brushes.Black, new Point(5, 5));
+            eventArgs.Graphics.DrawString(_textToPrint.Substring(_curChar), PrintFont, Brushes.Black, eventArgs.MarginBounds, format);
 
             //e.Graphics.DrawString(_textToPrint.Substring(curChar), printFont, Brushes.Black, e.MarginBounds);
 
             //Increase current char count
-            curChar += chars;
+            _curChar += chars;
 
             //Detemine if there is more text to print, if
             //there is the tell the printer there is more coming
-            if (curChar < _textToPrint.Length)
+            if (_curChar < _textToPrint.Length)
             {
-                e.HasMorePages = true;
+                eventArgs.HasMorePages = true;
             }
             else
             {
-                e.HasMorePages = false;
-                curChar = 0;
+                eventArgs.HasMorePages = false;
+                _curChar = 0;
             }
         }
         private int RemoveZeros(int value)
@@ -120,19 +117,19 @@ namespace Fast_Script
         public void filePageSetupMenuItem_Click(Object sender, EventArgs e)
         {
             PageSetupDialog pageSetupDialog = new PageSetupDialog();
-            pageSetupDialog.PageSettings = pgSettings;
-            pageSetupDialog.PrinterSettings = prtSettings;
+            pageSetupDialog.PageSettings = _pageSettings;
+            pageSetupDialog.PrinterSettings = _printSettings;
             pageSetupDialog.AllowOrientation = true;
             pageSetupDialog.AllowMargins = true;
             pageSetupDialog.ShowDialog();
         }
         public void filePrintPreviewMenuItem_Click(Object sender, EventArgs e)
         {
-            PageNumber = 0;
+            _pageNumber = 0;
 
-            PrintPreviewDialog dlg = new PrintPreviewDialog();
-            dlg.Document = printDoc;
-            dlg.ShowDialog();
+            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+            printPreviewDialog.Document = _printDoc;
+            printPreviewDialog.ShowDialog();
         }
     }
 }

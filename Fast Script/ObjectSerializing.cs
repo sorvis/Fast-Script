@@ -29,18 +29,16 @@ namespace Fast_Script
             return objectToSerialize;
         }
 
-        public static object DeSerializeObjectFromFile(string filename, object backend)
+        public static object DeSerializeObjectFromFile(string filename, object state)
         {
-            object state = backend; // your object to pass in
-
-            BinaryFormatter bFormatter = new BinaryFormatter(null, new StreamingContext(
+            BinaryFormatter binaryFormatter = new BinaryFormatter(null, new StreamingContext(
                 StreamingContextStates.All,state)); // pass it in
 
             object objectToSerialize = new object();
             Stream stream = File.Open(filename, FileMode.Open);
             try
             {
-                objectToSerialize = (object)bFormatter.Deserialize(stream);
+                objectToSerialize = (object)binaryFormatter.Deserialize(stream);
             }
             catch (Exception)
             {
@@ -52,14 +50,14 @@ namespace Fast_Script
 
         public static void deepCopyToFileFromObject(object item, string fileName)
         {
-            MemoryStream ms = null;
+            MemoryStream memoryStream = null;
             Byte[] byteArray = null;
             try
             {
                 BinaryFormatter serializer = new BinaryFormatter();
-                ms = new MemoryStream();
-                serializer.Serialize(ms, item);
-                byteArray = ms.ToArray();
+                memoryStream = new MemoryStream();
+                serializer.Serialize(memoryStream, item);
+                byteArray = memoryStream.ToArray();
             }
             catch (Exception unexpected)
             {
@@ -68,9 +66,9 @@ namespace Fast_Script
             }
             finally
             {
-                if (ms != null)
+                if (memoryStream != null)
                 {
-                    ms.Close();
+                    memoryStream.Close();
                 }
             }
 
@@ -81,13 +79,13 @@ namespace Fast_Script
         public static object deepCopyFromFileToObject(string fileName)
         {
             FileStream inStream = File.OpenRead(fileName);
-            MemoryStream ms = new MemoryStream();
+            MemoryStream memoryStream = new MemoryStream();
 
-            ms.SetLength(inStream.Length);
-            inStream.Read(ms.GetBuffer(), 0, (int)inStream.Length);
+            memoryStream.SetLength(inStream.Length);
+            inStream.Read(memoryStream.GetBuffer(), 0, (int)inStream.Length);
 
-            ms.Flush();
-            ms.Position = 0;
+            memoryStream.Flush();
+            memoryStream.Position = 0;
             inStream.Close();
 
             object deserializedObject = null;
@@ -95,12 +93,12 @@ namespace Fast_Script
             try
             {
                 BinaryFormatter serializer = new BinaryFormatter();
-                deserializedObject = serializer.Deserialize(ms);
+                deserializedObject = serializer.Deserialize(memoryStream);
             }
             finally
             {
-                if (ms != null)
-                    ms.Close();
+                if (memoryStream != null)
+                    memoryStream.Close();
             }
             return deserializedObject;
         }

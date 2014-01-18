@@ -10,22 +10,22 @@ namespace Fast_Script.bible_data
     class BibleHashTable
     {
         private Hashtable _BibleHash = new Hashtable();
-        private List<verse> _verseList = new List<verse>();
+        private List<Verse> _verseList = new List<Verse>();
         private int _lastVerseIndex = 0;
 
         //expects exact (case sensitive) reference like 1 John 3:2
-        public void addVerse(string book, int chapterNum, int verseNum, string verse)
+        public void AddVerse(string book, int chapterNum, int verseNum, string verse)
         {
-            verse _tempVerse = new verse(book, chapterNum, verseNum, verse);
+            Verse _tempVerse = new Verse(book, chapterNum, verseNum, verse);
             _verseList.Add(_tempVerse);
             _BibleHash.Add(_tempVerse.GetHashCode(), _lastVerseIndex);
             _lastVerseIndex++;
         }
-        public verse getVerse(string reference)
+        public Verse GetVerse(string reference)
         {
             return _verseList[Convert.ToInt16(_BibleHash[reference.GetHashCode()])];
         }
-        public List<verse> getRange(string startRef, string endRef)
+        public List<Verse> GetRange(string startRef, string endRef)
         {
             int startRefIndex = Convert.ToInt16(_BibleHash[startRef.GetHashCode()]);
             int endRefIndex =Convert.ToInt16(_BibleHash[endRef.GetHashCode()]);

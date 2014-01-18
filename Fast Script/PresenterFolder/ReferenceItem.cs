@@ -10,7 +10,7 @@ namespace Fast_Script.PresenterFolder
     public class ReferenceItem : ISerializable
     {
         private string _startBook;
-        public string startBook
+        public string StartBook
         {
             get
             {
@@ -22,7 +22,7 @@ namespace Fast_Script.PresenterFolder
             }
         }
         private string _endBook;
-        public string endBook
+        public string EndBook
         {
             get
             {
@@ -34,7 +34,7 @@ namespace Fast_Script.PresenterFolder
             }
         }
         private int? _startChapter;
-        public int? startChapter
+        public int? StartChapter
         {
             get
             {
@@ -46,7 +46,7 @@ namespace Fast_Script.PresenterFolder
             }
         }
         private int? _endChapter;
-        public int? endChapter
+        public int? EndChapter
         {
             get
             {
@@ -58,7 +58,7 @@ namespace Fast_Script.PresenterFolder
             }
         }
         private int? _startVerse;
-        public int? startVerse
+        public int? StartVerse
         {
             get
             {
@@ -70,7 +70,7 @@ namespace Fast_Script.PresenterFolder
             }
         }
         private int? _endVerse;
-        public int? endVerse
+        public int? EndVerse
         {
             get
             {
@@ -82,14 +82,14 @@ namespace Fast_Script.PresenterFolder
             }
         }
         private bool _range = false;
-        public bool range
+        public bool Range
         {
             get{return _range;}
             set { _range = value; }
         }
 
         string _text;
-        public string text
+        public string Text
         {
             get{return _text;}
             set { _text = value; }
@@ -109,17 +109,17 @@ namespace Fast_Script.PresenterFolder
         public override string ToString()
         {
             string reference = "";
-            if (range == false)
+            if (Range == false)
             {
-                if (startBook != null)
+                if (StartBook != null)
                 {
-                    reference += startBook;
-                    if (startChapter != null)
+                    reference += StartBook;
+                    if (StartChapter != null)
                     {
-                        reference += " " + startChapter;
-                        if (startVerse != null)
+                        reference += " " + StartChapter;
+                        if (StartVerse != null)
                         {
-                            reference += ":" + startVerse;
+                            reference += ":" + StartVerse;
                         }
                     }
                 }
@@ -127,36 +127,36 @@ namespace Fast_Script.PresenterFolder
             else // range of verses
             {
                 string secondHalfReference = "";
-                if (startBook != null) // book
+                if (StartBook != null) // book
                 {
-                    reference += startBook;
-                    if (startBook != endBook && endBook != null)
+                    reference += StartBook;
+                    if (StartBook != EndBook && EndBook != null)
                     {
-                        secondHalfReference += " - " + endBook;
+                        secondHalfReference += " - " + EndBook;
                     }
 
-                    if (startChapter != null) // chapter
+                    if (StartChapter != null) // chapter
                     {
-                        reference += " " + startChapter;
-                        if (secondHalfReference == "" && startChapter != endChapter && endChapter!=null)
+                        reference += " " + StartChapter;
+                        if (secondHalfReference == "" && StartChapter != EndChapter && EndChapter!=null)
                         {
-                            secondHalfReference += "-" + endChapter;
+                            secondHalfReference += "-" + EndChapter;
                         }
-                        else if (secondHalfReference != "" && endChapter != null) // don't check for different chapters because two references are in different books
+                        else if (secondHalfReference != "" && EndChapter != null) // don't check for different chapters because two references are in different books
                         {
-                            secondHalfReference += " " + endChapter;
+                            secondHalfReference += " " + EndChapter;
                         }
 
-                        if (startVerse != null) // verse
+                        if (StartVerse != null) // verse
                         {
-                            reference += ":" + startVerse;
-                            if (endVerse != null&&secondHalfReference!="")
+                            reference += ":" + StartVerse;
+                            if (EndVerse != null&&secondHalfReference!="")
                             {
-                                secondHalfReference += ":" + endVerse;
+                                secondHalfReference += ":" + EndVerse;
                             }
-                            else if (endVerse != null)
+                            else if (EndVerse != null)
                             {
-                                secondHalfReference += "-" + endVerse;
+                                secondHalfReference += "-" + EndVerse;
                             }
                         }
                     }
@@ -203,7 +203,7 @@ namespace Fast_Script.PresenterFolder
         {
             _item = item;
         }
-        public ReferenceItem getItem
+        public ReferenceItem Item
         {get {return _item;}}
         public override string ToString()
         {

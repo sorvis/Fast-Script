@@ -16,24 +16,20 @@ namespace Fast_Script
     {
         static public void MakeFileFromText(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
         {
-            Stream audioStream = TextToAudioStream(textToConvert, voiceName, voiceRate, worker);    // get audio stream of TTS
+            Stream audioStream = textToAudioStream(textToConvert, voiceName, voiceRate, worker);    // get audio stream of TTS
             saveWaveStreamToMP3File(fileNameToCreate, worker, audioStream);    
             audioStream.Close();        // close audio stream
         }
-        static private Stream TextToAudioStream(string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
+        static private Stream textToAudioStream(string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.SpeakProgress += delegate(object sender, SpeakProgressEventArgs e)
             { synth_SpeakProgress(sender, e, worker, textToConvert.Length); };
             Stream audioStream = new MemoryStream();
             synth.SetOutputToWaveStream(audioStream); // set to wave file stream
-            //synth.SetOutputToWaveFile(fileNameToCreate+".wav");
             synth.SelectVoice(voiceName);
             synth.Rate = voiceRate;
-            //synth.Rate
             synth.Speak(textToConvert); // send data to stream
-            //WaveStream waveStream = new WaveStream(audioStream);
-            //audioStream.Close();
             synth.Dispose();
 
             audioStream.Position = 0;   // reset position for audio stream so it can be read
@@ -42,7 +38,6 @@ namespace Fast_Script
         }
         static private void saveWaveStreamToMP3File(string fileNameToCreate, BackgroundWorker worker, Stream audioStream)
         {
-            //WaveStream waveStream = new WaveStream(fileNameToCreate + ".wav");    // read from file
             WaveStream waveStream = new WaveStream(audioStream);                    // read from stream
 
             //before convert check for and add .mp3 file extention if nessary
@@ -51,10 +46,10 @@ namespace Fast_Script
             { mp3FileName += ".mp3"; }
 
             // convert wav stream to mp3 stream then write
-            Mp3WriterConfig mp3_Config = new Mp3WriterConfig(waveStream.Format);
+            Mp3WriterConfig mp3Config = new Mp3WriterConfig(waveStream.Format);
             try
             {
-                Mp3Writer writer = new Mp3Writer(new FileStream(mp3FileName, FileMode.Create), mp3_Config);
+                Mp3Writer writer = new Mp3Writer(new FileStream(mp3FileName, FileMode.Create), mp3Config);
                 try
                 {
                     byte[] buff = new byte[writer.OptimalBufferSize];
@@ -85,7 +80,6 @@ namespace Fast_Script
                 waveStream.Close();
             }
 
-            //File.Delete(fileNameToCreate + ".wav");       // remove wave file
             audioStream.Close();        // close audio stream
         }
 

@@ -11,7 +11,7 @@ namespace Fast_Script
 {
     public partial class VerseSelecter : UserControl
     {
-        private backEndInitializer _backend;
+        private BackEndInitializer _backend;
         private Presenter _presenter;
         private PresenterFolder.ReferenceItem _verseReference;
         private string displaying; // current type displayed: book, chapter, verse
@@ -27,7 +27,7 @@ namespace Fast_Script
             this.Visible = true;
             this.Enabled = true;
             verseSelecterListBox.Items.Clear();
-            verseSelecterListBox.Items.AddRange(_backend.currentBooks);
+            verseSelecterListBox.Items.AddRange(_backend.CurrentBooks);
             _verseReference = new PresenterFolder.ReferenceItem();
             displaying = "book";
             ReferenceDisplayLabel.Text = "";
@@ -62,25 +62,25 @@ namespace Fast_Script
 
             if (selectedItems.Count > 1)
             {
-                _verseReference.range = true;
+                _verseReference.Range = true;
                 switch (displaying)
                 {
                     case "book":
-                        _verseReference.startBook = (string)verseSelecterListBox.
+                        _verseReference.StartBook = (string)verseSelecterListBox.
                             SelectedItems[0];
-                        _verseReference.endBook = (string)verseSelecterListBox.
+                        _verseReference.EndBook = (string)verseSelecterListBox.
                             SelectedItems[selectedItems.Count-1];
                         break;
                     case "chapter":
-                        _verseReference.startChapter = Convert.ToInt32((string)verseSelecterListBox.
+                        _verseReference.StartChapter = Convert.ToInt32((string)verseSelecterListBox.
                             SelectedItems[0]);
-                        _verseReference.endChapter = Convert.ToInt32((string)verseSelecterListBox.
+                        _verseReference.EndChapter = Convert.ToInt32((string)verseSelecterListBox.
                             SelectedItems[selectedItems.Count-1]);
                         break;
                     case "verse":
-                        _verseReference.startVerse = Convert.ToInt32((string)verseSelecterListBox.
+                        _verseReference.StartVerse = Convert.ToInt32((string)verseSelecterListBox.
                             SelectedItems[0]);
-                        _verseReference.endVerse = Convert.ToInt32((string)verseSelecterListBox.
+                        _verseReference.EndVerse = Convert.ToInt32((string)verseSelecterListBox.
                             SelectedItems[selectedItems.Count-1]);
                         break;
                 }
@@ -94,10 +94,10 @@ namespace Fast_Script
                 {
                     case "book":
                         string bookName = verseSelecterListBox.Text;
-                        string[] chapters = intToString(_backend.currentChapters(bookName));
+                        string[] chapters = intToString(_backend.CurrentChapters(bookName));
 
                         // update saved verse reference
-                        _verseReference.startBook = bookName;
+                        _verseReference.StartBook = bookName;
 
                         // update ListBox with chapters
                         verseSelecterListBox.Items.Clear();
@@ -106,7 +106,7 @@ namespace Fast_Script
                         break;
                     case "chapter":
                         int chapterNumber = Convert.ToInt32(verseSelecterListBox.Text);
-                        int numberOfVerses = _backend.currentVerses(_verseReference.startBook, chapterNumber).Count;
+                        int numberOfVerses = _backend.CurrentVerses(_verseReference.StartBook, chapterNumber).Count;
                         string[] verses = new string[numberOfVerses];
                         for (int i = 0; i < numberOfVerses; i++)
                         {
@@ -114,7 +114,7 @@ namespace Fast_Script
                         }
 
                         // update saved reference
-                        _verseReference.startChapter = chapterNumber;
+                        _verseReference.StartChapter = chapterNumber;
 
                         // update ListBox with verses
                         verseSelecterListBox.Items.Clear();
@@ -122,7 +122,7 @@ namespace Fast_Script
                         displaying = "verse";
                         break;
                     case "verse": // only one selected
-                        _verseReference.startVerse = Convert.ToInt32(verseSelecterListBox.
+                        _verseReference.StartVerse = Convert.ToInt32(verseSelecterListBox.
                             SelectedItems[0]);
 
                         //execute add verse

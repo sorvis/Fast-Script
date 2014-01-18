@@ -8,30 +8,30 @@ using System.Collections;
 namespace Fast_Script.data_index
 {
     [Serializable()]
-    public class indexBuilder : ISerializable
+    public class IndexBuilder : ISerializable
     {
-        private bible_data.bible _bible;
-        public bible_data.bible Bible
+        private bible_data.Bible _bible;
+        public bible_data.Bible Bible
         {
             set { _bible = value; }
         }
 
-        private Dictionary<string, word> _bibleIndex = new Dictionary<string, word>();
-        public Dictionary<string, word> GetDictionary
+        private Dictionary<string, Word> _bibleIndex = new Dictionary<string, Word>();
+        public Dictionary<string, Word> GetDictionary
         {
             get { return _bibleIndex; }
         }
 
-        private Hashtable wordHash = new Hashtable();
+        private Hashtable _wordHash = new Hashtable();
 
-        public indexBuilder(bible_data.bible bible)
+        public IndexBuilder(bible_data.Bible bible)
         {
             _bible = bible;
             buildIndex();
         }
-        public indexBuilder(SerializationInfo info, StreamingContext ctxt)
+        public IndexBuilder(SerializationInfo info, StreamingContext ctxt)
         {
-            this._bibleIndex = (Dictionary<string, word>)info.GetValue("Dictionary", typeof(Dictionary<string, word>));
+            this._bibleIndex = (Dictionary<string, Word>)info.GetValue("Dictionary", typeof(Dictionary<string, Word>));
         }
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
@@ -39,18 +39,18 @@ namespace Fast_Script.data_index
         }
         private void buildIndex()
         {
-            List<bible_data.book> bookList = _bible.getAllBooks();
-            List<bible_data.chapter> chapterList;
+            List<bible_data.Book> bookList = _bible.GetAllBooks();
+            List<bible_data.Chapter> chapterList;
             List<string> verseList;
             String[] wordsList;
             int verseNum;
 
-            foreach (bible_data.book book in bookList)
+            foreach (bible_data.Book book in bookList)
             {
-                chapterList = book.getAllChapters();
-                foreach (bible_data.chapter chapter in chapterList)
+                chapterList = book.GetAllChapters();
+                foreach (bible_data.Chapter chapter in chapterList)
                 {
-                    verseList = chapter.getAllVerses();
+                    verseList = chapter.GetAllVerses();
                     verseNum = 1;
                     foreach (string verse in verseList)
                     {
@@ -58,20 +58,21 @@ namespace Fast_Script.data_index
                         wordsList = toLowerAndRemovePunctuation(wordsList);
                         foreach (string word in wordsList)
                         {
-                            addWord(word, new data_index.verse(book.getTitle(), chapter.getChapterNumber(), verseNum));
+                            AddWord(word, new data_index.Verse(book.GetTitle(), chapter.GetChapterNumber(), verseNum));
 
-                            wordHash[word.GetHashCode()] = word;
+                            _wordHash[word.GetHashCode()] = word;
                         }
                         verseNum++;
                     }
                 }
             }
         } // end methode build index
-        public List<string> wordsThatStartWith(string prefix)
+
+        public List<string> WordsThatStartWith(string prefix)
         {
             prefix = prefix.ToLower();
             List<string> suggestedWords = new List<string>();
-            foreach (DictionaryEntry item in wordHash)
+            foreach (DictionaryEntry item in _wordHash)
             {
                 string tempString = (string)item.Value;
                 if (tempString.StartsWith(prefix))
@@ -81,7 +82,7 @@ namespace Fast_Script.data_index
             }
             return suggestedWords;
         }
-        public bool TryGetValue(string word, out word Word)
+        public bool TryGetValue(string word, out Word Word)
         {
             return _bibleIndex.TryGetValue(word, out Word);
         }
@@ -94,22 +95,22 @@ namespace Fast_Script.data_index
             }
             return temp.ToArray();
         }
-        public void addWord(string word, verse Verse)
+        public void AddWord(string word, Verse Verse)
         {
-            word node;
+            Word node;
             if (_bibleIndex.TryGetValue(word, out node)) // check if word is in dictionary
             {
-                node.addVerse(Verse);
+                node.AddVerse(Verse);
             }
             else // word not in dictionary so add it then use recursion
             {
-                _bibleIndex.Add(word, new word(word));
-                addWord(word, Verse);
+                _bibleIndex.Add(word, new Word(word));
+                AddWord(word, Verse);
             }
         }
-        public List<verse> getVerses(string phrase) // find all common verses from a phrase
+        public List<Verse> GetVerses(string phrase) // find all common verses from a phrase
         {
-            List<word> allWords = new List<word>();
+            List<Word> allWords = new List<Word>();
             foreach (string item in phrase.Split(' '))
             {
                 allWords.Add(getWord(item));
@@ -121,14 +122,14 @@ namespace Fast_Script.data_index
 
             // sort list of words with the biggest word first to littlest word last
             // this will help efficency somewhat
-            word temp;
+            Word temp;
             int counter = 0;
             while (counter < allWords.Count - 1)
             {
                 counter = 0;
                 for (int i = 0; i < allWords.Count - 1; i++)
                 {
-                    if (allWords[i].getWord().Length < allWords[i + 1].getWord().Length)
+                    if (allWords[i].GetWord().Length < allWords[i + 1].GetWord().Length)
                     {
                         temp = allWords[i];
                         allWords[i] = allWords[i + 1];
@@ -141,7 +142,7 @@ namespace Fast_Script.data_index
                 }
             }
 
-            List<verse> resault = compareVerses(allWords);
+            List<Verse> resault = compareVerses(allWords);
 
             if (resault.Count < 1) // check for if no matches found
             {
@@ -152,17 +153,17 @@ namespace Fast_Script.data_index
                 return compareVerses(allWords);
             }
         }
-        private static bool isNull(word item)
+        private static bool isNull(Word item)
         {
             if (item == null)
             { return true; }
             else
             { return false; }
         }
-        private word getWord(string word) // gets all verses for a word from dictionary
+        private Word getWord(string word) // gets all verses for a word from dictionary
         {
             word = word.ToLower();
-            word node;
+            Word node;
             if (_bibleIndex.TryGetValue(word, out node))
             {
                 return node;
@@ -172,20 +173,20 @@ namespace Fast_Script.data_index
                 return null;
             }
         }
-        private string getVerse(verse item)
+        private string getVerse(Verse item)
         {
-            return _bible.getBook(item.Book).getChapter(item.Chapter).getVerse(item.Verse);
+            return _bible.GetBook(item.Book).GetChapter(item.Chapter).GetVerse(item.VerseNumber);
         }
-        private List<verse> compareVerses(List<word> wordList) // find all common verses amoung word list
+        private List<Verse> compareVerses(List<Word> wordList) // find all common verses amoung word list
         {
             if (wordList.Count > 1)
             {
-                word twoCombinedWords = new word();
-                foreach(verse item in wordList[0].getVerses())
+                Word twoCombinedWords = new Word();
+                foreach(Verse item in wordList[0].GetVerses())
                 {
-                    if(  getVerse(item).Contains(wordList[1].getWord()))
+                    if(  getVerse(item).Contains(wordList[1].GetWord()))
                     {
-                        twoCombinedWords.addVerse(item);
+                        twoCombinedWords.AddVerse(item);
                     }
                 }
                 wordList[0] = twoCombinedWords;
@@ -194,7 +195,7 @@ namespace Fast_Script.data_index
             }
             else
             {
-                return wordList[0].getVerses();
+                return wordList[0].GetVerses();
             }
         }
     }

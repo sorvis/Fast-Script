@@ -5,64 +5,64 @@ using System.Text;
 
 namespace Fast_Script.bible_data
 {
-    public class bookManipulator
+    public class BookManipulator
     {
-        private bible _bible; // bible as a data tree
+        private Bible _bible; // bible as a data tree
         private BibleHashTable _bibleHash; // bible in a hash table
 
-        public bookManipulator(bible item)
+        public BookManipulator(Bible item)
         {
             _bible = item;
             _bibleHash = new BibleHashTable();
         }
-        public void setVersion(string version)
+        public void SetVersion(string version)
         {
-            _bible._bibleVersion = version;
+            _bible.BibleVersion = version;
         }
-        public bible getBible()
+        public Bible GetBible()
         {
             return _bible;
         }
-        public string getVerse(string book, int chapterNum, int verseNum)
+        public string GetVerse(string book, int chapterNum, int verseNum)
         {
             //return getChapter(book, chapterNum).getVerse(verseNum);
             // hash table expected to be faster
-            return _bibleHash.getVerse(book + " " + chapterNum + ":" + verseNum).getVerseText();
+            return _bibleHash.GetVerse(book + " " + chapterNum + ":" + verseNum).GetVerseText();
         }
-        public List<data_index.verse> getVerseRange(string startRef, string endRef)
-        { return _bibleHash.getRange(startRef, endRef); }
-        private chapter getChapter(string book, int chapterNum)
+        public List<data_index.Verse> getVerseRange(string startRef, string endRef)
+        { return _bibleHash.GetRange(startRef, endRef); }
+        private Chapter getChapter(string book, int chapterNum)
         {
-            return getBook(book).getChapter(chapterNum);
+            return getBook(book).GetChapter(chapterNum);
         }
-        private book getBook(string book)
+        private Book getBook(string book)
         {
-            return _bible.getBook(book);
+            return _bible.GetBook(book);
         }
-        public void addVerse(string verse, string book, int chapter, int verseNumber, bool replace)
+        public void AddVerse(string verse, string book, int chapter, int verseNumber, bool replace)
         {
             addChapter(book, chapter); // check to make sure chapter and book is in existance
-            chapter currentChapter = _bible.getBook(book).getChapter(chapter);
-            if (currentChapter.getVerse(verseNumber) == null || replace)
+            Chapter currentChapter = _bible.GetBook(book).GetChapter(chapter);
+            if (currentChapter.GetVerse(verseNumber) == null || replace)
             {
-                currentChapter.addVerse(verse, verseNumber);
-                _bibleHash.addVerse(book, chapter, verseNumber, verse); // save also to hash
+                currentChapter.AddVerse(verse, verseNumber);
+                _bibleHash.AddVerse(book, chapter, verseNumber, verse); // save also to hash
             }
         }
         private void addChapter(string bookTitle, int chapter)
         {
             addBook(bookTitle);
-            book currentBook = _bible.getBook(bookTitle);
-            if (currentBook.getChapter(chapter).getChapterNumber() == new chapter(null).getChapterNumber()) // check for null chapter (non existent)
+            Book currentBook = _bible.GetBook(bookTitle);
+            if (currentBook.GetChapter(chapter).GetChapterNumber() == new Chapter(null).GetChapterNumber()) // check for null chapter (non existent)
             {
-                currentBook.addChapter(new chapter(chapter));
+                currentBook.AddChapter(new Chapter(chapter));
             }
         }
         private void addBook(string bookTitle)
         {
-            if (_bible.getBook(bookTitle).getTitle() == new book("null").getTitle() )
+            if (_bible.GetBook(bookTitle).GetTitle() == new Book("null").GetTitle() )
             {
-                _bible.addBook(new book(bookTitle));
+                _bible.AddBook(new Book(bookTitle));
             }
         }
 

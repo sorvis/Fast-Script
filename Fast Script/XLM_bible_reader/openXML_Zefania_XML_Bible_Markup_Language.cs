@@ -6,13 +6,13 @@ using System.Xml;
 
 namespace Fast_Script.XLM_bible_reader
 {
-    class openXML_Zefania_XML_Bible_Markup_Language
+    class OpenXML_Zefania_XML_Bible_Markup_Language
     {
         private string _fileLocation;
         private XmlTextReader _reader;
-        private bible_data.bookManipulator _bible;
+        private bible_data.BookManipulator _bible;
 
-        public openXML_Zefania_XML_Bible_Markup_Language(string fileLocation, bible_data.bookManipulator manipulator)
+        public OpenXML_Zefania_XML_Bible_Markup_Language(string fileLocation, bible_data.BookManipulator manipulator)
         {
             _fileLocation = fileLocation;
             _reader = new XmlTextReader(_fileLocation);
@@ -23,7 +23,7 @@ namespace Fast_Script.XLM_bible_reader
             {
                 _reader.ReadToFollowing("title");
                 String title = _reader.ReadElementContentAsString();
-                _bible.setVersion(title);
+                _bible.SetVersion(title);
 
                 String book;
                 int verseNumber;
@@ -63,7 +63,7 @@ namespace Fast_Script.XLM_bible_reader
         }
         private void sendToDataTree(string book, int verseNum, int chptNum, string verseStrg)
         {
-            _bible.addVerse(verseStrg, book, chptNum, verseNum, true);
+            _bible.AddVerse(verseStrg, book, chptNum, verseNum, true);
         }
     }
 }

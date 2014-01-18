@@ -5,27 +5,27 @@ using System.Text;
 
 namespace Fast_Script.PresenterFolder.Searching
 {
-    class indexLooker
+    class IndexLooker
     {
-        private backEndInitializer _backEnd;
-        public indexLooker(backEndInitializer backEnd)
+        private BackEndInitializer _backEnd;
+        public IndexLooker(BackEndInitializer backEnd)
         {
             _backEnd = backEnd;
         }
 
-        public List<string> getPossibleChapters(string book)
+        public List<string> GetPossibleChapters(string book)
         {
-            return _backEnd.currentChapters(book).ToList().ToStringList();
+            return _backEnd.CurrentChapters(book).ToList().ToStringList();
         }
 
-        public List<string> getPossibleVerses(string book, string chapter)
+        public List<string> GetPossibleVerses(string book, string chapter)
         {
-            return _backEnd.currentVerses(book, Convert.ToInt32(chapter));
+            return _backEnd.CurrentVerses(book, Convert.ToInt32(chapter));
         }
 
-        public bool containsBook(string book)
+        public bool ContainsBook(string book)
         {
-            return _backEnd.currentBooks.Contains(book, false);
+            return _backEnd.CurrentBooks.Contains(book, false);
         }
     }
 }

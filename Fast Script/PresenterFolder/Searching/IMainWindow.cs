@@ -7,7 +7,6 @@ namespace Fast_Script.PresenterFolder.Searching
 {
     interface IMainWindow
     {
-        void searchBoxSuggestions(object list, string currentText);
-
+        void SearchBoxSuggestions(object list, string currentText);
     }
 }

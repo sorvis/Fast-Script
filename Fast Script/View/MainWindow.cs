@@ -36,12 +36,12 @@ namespace Fast_Script
             { _selectVerse.resetForm(); }
 
             //disable search bar while index is building
-            if (_presenter.Settings.CurrentBible.indexBuilderWorker.IsBusy)
+            if (_presenter.Settings.CurrentBible.IndexBuilderWorker.IsBusy)
             {
                 searchBox.Enabled = false;
 
                 //add event to re-enable searchBox
-                _presenter.Settings.CurrentBible.indexBuilderWorker.RunWorkerCompleted += 
+                _presenter.Settings.CurrentBible.IndexBuilderWorker.RunWorkerCompleted += 
                     new RunWorkerCompletedEventHandler(indexBuilderWorker_RunWorkerCompleted);
             }
         }
@@ -80,7 +80,7 @@ namespace Fast_Script
             List<string> items = new List<string>();
             foreach (PresenterFolder.ReferenceItemWrapper thing in VerseListBox.Items)
             {
-                 items.Add(thing.getItem.ToString());
+                 items.Add(thing.Item.ToString());
             }
             if(items.Contains(item))
             {return true;}
@@ -109,7 +109,7 @@ namespace Fast_Script
                 _presenter.searchString(searchBox.Text);
             }
         }
-        public void searchBoxSuggestions(object list, string currentText)
+        public void SearchBoxSuggestions(object list, string currentText)
         {
             searchBox.DataSource = list;
             searchBox.Text=currentText;
@@ -128,9 +128,9 @@ namespace Fast_Script
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
             foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
-                refList.addReferenceItem(item.getItem);
+                refList.AddReferenceItem(item.Item);
             }
-            _presenter.displayVersesToWebView(refList, "");
+            _presenter.DisplayVersesToWebView(refList, "");
         }
 
         private void checkedVerses_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,9 +156,9 @@ namespace Fast_Script
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
             foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
-                refList.addReferenceItem(item.getItem);
+                refList.AddReferenceItem(item.Item);
             }
-            if (refList.getList.Count > 0)
+            if (refList.GetList.Count > 0)
             {
                 _presenter.putVersesToClipBoard(refList);
             }
@@ -175,11 +175,11 @@ namespace Fast_Script
                 menuItems[i] = new ToolStripMenuItem();
                 menuItems[i].Name = "Bible:"+i.ToString();
                 menuItems[i].Tag = _presenter.Settings.Bibles[i];
-                menuItems[i].Text = _presenter.Settings.Bibles[i]._bibleVersion;
+                menuItems[i].Text = _presenter.Settings.Bibles[i].BibleVersion;
                 menuItems[i].Click += new EventHandler(BibleMenuItemClickHandler);
 
-                if (_presenter.Settings.CurrentBible._bibleVersion == 
-                    _presenter.Settings.Bibles[i]._bibleVersion)
+                if (_presenter.Settings.CurrentBible.BibleVersion == 
+                    _presenter.Settings.Bibles[i].BibleVersion)
                 {
                     menuItems[i].Checked = true;
                 }
@@ -197,17 +197,17 @@ namespace Fast_Script
 
             if(clickedItem.Name.Contains("Bible:")) // check for a bible item
             {
-                _presenter.Settings.CurrentBible.indexBuilderWorker.RunWorkerCompleted -= indexBuilderWorker_RunWorkerCompleted; // remove old event handler for re-enableing search box
+                _presenter.Settings.CurrentBible.IndexBuilderWorker.RunWorkerCompleted -= indexBuilderWorker_RunWorkerCompleted; // remove old event handler for re-enableing search box
                 
-                _presenter.Settings.CurrentBible = (bible_data.bible)clickedItem.Tag; // set bible a current bible
+                _presenter.Settings.CurrentBible = (bible_data.Bible)clickedItem.Tag; // set bible a current bible
 
                 //check to see if bible index is still being built
-                if (_presenter.Settings.CurrentBible.indexBuilderWorker.IsBusy)
+                if (_presenter.Settings.CurrentBible.IndexBuilderWorker.IsBusy)
                 {
                     searchBox.Enabled = false;
 
                     //add event to re-enable searchBox
-                    _presenter.Settings.CurrentBible.indexBuilderWorker.RunWorkerCompleted +=
+                    _presenter.Settings.CurrentBible.IndexBuilderWorker.RunWorkerCompleted +=
                         new RunWorkerCompletedEventHandler(indexBuilderWorker_RunWorkerCompleted);
                 }
             }
@@ -215,7 +215,7 @@ namespace Fast_Script
             {
                 if (openFileDialog.ShowDialog() != DialogResult.Cancel)
                 {
-                    _presenter.Settings.addBible(openFileDialog.FileName);
+                    _presenter.Settings.AddBible(openFileDialog.FileName);
                 }   
             }
         }
@@ -293,9 +293,9 @@ namespace Fast_Script
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
             foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
-                refList.addReferenceItem(item.getItem);
+                refList.AddReferenceItem(item.Item);
             }
-            if (refList.getList.Count > 0)
+            if (refList.GetList.Count > 0)
             {
                 _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
             }
@@ -306,12 +306,12 @@ namespace Fast_Script
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
             foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
-                refList.addReferenceItem(item.getItem);
+                refList.AddReferenceItem(item.Item);
             }
             
-            if (refList.getList.Count > 0)
+            if (refList.GetList.Count > 0)
             {
-                _presenter.Backend.printPreview(_presenter.putVersesForPlainText(refList));
+                _presenter.Backend.PrintPreview(_presenter.putVersesForPlainText(refList));
             }
         }
         private PresenterFolder.ReferenceList getCurrentVerseList()
@@ -319,13 +319,13 @@ namespace Fast_Script
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
             foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
             {
-                refList.addReferenceItem(item.getItem);
+                refList.AddReferenceItem(item.Item);
             }
             return refList;
         }
         private void printSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _presenter.Backend.printSetup(sender, e);
+            _presenter.Backend.PrintSetup(sender, e);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

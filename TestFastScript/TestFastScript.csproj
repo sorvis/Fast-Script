@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fast Script\Fast Script.csproj">
-      <Project>{AC91093F-899F-4D0F-A579-C1041724C7A7}</Project>
+      <Project>{ac91093f-899f-4d0f-a579-c1041724c7a7}</Project>
       <Name>Fast Script</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fast Script\yeti.mmedia\yeti.mmedia.csproj">

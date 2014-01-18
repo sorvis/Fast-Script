@@ -7,7 +7,7 @@ namespace Fast_Script.PresenterFolder.Searching
 {
     static class Extentions
     {
-        public static string capitalizeWord(this string word)
+        public static string CapitalizeWord(this string word)
         {
             char[] tempArray = word.ToCharArray();
 

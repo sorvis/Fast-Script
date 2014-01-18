@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Fast_Script.bible_data
 {
-    public class book
+    public class Book
     {
-        private List<chapter> _chapter;
+        private List<Chapter> _chapter;
         private string _bookTitle;
 
-        public List<chapter> getAllChapters()
+        public List<Chapter> GetAllChapters()
         {
             return _chapter;
         }
@@ -19,39 +19,39 @@ namespace Fast_Script.bible_data
             get
             {
                 List<int> chaptersList=new List<int>();
-                foreach (chapter item in _chapter)
+                foreach (Chapter item in _chapter)
                 {
-                    chaptersList.Add(item.getChapterNumber());
+                    chaptersList.Add(item.GetChapterNumber());
                 }
                 return chaptersList.ToArray();
             }
         }
-        public book(string title)
+        public Book(string title)
         {
             _bookTitle = title;
-            _chapter = new List<chapter>();
+            _chapter = new List<Chapter>();
         }
-        public chapter getChapter(int num)
+        public Chapter GetChapter(int num)
         {
             if (num > _chapter.Count)
             {
-                return new chapter(null);
+                return new Chapter(null);
             }
             else
             {
                 return _chapter[num - 1];
             }
         }
-        public void addChapter(chapter number)
+        public void AddChapter(Chapter number)
         {
-            int intNumber = number.getChapterNumber();
+            int intNumber = number.GetChapterNumber();
             while (_chapter.Count < intNumber)
             {
-                _chapter.Add(new chapter(null));
+                _chapter.Add(new Chapter(null));
             }
             _chapter[intNumber-1] = number;
         }
-        public string getTitle()
+        public string GetTitle()
         {
             return _bookTitle;
         }

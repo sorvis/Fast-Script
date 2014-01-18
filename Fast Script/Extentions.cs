@@ -8,7 +8,7 @@ namespace Fast_Script
 {
     public static class ListExtention
     {
-        public static List<T> appendList<T>(this List<T> oldList, List<T> newList)
+        public static List<T> AppendList<T>(this List<T> oldList, List<T> newList)
         {
                 foreach (T item in newList)
                 {
@@ -16,7 +16,7 @@ namespace Fast_Script
                 }
             return oldList;
         }
-        public static List<string> addPrefixToList(this List<string> list, string prefix)
+        public static List<string> AddPrefixToList(this List<string> list, string prefix)
         {
             List<string> tempList = new List<string>();
             foreach (string item in list)
@@ -47,7 +47,7 @@ namespace Fast_Script
             }
             return tempList;
         }
-        public static List<string> startsWithInList(this List<string> list, string searchString)
+        public static List<string> StartsWithInList(this List<string> list, string searchString)
         {
             List<string> suggestionList = new List<string>();
             foreach (string item in list)
@@ -100,7 +100,7 @@ namespace Fast_Script
                 return tempList.Contains(item);
             }
         }
-        public static string removeAll(this string item, string remove)
+        public static string RemoveAll(this string item, string remove)
         {
             if (remove.Count() <= item.Count())
             {

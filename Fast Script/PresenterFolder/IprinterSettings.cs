@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace Fast_Script.PresenterFolder
 {
-    public interface IprinterSettings
+    public interface IPrinterSettings
     {
         Font PrinterFont{get; set;}
     }
