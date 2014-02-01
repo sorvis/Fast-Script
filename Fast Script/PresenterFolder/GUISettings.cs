@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Speech.Synthesis;
 using System.IO;
+using Fast_Script.Properties;
 
 namespace Fast_Script.PresenterFolder
 {
@@ -17,9 +18,7 @@ namespace Fast_Script.PresenterFolder
 
         public string DefaultWebPage { get; set; }
 
-        // print settings
         public Font PrinterFont{get; set;}
-        // end print settings
 
         // bibles
         private string pathToXMLBibles

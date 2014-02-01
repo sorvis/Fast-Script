@@ -20,17 +20,18 @@ namespace Fast_Script
         private WebpageCreator _webpage;
         private Presenter _presenter;
         string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
+
         public BackEndInitializer(Presenter presenter) //TODO this method requiring presenter should be phased out in favor of requring GUI_Settings
         {
             _presenter = presenter;
-            //_bible = new XLM_bible_reader.BibleBuilder("kjv.xml").GetBible;
-            //_bible.BuildIndex();
             initialize();
         }
+
         public BackEndInitializer()
         {
             initialize();
         }
+
         private void initialize()
         {
             checkAppDataStorageFolder();
@@ -70,15 +71,16 @@ namespace Fast_Script
                 _settings = new GUISettings();
             }
         }
+
         // allows for serialization of bible index
         private data_index.IndexBuilder loadIndex(bible_data.Bible Bible)
         {
             string indexFileName = Bible.BibleVersion + ".index";
             data_index.IndexReaderWriter indexStorage = new data_index.IndexReaderWriter();
             data_index.IndexBuilder index = new data_index.IndexBuilder(Bible);
-            //indexStorage.SerializeObject(indexFileName, index);
             return index;
         }
+
         public void SaveWebpage(string page)
         {
             _webpage.writeHTMLPage(page);
@@ -89,11 +91,13 @@ namespace Fast_Script
         {
             return Bible.Index.WordsThatStartWith(prefix);
         }
+
         public bool WordExists(string word)
         {
             data_index.Word temp;
             return Bible.Index.TryGetValue(word, out temp);
         }
+
         public PresenterFolder.ReferenceList searchPhrase(string phrase)
         {
             List<data_index.Verse> verses = Bible.Index.GetVerses(phrase);
@@ -120,10 +124,12 @@ namespace Fast_Script
                 return Bible.Books;
             }
         }
+
         public int[] CurrentChapters(string book)
         {
             return Bible.GetBook(book).Chapters;
         }
+
         public List<string> CurrentVerses(string book, int chapter)
         {
             int numberOfVerses = Bible.GetBook(book).GetChapter(chapter).GetNumberOfVerses();
@@ -134,10 +140,12 @@ namespace Fast_Script
             }
             return verseList;
         }
+
         public string GetVerse(string book, int chapter, int verse)
         {
             return Bible.GetVerse(book, chapter, verse);
         }
+
         public List<data_index.Verse> GetVerseRange(string startRef, string endRef)
         {
             return Bible.GetVerseRange(startRef, endRef);
@@ -149,20 +157,27 @@ namespace Fast_Script
             _printer.TextToPrint = text;
             _printer.filePrintMenuItem_Click(new object(), new EventArgs());
         }
+
         public string GetPrintText()
         {
             return _printer.TextToPrint;
         }
+
         public void PrintPreview(string text)
         {
             _printer.TextToPrint = text;
             _printer.filePrintPreviewMenuItem_Click(new object(),new EventArgs());
         }
+
         public void PrintSetup(object sender, EventArgs e)
         {
             _printer.filePageSetupMenuItem_Click(sender, e);
         }
         // end printing methods
 
+        public void SaveSettings()
+        {
+            ObjectSerializing.SerializeObjectToFile(Path.Combine(_appDataStorageFolder, "Settings.data"), _settings);
+        }
     }
 }

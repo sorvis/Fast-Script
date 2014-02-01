@@ -9,6 +9,7 @@ using Yeti.MMedia;
 using Yeti.MMedia.Mp3;
 using WaveLib;
 using System.ComponentModel;
+using Orvis.Framework.Exception;
 
 namespace Fast_Script
 {
@@ -63,17 +64,21 @@ namespace Fast_Script
                         {
                             writer.Write(buff, 0, read);
                             actual += read;
-                            progress = ((int)(((long)actual * 100) / total))/2 +50; // divide by 2 and add 50 so only latter 50% will be used up
+                            progress = ((int)(((long)actual * 100) / total)) / 2 + 50; // divide by 2 and add 50 so only latter 50% will be used up
                             worker.ReportProgress(progress);
                         }
                     }
                     catch { }
                 }
-                catch  {}
+                catch { }
                 finally
                 {
                     writer.Close();
                 }
+            }
+            catch (Exception exception)
+            {
+                ExceptionHandler.ShowAndLogException(exception);
             }
             finally
             {

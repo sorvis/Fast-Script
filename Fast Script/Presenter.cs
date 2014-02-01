@@ -23,7 +23,6 @@ namespace Fast_Script
         { get { return _currentBoldWord; } }
         public GUISettings Settings
         { get { return _backend._settings; } }
-        private string _appDataStorageFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Fast_Script");
         public Presenter(MainWindow view)
         {
             _backend = new BackEndInitializer(this);
@@ -38,10 +37,7 @@ namespace Fast_Script
         {
             return (ReferenceList)ObjectSerializing.DeSerializeObjectFromFile(fileName);
         }
-        public void saveSettings()
-        {
-             ObjectSerializing.SerializeObjectToFile(Path.Combine(_appDataStorageFolder, "Settings.data"), Settings);
-        }
+
         public void addToVerseList(ReferenceItem item)
         {
             if (item.ToString() != "")

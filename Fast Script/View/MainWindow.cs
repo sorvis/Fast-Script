@@ -15,12 +15,12 @@ namespace Fast_Script
 {
     public partial class MainWindow : Form, IMainWindow
     {
-        private List<FontFamily> _avalibleFonts=null;
         // give credit to http://dryicons.com for icons
+
+        private List<FontFamily> _avalibleFonts = null;
         private Presenter _presenter;
-        public Presenter presenter { get { return _presenter; } }
-        public BackgroundWorker Get_MakeMP3backgroundWorker { get { return MakeMP3backgroundWorker; } }
         private VerseSelecter _selectVerse;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +33,9 @@ namespace Fast_Script
             _selectVerse.BringToFront();
 
             if (_presenter.Settings.VerseSelecterEnabled)
-            { _selectVerse.resetForm(); }
+            { 
+                _selectVerse.resetForm(); 
+            }
 
             //disable search bar while index is building
             if (_presenter.Settings.CurrentBible.IndexBuilderWorker.IsBusy)
@@ -75,6 +77,7 @@ namespace Fast_Script
                 webResualts.Url = new Uri(_presenter.Settings.DefaultWebPage);
             }
         }
+
         public bool verseListContains(string item)
         {
             List<string> items = new List<string>();
@@ -87,6 +90,7 @@ namespace Fast_Script
             else
             {return false;}
         }
+
         public void loadWebPage(string link)
         {
             webResualts.Url = new Uri(link);
@@ -109,6 +113,7 @@ namespace Fast_Script
                 _presenter.searchString(searchBox.Text);
             }
         }
+
         public void SearchBoxSuggestions(object list, string currentText)
         {
             searchBox.DataSource = list;
@@ -146,6 +151,7 @@ namespace Fast_Script
                 clb.Items.RemoveAt(index);
             }
         }
+
         private void buttonCopySelectedVersesToClipboard_Click(object sender, EventArgs e)
         {
             sendAllVersesToClipBoard();
@@ -163,10 +169,7 @@ namespace Fast_Script
                 _presenter.putVersesToClipBoard(refList);
             }
         }
-        private void toolStripQuickPrint_Click(object sender, EventArgs e)
-        {
-            
-        }
+
         private void bibleToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             ToolStripMenuItem[] menuItems = new ToolStripMenuItem[_presenter.Settings.Bibles.Count];
@@ -191,6 +194,7 @@ namespace Fast_Script
             AddBibleToolStripItem.Click += new EventHandler(BibleMenuItemClickHandler);
             bibleToolStripMenuItem.DropDownItems.Add(AddBibleToolStripItem);
         }
+
         private void BibleMenuItemClickHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
@@ -237,6 +241,7 @@ namespace Fast_Script
                 }
             }
         }
+
         private List<FontFamily> getAvalibleFonts()
         {
             if (_avalibleFonts == null)
@@ -257,6 +262,7 @@ namespace Fast_Script
             }
             return _avalibleFonts;
         }
+
         private void fontFamilyToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
             List<FontFamily> allFonts = getAvalibleFonts();
@@ -280,6 +286,7 @@ namespace Fast_Script
             fontFamilyToolStripMenuItem.DropDownItems.Clear();
             fontFamilyToolStripMenuItem.DropDownItems.AddRange(menuItems);
         }
+
         private void fontFamilyToolStripMenuItem_ClickHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
@@ -314,6 +321,7 @@ namespace Fast_Script
                 _presenter.Backend.PrintPreview(_presenter.putVersesForPlainText(refList));
             }
         }
+
         private PresenterFolder.ReferenceList getCurrentVerseList()
         {
             PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
@@ -323,6 +331,7 @@ namespace Fast_Script
             }
             return refList;
         }
+
         private void printSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _presenter.Backend.PrintSetup(sender, e);
@@ -335,7 +344,7 @@ namespace Fast_Script
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _presenter.saveSettings();
+            _presenter.Backend.SaveSettings();
 
             if (MakeMP3backgroundWorker.IsBusy)
             {
