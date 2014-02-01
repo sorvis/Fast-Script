@@ -2,4 +2,5 @@
 *.pdb
 *.txt
 *.cache
-obj\Debug\
+Debug/
+Debug\
