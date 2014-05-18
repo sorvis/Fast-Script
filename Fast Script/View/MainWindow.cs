@@ -323,10 +323,25 @@ namespace Fast_Script
             Application.Exit();
         }
 
-        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs eventArguments)
         {
             _presenter.Backend.SaveSettings();
+            checkIfAudioFileIsBeingWritten(eventArguments);
+            showPendingChangesMessage(_selectedVersesControl.IsDirty, eventArguments);
+        }
 
+        private void showPendingChangesMessage(bool isDirty, FormClosingEventArgs eventArguments)
+        {
+            if (isDirty
+                && MessageBox.Show("There are pending changes are you sure you want to quit?",
+                "Pending Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                eventArguments.Cancel = true;
+            }
+        }
+
+        private void checkIfAudioFileIsBeingWritten(FormClosingEventArgs e)
+        {
             if (MakeMP3backgroundWorker.IsBusy)
             {
                 DialogResult StopMP3_Generating = MessageBox.Show("A MP3 File is currently being generated. Do you want to cancel the generation and exit?",
@@ -368,6 +383,7 @@ namespace Fast_Script
             {
                 _presenter.saveVerseListToFile(getCurrentVerseList(),
                     saveFileDialog.FileName);
+                _selectedVersesControl.IsDirty = false;
             } 
         }
 
@@ -377,6 +393,7 @@ namespace Fast_Script
             {
                 _presenter.setNewVerseList( _presenter.getSavedVerseListFromFile(
                     openFileDialog.FileName));
+                _selectedVersesControl.IsDirty = false;
             }
         }
 

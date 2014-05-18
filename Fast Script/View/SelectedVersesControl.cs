@@ -20,6 +20,8 @@ namespace Fast_Script.View
 
         #region [--Properties--]
 
+        public Boolean IsDirty { get; set; }
+
         private CheckedListBox SelectedVersesCheckedListBox
         {
             get
@@ -44,6 +46,7 @@ namespace Fast_Script.View
                 _checkedVersesCheckedListBox.Items.Insert(newIndex, item);
                 _checkedVersesCheckedListBox.SetItemChecked(newIndex, itemIsChecked);
                 _checkedVersesCheckedListBox.SetSelected(newIndex, true);
+                IsDirty = true;
             }
         }
 
@@ -104,6 +107,7 @@ namespace Fast_Script.View
         private void deleteVerseToolStripButton_Click(object sender, EventArgs e)
         {
             _checkedVersesCheckedListBox.Items.Remove(_checkedVersesCheckedListBox.SelectedItem);
+            IsDirty = true;
         }
 
         private void checkedVersesCheckedListBox_KeyDown(object sender, KeyEventArgs e)
@@ -111,6 +115,7 @@ namespace Fast_Script.View
             if (e.KeyCode == Keys.Delete)
             {
                 _checkedVersesCheckedListBox.Items.Remove(_checkedVersesCheckedListBox.SelectedItem);
+                IsDirty = true;
             }
         }
 
@@ -120,6 +125,7 @@ namespace Fast_Script.View
         {
             SelectedVersesCheckedListBox.Items.Add(item, true);
             SelectedVersesCheckedListBox.SelectedItem = item; // select it so scroll bar will go down
+            IsDirty = true;
         }
 
         public ReferenceList GetReferenceList()
@@ -135,6 +141,7 @@ namespace Fast_Script.View
         public void ClearReferences()
         {
             SelectedVersesCheckedListBox.Items.Clear();
+            IsDirty = true;
         }
 
         public Boolean ContainsReference(String match)
