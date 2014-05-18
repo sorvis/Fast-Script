@@ -10,6 +10,7 @@ using System.Drawing.Printing;
 using System.Drawing.Text;
 using Fast_Script.PresenterFolder.Searching;
 using System.Runtime.InteropServices;
+using Fast_Script.PresenterFolder;
 
 namespace Fast_Script
 {
@@ -54,8 +55,18 @@ namespace Fast_Script
             searchBox.Enabled = true;
         }
 
-        public CheckedListBox VerseListBox
-        { get { return _selectedVersesControl.SelectedVersesCheckedListBox; } }
+        //public CheckedListBox VerseListBox
+        //{ get { return _selectedVersesControl.SelectedVersesCheckedListBox; } }
+
+        public void AddReference(ReferenceItemWrapper item)
+        {
+            _selectedVersesControl.AddReference(item);
+        }
+
+        public void ClearReferences()
+        {
+            _selectedVersesControl.ClearReferences();
+        }
 
         private void webResualts_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
@@ -65,8 +76,8 @@ namespace Fast_Script
                 if (pageURL.Contains("addReference"))
                 {
                     string[] link = e.Url.ToString().Split('=');
-                    VerseListBox.Items.Add(new PresenterFolder.ReferenceItemWrapper(
-                        _presenter.ItemstInWebView[Convert.ToInt32(link[1])]), true);
+                    _selectedVersesControl.AddReference(new PresenterFolder.ReferenceItemWrapper(
+                        _presenter.ItemstInWebView[Convert.ToInt32(link[1])]));
 
                     //reload webview with last displayed verses
                     _presenter.displayVersesToWebView();
@@ -80,15 +91,7 @@ namespace Fast_Script
 
         public bool verseListContains(string item)
         {
-            List<string> items = new List<string>();
-            foreach (PresenterFolder.ReferenceItemWrapper thing in VerseListBox.Items)
-            {
-                 items.Add(thing.Item.ToString());
-            }
-            if(items.Contains(item))
-            {return true;}
-            else
-            {return false;}
+            return _selectedVersesControl.ContainsReference(item);
         }
 
         public void loadWebPage(string link)
@@ -130,11 +133,7 @@ namespace Fast_Script
 
         private void SendToWebViewtoolStripButton_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
-            {
-                refList.AddReferenceItem(item.Item);
-            }
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             _presenter.DisplayVersesToWebView(refList, "");
         }
 
@@ -159,11 +158,7 @@ namespace Fast_Script
 
         private void sendAllVersesToClipBoard()
         {
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
-            {
-                refList.AddReferenceItem(item.Item);
-            }
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             if (refList.GetList.Count > 0)
             {
                 _presenter.putVersesToClipBoard(refList);
@@ -297,11 +292,7 @@ namespace Fast_Script
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
-            {
-                refList.AddReferenceItem(item.Item);
-            }
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             if (refList.GetList.Count > 0)
             {
                 _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
@@ -310,12 +301,7 @@ namespace Fast_Script
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
-            {
-                refList.AddReferenceItem(item.Item);
-            }
-            
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             if (refList.GetList.Count > 0)
             {
                 _presenter.Backend.PrintPreview(_presenter.putVersesForPlainText(refList));
@@ -324,12 +310,7 @@ namespace Fast_Script
 
         private PresenterFolder.ReferenceList getCurrentVerseList()
         {
-            PresenterFolder.ReferenceList refList = new PresenterFolder.ReferenceList();
-            foreach (PresenterFolder.ReferenceItemWrapper item in VerseListBox.Items)
-            {
-                refList.AddReferenceItem(item.Item);
-            }
-            return refList;
+            return _selectedVersesControl.GetReferenceList();
         }
 
         private void printSetupToolStripMenuItem_Click(object sender, EventArgs e)

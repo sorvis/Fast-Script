@@ -42,14 +42,12 @@ namespace Fast_Script
         {
             if (item.ToString() != "")
             {
-                ReferenceItemWrapper refItem = new ReferenceItemWrapper(item);
-                _view.VerseListBox.Items.Add(refItem, true);
-                _view.VerseListBox.SelectedItem = refItem;  // select it so scroll bar will go down
+                _view.AddReference(new ReferenceItemWrapper(item));
             }
         }
         public void setNewVerseList(ReferenceList list)
         {
-            _view.VerseListBox.Items.Clear();
+            _view.ClearReferences();
             foreach (ReferenceItem item in list.GetList)
             {
                 addToVerseList(item);

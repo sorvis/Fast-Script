@@ -196,7 +196,7 @@ namespace Fast_Script.PresenterFolder
             info.AddValue("_text", _text);
         }
     }
-    class ReferenceItemWrapper
+    public class ReferenceItemWrapper
     {
         private ReferenceItem _item;
         public ReferenceItemWrapper(ReferenceItem item)

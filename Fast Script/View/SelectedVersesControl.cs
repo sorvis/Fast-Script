@@ -20,7 +20,7 @@ namespace Fast_Script.View
 
         #region [--Properties--]
 
-        public CheckedListBox SelectedVersesCheckedListBox
+        private CheckedListBox SelectedVersesCheckedListBox
         {
             get
             {
@@ -115,6 +115,33 @@ namespace Fast_Script.View
         }
 
         #endregion Event_Handlers
+
+        public void AddReference(ReferenceItemWrapper item)
+        {
+            SelectedVersesCheckedListBox.Items.Add(item, true);
+            SelectedVersesCheckedListBox.SelectedItem = item; // select it so scroll bar will go down
+        }
+
+        public ReferenceList GetReferenceList()
+        {
+            ReferenceList referenceList = new ReferenceList();
+            foreach (ReferenceItemWrapper item in SelectedVersesCheckedListBox.Items)
+            {
+                referenceList.AddReferenceItem(item.Item);
+            }
+            return referenceList;
+        }
+
+        public void ClearReferences()
+        {
+            SelectedVersesCheckedListBox.Items.Clear();
+        }
+
+        public Boolean ContainsReference(String match)
+        {
+            return SelectedVersesCheckedListBox.Items.OfType<ReferenceItemWrapper>().
+                FirstOrDefault(item => match == item.ToString()) != null;
+        }
 
         private void _checkedVersesCheckedListBox_DragLeave(object sender, EventArgs e)
         {
