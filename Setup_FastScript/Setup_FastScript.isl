@@ -1883,7 +1883,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>fast_script.primary_output</td><td>Fast_Script.Primary_output</td><td>Fast Script.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Fast Script&gt;|Built</td><td>3</td><td/></row>
-		<row><td>king_james_version.xml</td><td>ISX_DEFAULTCOMPONENT1</td><td>KINGJA~1.XML|King James Version.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\steven\Documents\Visual Studio 2012\Projects\Fast-Script\Fast Script\bin\Debug\XML_Bibles\King James Version.xml</td><td>1</td><td/></row>
+		<row><td>king_james_version.xml</td><td>ISX_DEFAULTCOMPONENT1</td><td>KINGJA~1.XML|King James Version.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Gateway\Documents\GitHub\Fast-Script\Fast Script\XML_Bibles\King James Version.xml</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -1901,6 +1901,7 @@
 		<col def="S255">Data</col>
 		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
 		<row><td>PROJECT_ASSISTANT_FEATURES</td><td>NonSelectable</td></row>
+		<row><td>_Built</td><td/></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -3993,7 +3994,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{261E8747-07A7-4B87-B0F7-5B7E52F41AB0}</td></row>
 		<row><td>ISUSSignature</td><td>{CF17D467-2963-4273-B0AA-F7354D9B354B}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewUpgradePaths,viewSetupTypes,viewRealSetupDesign,viewISToday</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewUpgradePaths,viewSetupTypes,viewRealSetupDesign,viewISToday,viewAppFiles,viewFeatureFiles</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4532,7 +4533,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built</td><td>fastsc_1_fastscript</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>Fast_Script.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>fastsc_1_fastscript</td><td>##IDS_SHORTCUT_DISPLAY_NAME2##</td><td>Fast_Script.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
