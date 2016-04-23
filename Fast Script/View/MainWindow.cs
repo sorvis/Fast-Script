@@ -467,7 +467,9 @@ namespace Fast_Script
         private void copyReferencesToolStripButton_Click(object sender, EventArgs e)
         {
             var refList = _selectedVersesControl.GetReferenceList();
+            if (refList == null || refList.Items == null) return;
             var referencesText = refList.Items.GetReferences();
+            if (String.IsNullOrWhiteSpace(referencesText)) return;
             Clipboard.SetText(referencesText);
         }
 
