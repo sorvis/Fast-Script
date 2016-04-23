@@ -14,7 +14,7 @@ namespace TestFastScript
         {
 
         }
-         public void DisplayVersesToWebView(ReferenceList list, string boldWords)
+         public void DisplayVersesToWebView(ReferenceItems list, string boldWords)
          {
 
          }

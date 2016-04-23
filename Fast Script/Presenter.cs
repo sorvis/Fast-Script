@@ -29,13 +29,13 @@ namespace Fast_Script
             _view = view;
             _ParseSearch = new PresenterFolder.Searching.SearchParsing(this);
         }
-        public void saveVerseListToFile(ReferenceList list, string fileName)
+        public void saveVerseListToFile(ReferenceItems list, string fileName)
         {
             ObjectSerializing.SerializeObjectToFile(fileName, list);
         }
-        public ReferenceList getSavedVerseListFromFile(string fileName)
+        public ReferenceItems getSavedVerseListFromFile(string fileName)
         {
-            return (ReferenceList)ObjectSerializing.DeSerializeObjectFromFile(fileName);
+            return (ReferenceItems)ObjectSerializing.DeSerializeObjectFromFile(fileName);
         }
 
         public void addToVerseList(ReferenceItem item)
@@ -45,10 +45,10 @@ namespace Fast_Script
                 _view.AddReference(new ReferenceItemWrapper(item));
             }
         }
-        public void setNewVerseList(ReferenceList list)
+        public void setNewVerseList(ReferenceItems list)
         {
             _view.ClearReferences();
-            foreach (ReferenceItem item in list.GetList)
+            foreach (ReferenceItem item in list.Items)
             {
                 addToVerseList(item);
             }
@@ -59,7 +59,7 @@ namespace Fast_Script
         }
         public void displayVersesToWebView() // reloading current verses
         {
-            DisplayVersesToWebView(new ReferenceList(_currentItemsInWebview.ToList()), _currentBoldWord);
+            DisplayVersesToWebView(new ReferenceItems(_currentItemsInWebview.ToList()), _currentBoldWord);
         }
         private string putVersesToStringGeneric(string[] verseArray)
         {
@@ -70,28 +70,28 @@ namespace Fast_Script
             }
             return finalText.ToString();
         }
-        public string putVersesForPlainText(ReferenceList list)
+        public string putVersesForPlainText(ReferenceItems list)
         {
             return putVersesToStringGeneric(verseListToText(list));
         }
-        public string putVersesToStringForTTS(ReferenceList list)
+        public string putVersesToStringForTTS(ReferenceItems list)
         {
             return putVersesToStringGeneric(verseListToTextForTTS(list));
         }
-        public void putVersesToClipBoard(ReferenceList list)
+        public void putVersesToClipBoard(ReferenceItems list)
         {
             Clipboard.SetText(putVersesToStringGeneric(verseListToText(list)));
         }
 
-        private string[] verseListToTextForTTS(ReferenceList list)
+        private string[] verseListToTextForTTS(ReferenceItems list)
         {
-            string[] verseText = new string[list.GetList.Count];
+            string[] verseText = new string[list.Items.Count];
             string tempVerse = "";
             string tempTitle = "";
             list.CompleteReferences(_backend);
             int counter = 0;
             int verseNumber;
-            foreach (ReferenceItem refItem in list.GetList)
+            foreach (ReferenceItem refItem in list.Items)
             {
                 tempTitle = refItem.StartBook + " Chapter " + refItem.StartChapter + " verse " +
                     refItem.StartVerse;
@@ -126,15 +126,15 @@ namespace Fast_Script
             }
             return verseText;
         }
-        private string[] verseListToText(ReferenceList list)
+        private string[] verseListToText(ReferenceItems list)
         {
-            string[] verseText = new string[list.GetList.Count];
+            string[] verseText = new string[list.Items.Count];
             string tempVerse="";
             string tempTitle ="";
             list.CompleteReferences(_backend);
             int counter = 0;
             int verseNumber;
-            foreach (ReferenceItem refItem in list.GetList)
+            foreach (ReferenceItem refItem in list.Items)
             {
                 tempTitle = refItem.StartBook + " " + refItem.StartChapter + ":" +
                     refItem.StartVerse;
@@ -169,10 +169,10 @@ namespace Fast_Script
             }
             return verseText;
         }
-        public void DisplayVersesToWebView(ReferenceList list, string boldWords)
+        public void DisplayVersesToWebView(ReferenceItems list, string boldWords)
         {
             // save verses in cas a refresh is needed later
-            _currentItemsInWebview = list.GetList.ToArray();
+            _currentItemsInWebview = list.Items.ToArray();
             _currentBoldWord = boldWords;
 
             list.CompleteReferences(_backend);
@@ -184,9 +184,9 @@ namespace Fast_Script
 
             int limit = 20;
             ReferenceItem item;
-            for (int i = 0; i < list.GetList.Count() && i < limit; i++)
+            for (int i = 0; i < list.Items.Count() && i < limit; i++)
             {
-                item = list.GetList[i];
+                item = list.Items[i];
 
                 title = "";
                 verses = "";
@@ -246,9 +246,9 @@ namespace Fast_Script
 
             finalPage += "</ul>"; // put html end of list
 
-            if (list.GetList.Count() > limit)
+            if (list.Items.Count() > limit)
             { 
-                finalPage += "<b>Plus " + (list.GetList.Count() - limit) + " more</b>"; 
+                finalPage += "<b>Plus " + (list.Items.Count() - limit) + " more</b>"; 
             }
 
             WriteWebView(finalPage);

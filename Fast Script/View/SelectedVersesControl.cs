@@ -128,9 +128,9 @@ namespace Fast_Script.View
             IsDirty = true;
         }
 
-        public ReferenceList GetReferenceList()
+        public ReferenceItems GetReferenceList()
         {
-            ReferenceList referenceList = new ReferenceList();
+            ReferenceItems referenceList = new ReferenceItems();
             foreach (ReferenceItemWrapper item in SelectedVersesCheckedListBox.Items)
             {
                 referenceList.AddReferenceItem(item.Item);

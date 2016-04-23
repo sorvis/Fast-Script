@@ -133,7 +133,7 @@ namespace Fast_Script
 
         private void SendToWebViewtoolStripButton_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
+            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
             _presenter.DisplayVersesToWebView(refList, "");
         }
 
@@ -158,8 +158,8 @@ namespace Fast_Script
 
         private void sendAllVersesToClipBoard()
         {
-            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
-            if (refList.GetList.Count > 0)
+            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            if (refList.Items.Count > 0)
             {
                 _presenter.putVersesToClipBoard(refList);
             }
@@ -292,8 +292,8 @@ namespace Fast_Script
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
-            if (refList.GetList.Count > 0)
+            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            if (refList.Items.Count > 0)
             {
                 _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
             }
@@ -301,14 +301,14 @@ namespace Fast_Script
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
-            if (refList.GetList.Count > 0)
+            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            if (refList.Items.Count > 0)
             {
                 _presenter.Backend.PrintPreview(_presenter.putVersesForPlainText(refList));
             }
         }
 
-        private PresenterFolder.ReferenceList getCurrentVerseList()
+        private PresenterFolder.ReferenceItems getCurrentVerseList()
         {
             return _selectedVersesControl.GetReferenceList();
         }
@@ -433,7 +433,7 @@ namespace Fast_Script
             }
 
             string fileName = (string) e.Argument;
-            PresenterFolder.ReferenceList tempRefList = getCurrentVerseList();
+            PresenterFolder.ReferenceItems tempRefList = getCurrentVerseList();
             AudioFileMaker.MakeFileFromText(fileName, _presenter.putVersesToStringForTTS( tempRefList),
                 _presenter.Settings.CurrentTTSVoice.VoiceInfo.Name, _presenter.Settings.TTS_Rate, (BackgroundWorker) sender);
         }
@@ -462,6 +462,13 @@ namespace Fast_Script
             sendAllVersesToClipBoard();
             BringWindowToTop(ProcessWatcher.LastHandle);
             SendKeys.Send("^V");
+        }
+
+        private void copyReferencesToolStripButton_Click(object sender, EventArgs e)
+        {
+            var refList = _selectedVersesControl.GetReferenceList();
+            var referencesText = refList.Items.GetReferences();
+            Clipboard.SetText(referencesText);
         }
 
         [DllImport("user32.dll", SetLastError = true)]
