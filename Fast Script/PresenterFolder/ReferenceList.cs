@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace Fast_Script.PresenterFolder
 {
     [Serializable()]
-    public class ReferenceItems : ISerializable
+    public class ReferenceList : ISerializable
     {
         private ReferenceItem _currentReference;
         public ReferenceItem CurrentReference
@@ -20,12 +20,12 @@ namespace Fast_Script.PresenterFolder
         {
             get { return _referenceList; }
         }
-        public ReferenceItems()
+        public ReferenceList()
         {
             _referenceList = new List<ReferenceItem>();
             _currentReference = null;
         }
-        public ReferenceItems(List<ReferenceItem> items)
+        public ReferenceList(List<ReferenceItem> items)
         {
             _referenceList = items;
             _currentReference = null;
@@ -109,7 +109,7 @@ namespace Fast_Script.PresenterFolder
             item.StartVerse = startVerse;
             return item;
         }
-        public void AppendReferenceList(ReferenceItems oldList)
+        public void AppendReferenceList(ReferenceList oldList)
         {
             if (oldList != null)
             {
@@ -178,7 +178,7 @@ namespace Fast_Script.PresenterFolder
                 }
             }
         }
-        public ReferenceItems(SerializationInfo info, StreamingContext ctxt)
+        public ReferenceList(SerializationInfo info, StreamingContext ctxt)
         {
             _currentReference = (ReferenceItem)info.GetValue("_currentRefernce",
                 typeof(ReferenceItem));

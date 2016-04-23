@@ -89,7 +89,7 @@
     <Compile Include="Extentions.cs" />
     <Compile Include="PresenterFolder\FileCopier.cs" />
     <Compile Include="PresenterFolder\ReferenceItem.cs" />
-    <Compile Include="PresenterFolder\ReferenceItems.cs" />
+    <Compile Include="PresenterFolder\ReferenceList.cs" />
     <Compile Include="PresenterFolder\Searching\SearchParsing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

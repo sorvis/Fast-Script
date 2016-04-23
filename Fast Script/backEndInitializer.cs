@@ -98,10 +98,10 @@ namespace Fast_Script
             return Bible.Index.TryGetValue(word, out temp);
         }
 
-        public PresenterFolder.ReferenceItems searchPhrase(string phrase)
+        public PresenterFolder.ReferenceList searchPhrase(string phrase)
         {
             List<data_index.Verse> verses = Bible.Index.GetVerses(phrase);
-            PresenterFolder.ReferenceItems newList = new PresenterFolder.ReferenceItems();
+            PresenterFolder.ReferenceList newList = new PresenterFolder.ReferenceList();
             if (verses != null)
             {
                 foreach (data_index.Verse item in verses)

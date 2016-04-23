@@ -24,7 +24,7 @@ namespace Fast_Script.PresenterFolder.Searching
 
         private void foundWholeBookName(ref string lastFoundBook, ref string[] text, 
             ref int i, ref List<string> suggestionList,  ref IMainWindow _view,
-            ref string originalSearch, ref ReferenceItems refList)
+            ref string originalSearch, ref ReferenceList refList)
         {
             lastFoundBook = text[i].CapitalizeWord();
             if (i < text.Count() - 1) //something after book
@@ -55,7 +55,7 @@ namespace Fast_Script.PresenterFolder.Searching
         
         public void searchString(string originalSearch, BackEndInitializer _backend, IMainWindow _view)
         {
-            PresenterFolder.ReferenceItems referenceList = new PresenterFolder.ReferenceItems(); // list of references to display
+            PresenterFolder.ReferenceList referenceList = new PresenterFolder.ReferenceList(); // list of references to display
             List<string> suggestionList = new List<string>(); // list of what user might want to type next
             string searchPhrase = "";
 

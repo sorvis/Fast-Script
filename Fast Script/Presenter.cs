@@ -29,13 +29,13 @@ namespace Fast_Script
             _view = view;
             _ParseSearch = new PresenterFolder.Searching.SearchParsing(this);
         }
-        public void saveVerseListToFile(ReferenceItems list, string fileName)
+        public void saveVerseListToFile(ReferenceList list, string fileName)
         {
             ObjectSerializing.SerializeObjectToFile(fileName, list);
         }
-        public ReferenceItems getSavedVerseListFromFile(string fileName)
+        public ReferenceList getSavedVerseListFromFile(string fileName)
         {
-            return (ReferenceItems)ObjectSerializing.DeSerializeObjectFromFile(fileName);
+            return (ReferenceList)ObjectSerializing.DeSerializeObjectFromFile(fileName);
         }
 
         public void addToVerseList(ReferenceItem item)
@@ -45,7 +45,7 @@ namespace Fast_Script
                 _view.AddReference(new ReferenceItemWrapper(item));
             }
         }
-        public void setNewVerseList(ReferenceItems list)
+        public void setNewVerseList(ReferenceList list)
         {
             _view.ClearReferences();
             foreach (ReferenceItem item in list.Items)
@@ -59,7 +59,7 @@ namespace Fast_Script
         }
         public void displayVersesToWebView() // reloading current verses
         {
-            DisplayVersesToWebView(new ReferenceItems(_currentItemsInWebview.ToList()), _currentBoldWord);
+            DisplayVersesToWebView(new ReferenceList(_currentItemsInWebview.ToList()), _currentBoldWord);
         }
         private string putVersesToStringGeneric(string[] verseArray)
         {
@@ -70,20 +70,20 @@ namespace Fast_Script
             }
             return finalText.ToString();
         }
-        public string putVersesForPlainText(ReferenceItems list)
+        public string putVersesForPlainText(ReferenceList list)
         {
             return putVersesToStringGeneric(verseListToText(list));
         }
-        public string putVersesToStringForTTS(ReferenceItems list)
+        public string putVersesToStringForTTS(ReferenceList list)
         {
             return putVersesToStringGeneric(verseListToTextForTTS(list));
         }
-        public void putVersesToClipBoard(ReferenceItems list)
+        public void putVersesToClipBoard(ReferenceList list)
         {
             Clipboard.SetText(putVersesToStringGeneric(verseListToText(list)));
         }
 
-        private string[] verseListToTextForTTS(ReferenceItems list)
+        private string[] verseListToTextForTTS(ReferenceList list)
         {
             string[] verseText = new string[list.Items.Count];
             string tempVerse = "";
@@ -126,7 +126,7 @@ namespace Fast_Script
             }
             return verseText;
         }
-        private string[] verseListToText(ReferenceItems list)
+        private string[] verseListToText(ReferenceList list)
         {
             string[] verseText = new string[list.Items.Count];
             string tempVerse="";
@@ -169,7 +169,7 @@ namespace Fast_Script
             }
             return verseText;
         }
-        public void DisplayVersesToWebView(ReferenceItems list, string boldWords)
+        public void DisplayVersesToWebView(ReferenceList list, string boldWords)
         {
             // save verses in cas a refresh is needed later
             _currentItemsInWebview = list.Items.ToArray();

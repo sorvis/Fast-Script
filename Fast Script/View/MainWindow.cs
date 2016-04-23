@@ -133,7 +133,7 @@ namespace Fast_Script
 
         private void SendToWebViewtoolStripButton_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             _presenter.DisplayVersesToWebView(refList, "");
         }
 
@@ -158,7 +158,7 @@ namespace Fast_Script
 
         private void sendAllVersesToClipBoard()
         {
-            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             if (refList.Items.Count > 0)
             {
                 _presenter.putVersesToClipBoard(refList);
@@ -292,7 +292,7 @@ namespace Fast_Script
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             if (refList.Items.Count > 0)
             {
                 _presenter.Backend.PrintText(_presenter.putVersesForPlainText(refList));
@@ -301,14 +301,14 @@ namespace Fast_Script
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PresenterFolder.ReferenceItems refList = _selectedVersesControl.GetReferenceList();
+            PresenterFolder.ReferenceList refList = _selectedVersesControl.GetReferenceList();
             if (refList.Items.Count > 0)
             {
                 _presenter.Backend.PrintPreview(_presenter.putVersesForPlainText(refList));
             }
         }
 
-        private PresenterFolder.ReferenceItems getCurrentVerseList()
+        private PresenterFolder.ReferenceList getCurrentVerseList()
         {
             return _selectedVersesControl.GetReferenceList();
         }
@@ -433,7 +433,7 @@ namespace Fast_Script
             }
 
             string fileName = (string) e.Argument;
-            PresenterFolder.ReferenceItems tempRefList = getCurrentVerseList();
+            PresenterFolder.ReferenceList tempRefList = getCurrentVerseList();
             AudioFileMaker.MakeFileFromText(fileName, _presenter.putVersesToStringForTTS( tempRefList),
                 _presenter.Settings.CurrentTTSVoice.VoiceInfo.Name, _presenter.Settings.TTS_Rate, (BackgroundWorker) sender);
         }

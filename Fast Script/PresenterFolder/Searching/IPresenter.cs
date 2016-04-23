@@ -7,7 +7,7 @@ namespace Fast_Script.PresenterFolder.Searching
 {
     interface IPresenter
     {
-        void DisplayVersesToWebView(ReferenceItems list, string boldWords);
+        void DisplayVersesToWebView(ReferenceList list, string boldWords);
         void WriteWebView(string page);
         BackEndInitializer Backend { get; }
     }
