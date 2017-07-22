@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orvis.Framework.UtilityTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orvis.Framework.Exception", "Orvis.Framework.Exception\Orvis.Framework.Exception.csproj", "{D4252A0E-6FB2-4FBB-B261-D8788FCB3A20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orvis.Framework.Untility.Test", "Orvis.Framework.Untility.Test\Orvis.Framework.Untility.Test.csproj", "{F6C8FDEB-0957-4180-BB7F-28A857F69628}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fast Script1.vsmdi
@@ -282,6 +284,36 @@ Global
 		{D4252A0E-6FB2-4FBB-B261-D8788FCB3A20}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D4252A0E-6FB2-4FBB-B261-D8788FCB3A20}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
 		{D4252A0E-6FB2-4FBB-B261-D8788FCB3A20}.SingleImage|x86.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.CD_ROM|Mixed Platforms.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.CD_ROM|x86.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.CD_ROM|x86.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Debug|x86.Build.0 = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.DVD-5|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.DVD-5|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.DVD-5|x86.ActiveCfg = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.DVD-5|x86.Build.0 = Debug|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Release|x86.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.Release|x86.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.SingleImage|x86.ActiveCfg = Release|Any CPU
+		{F6C8FDEB-0957-4180-BB7F-28A857F69628}.SingleImage|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
