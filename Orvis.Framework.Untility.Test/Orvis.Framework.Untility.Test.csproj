@@ -40,10 +40,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="StringHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orvis.Framework.Utility\Orvis.Framework.Utility.csproj">
+      <Project>{39C17CBC-C14C-4591-8563-F680F4B3D9E2}</Project>
+      <Name>Orvis.Framework.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{AC91093F-899F-4D0F-A579-C1041724C7A7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Orvis.Framework.Untility.Test/Test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Orvis.Framework.Untility.Test/StringHelperTest.cs">
     <Files>
       <File FileName="Orvis.Framework.UtilityTest/StringHelperTest.cs" Line="1" Column="1" />
-      <File FileName="Orvis.Framework.Untility.Test/Test.cs" Line="4" Column="2" />
+      <File FileName="Orvis.Framework.Untility.Test/Test.cs" Line="8" Column="33" />
+      <File FileName="Orvis.Framework.Untility.Test/StringHelperTest.cs" Line="16" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
