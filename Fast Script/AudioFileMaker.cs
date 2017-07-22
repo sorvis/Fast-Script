@@ -13,9 +13,9 @@ using Orvis.Framework.Exception;
 
 namespace Fast_Script
 {
-    class AudioFileMaker
+    class AudioFileMaker : IAudioGenerator
     {
-        static public void MakeFileFromText(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
+        public void MakeFileFromText(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
         {
             Stream audioStream = textToAudioStream(textToConvert, voiceName, voiceRate, worker);    // get audio stream of TTS
             //saveWaveStreamToMP3File(fileNameToCreate, worker, audioStream);    

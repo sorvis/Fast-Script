@@ -49,6 +49,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VoiceRSS_TTS_SDK">
+      <HintPath>VoiceRSS_TTS_SDK.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PresenterFolder\IPrinterSettings.cs" />
@@ -151,6 +154,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="IAudioGenerator.cs" />
+    <Compile Include="VoiceRssAudioFileMaker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Orvis.Framework.Exception\Orvis.Framework.Exception.csproj">
@@ -159,9 +164,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lame_enc.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="XML_Bibles\King James Version.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

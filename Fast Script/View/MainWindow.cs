@@ -434,6 +434,9 @@ namespace Fast_Script
 
             string fileName = (string) e.Argument;
             PresenterFolder.ReferenceList tempRefList = getCurrentVerseList();
+            IAudioGenerator generator = new VoiceRssAudioFileMaker();
+            generator.MakeFileFromText(fileName, _presenter.putVersesToStringForTTS(tempRefList),
+                                       string.Empty, -1, (BackgroundWorker)sender);
             /*
             AudioFileMaker.MakeFileFromText(fileName, _presenter.putVersesToStringForTTS( tempRefList),
                 _presenter.Settings.CurrentTTSVoice.VoiceInfo.Name, _presenter.Settings.TTS_Rate, (BackgroundWorker) sender);
