@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.Drawing;
 using System.Reflection;
-using System.Speech.Synthesis;
+//using System.Speech.Synthesis;
 using System.IO;
 using Fast_Script.Properties;
 
@@ -37,6 +37,7 @@ namespace Fast_Script.PresenterFolder
         { get { return _currentBible; } set { _currentBible = value; } }
         // end bibles
 
+        /*
         // text to speech
         private List<InstalledVoice> _TTSvoices = null;
         public List<InstalledVoice> TTSVoices
@@ -76,6 +77,7 @@ namespace Fast_Script.PresenterFolder
             }
             return null;
         }
+        */
         public int TTS_Rate { get; set; }
         // end text to speech
 
@@ -96,8 +98,8 @@ namespace Fast_Script.PresenterFolder
 
             VerseSelecterEnabled = false;
 
-            CurrentTTSVoice = GetTTSByName( new SpeechSynthesizer().Voice.Name); // loads in default voice
-            TTS_Rate = new SpeechSynthesizer().Rate; //load default rate for TTS
+            //CurrentTTSVoice = GetTTSByName( new SpeechSynthesizer().Voice.Name); // loads in default voice
+            //TTS_Rate = new SpeechSynthesizer().Rate; //load default rate for TTS
         }
 
         private void loadDefaultBibleIfNone()
@@ -189,7 +191,7 @@ namespace Fast_Script.PresenterFolder
 
             PrinterFont = (Font)info.GetValue("_printFont", typeof(Font));
             VerseSelecterEnabled = (bool)info.GetValue("VerseSelecterEnabled", typeof(bool));
-            CurrentTTSVoice = GetTTSByName((string)info.GetValue("CurrentTTSVoice", typeof(string)));
+            //CurrentTTSVoice = GetTTSByName((string)info.GetValue("CurrentTTSVoice", typeof(string)));
             TTS_Rate = (int)info.GetValue("TTS_Rate", typeof(int));
         }
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
@@ -197,7 +199,7 @@ namespace Fast_Script.PresenterFolder
             info.AddValue("_printFont", PrinterFont);
             info.AddValue("CurrentBible", CurrentBible.BibleVersion);
             info.AddValue("VerseSelecterEnabled", VerseSelecterEnabled);
-            info.AddValue("CurrentTTSVoice", CurrentTTSVoice.VoiceInfo.Name);
+            //info.AddValue("CurrentTTSVoice", CurrentTTSVoice.VoiceInfo.Name);
             info.AddValue("TTS_Rate", TTS_Rate);
         }
     }

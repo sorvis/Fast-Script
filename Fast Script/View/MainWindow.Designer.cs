@@ -1,4 +1,6 @@
-﻿namespace Fast_Script
+﻿using CefSharp.WinForms;
+
+namespace Fast_Script
 {
     partial class MainWindow
     {
@@ -58,7 +60,7 @@
             this._selectedVersesControl = new Fast_Script.View.SelectedVersesControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.ComboBox();
-            this.webResualts = new System.Windows.Forms.WebBrowser();
+            //this.webResults = new ChromiumWebBrowser();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MakeMP3backgroundWorker = new System.ComponentModel.BackgroundWorker();
@@ -340,13 +342,14 @@
             // 
             // webResualts
             // 
-            this.webResualts.Location = new System.Drawing.Point(233, 54);
-            this.webResualts.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webResualts.Name = "webResualts";
-            this.webResualts.Size = new System.Drawing.Size(453, 458);
-            this.webResualts.TabIndex = 4;
-            this.webResualts.Url = new System.Uri("", System.UriKind.Relative);
-            this.webResualts.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webResualts_Navigating);
+            /*
+            this.webResults.Location = new System.Drawing.Point(233, 54);
+            this.webResults.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webResults.Name = "webResults";
+            this.webResults.Size = new System.Drawing.Size(453, 458);
+            this.webResults.TabIndex = 4;
+            */
+            //this.webResults.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webResualts_Navigating);
             // 
             // openFileDialog
             // 
@@ -387,8 +390,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 565);
-            this.Controls.Add(this.MainprogressBar);
-            this.Controls.Add(this.webResualts);
+			this.Controls.Add(this.MainprogressBar);
+			//this.Controls.Add(this.webResults);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this._selectedVersesGroupBox);
             this.Controls.Add(this.MainMenuStrip);
@@ -425,7 +428,7 @@
         private System.Windows.Forms.ToolStrip _selectedVerseOperationToolStrip;
         private System.Windows.Forms.ToolStripButton buttonCopySelectedVersesToClipboard;
         private System.Windows.Forms.ComboBox searchBox;
-        private System.Windows.Forms.WebBrowser webResualts;
+        //private ChromiumWebBrowser webResults;
         private System.Windows.Forms.ToolStripButton SelectVersesButton;
         private System.Windows.Forms.ToolStripButton SendToWebViewtoolStripButton;
         private System.Windows.Forms.ToolStripMenuItem bibleToolStripMenuItem;

@@ -85,7 +85,7 @@ namespace Fast_Script
             }
             else
             {
-                webResualts.Url = new Uri(_presenter.Settings.DefaultWebPage);
+                //webResults.Load(_presenter.Settings.DefaultWebPage);
             }
         }
 
@@ -96,7 +96,7 @@ namespace Fast_Script
 
         public void loadWebPage(string link)
         {
-            webResualts.Url = new Uri(link);
+            //webResults.Load(link);
         }
 
         private void searchBox_Enter(object sender, EventArgs e)
@@ -434,9 +434,11 @@ namespace Fast_Script
 
             string fileName = (string) e.Argument;
             PresenterFolder.ReferenceList tempRefList = getCurrentVerseList();
+            /*
             AudioFileMaker.MakeFileFromText(fileName, _presenter.putVersesToStringForTTS( tempRefList),
                 _presenter.Settings.CurrentTTSVoice.VoiceInfo.Name, _presenter.Settings.TTS_Rate, (BackgroundWorker) sender);
-        }
+			*/
+		}
 
         private void MakeMP3backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
