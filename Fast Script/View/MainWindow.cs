@@ -35,7 +35,7 @@ namespace Fast_Script
 
             if (_presenter.Settings.VerseSelecterEnabled)
             { 
-                _selectVerse.resetForm(); 
+                _selectVerse.ResetForm(); 
             }
 
             //disable search bar while index is building
@@ -127,7 +127,7 @@ namespace Fast_Script
 
         private void SelectVersesButton_Click(object sender, EventArgs e)
         {
-            _selectVerse.resetForm();
+            _selectVerse.ResetForm();
             _presenter.Settings.VerseSelecterEnabled = true;
         }
 

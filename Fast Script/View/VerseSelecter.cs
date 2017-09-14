@@ -11,10 +11,13 @@ namespace Fast_Script
 {
     public partial class VerseSelecter : UserControl
     {
+        private const string BOOK = "book";
+        private const string CHAPTER = "chapter";
+        private const string VERSE = "verse";
         private BackEndInitializer _backend;
         private Presenter _presenter;
         private PresenterFolder.ReferenceItem _verseReference;
-        private string displaying; // current type displayed: book, chapter, verse
+        private string _displaying; // current type displayed: book, chapter, verse
         public VerseSelecter(Presenter presenter)
         {
             InitializeComponent();
@@ -22,14 +25,14 @@ namespace Fast_Script
             _backend = _presenter.Backend;
             _verseReference = new PresenterFolder.ReferenceItem();
         }
-        public void resetForm()
+        public void ResetForm()
         {
-            this.Visible = true;
+            Visible = true;
             this.Enabled = true;
-            verseSelecterListBox.Items.Clear();
-            verseSelecterListBox.Items.AddRange(_backend.CurrentBooks);
+            _verseSelecterListBox.Items.Clear();
+            _verseSelecterListBox.Items.AddRange(_backend.CurrentBooks);
             _verseReference = new PresenterFolder.ReferenceItem();
-            displaying = "book";
+            _displaying = BOOK;
             ReferenceDisplayLabel.Text = "";
         }
         private void cancelButton_Click(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace Fast_Script
         private void AddButton_Click(object sender, EventArgs e)
         {
             AddToList(_verseReference);
-            resetForm();
+            ResetForm();
         }
         private void AddToList(PresenterFolder.ReferenceItem item)
         {
@@ -58,54 +61,54 @@ namespace Fast_Script
         private void verseSelecterListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListBox.SelectedObjectCollection selectedItems =
-                   verseSelecterListBox.SelectedItems;
+                   _verseSelecterListBox.SelectedItems;
 
             if (selectedItems.Count > 1)
             {
                 _verseReference.Range = true;
-                switch (displaying)
+                switch (_displaying)
                 {
-                    case "book":
-                        _verseReference.StartBook = (string)verseSelecterListBox.
+                    case BOOK:
+                        _verseReference.StartBook = (string)_verseSelecterListBox.
                             SelectedItems[0];
-                        _verseReference.EndBook = (string)verseSelecterListBox.
+                        _verseReference.EndBook = (string)_verseSelecterListBox.
                             SelectedItems[selectedItems.Count-1];
                         break;
-                    case "chapter":
-                        _verseReference.StartChapter = Convert.ToInt32((string)verseSelecterListBox.
+                    case CHAPTER:
+                        _verseReference.StartChapter = Convert.ToInt32((string)_verseSelecterListBox.
                             SelectedItems[0]);
-                        _verseReference.EndChapter = Convert.ToInt32((string)verseSelecterListBox.
+                        _verseReference.EndChapter = Convert.ToInt32((string)_verseSelecterListBox.
                             SelectedItems[selectedItems.Count-1]);
                         break;
-                    case "verse":
-                        _verseReference.StartVerse = Convert.ToInt32((string)verseSelecterListBox.
+                    case VERSE:
+                        _verseReference.StartVerse = Convert.ToInt32((string)_verseSelecterListBox.
                             SelectedItems[0]);
-                        _verseReference.EndVerse = Convert.ToInt32((string)verseSelecterListBox.
+                        _verseReference.EndVerse = Convert.ToInt32((string)_verseSelecterListBox.
                             SelectedItems[selectedItems.Count-1]);
                         break;
                 }
 
                 AddToList(_verseReference);
-                resetForm();
+                ResetForm();
             }
             else if (selectedItems.Count == 1)
             {
-                switch (displaying)
+                switch (_displaying)
                 {
-                    case "book":
-                        string bookName = verseSelecterListBox.Text;
+                    case BOOK:
+                        string bookName = _verseSelecterListBox.Text;
                         string[] chapters = intToString(_backend.CurrentChapters(bookName));
 
                         // update saved verse reference
                         _verseReference.StartBook = bookName;
 
                         // update ListBox with chapters
-                        verseSelecterListBox.Items.Clear();
-                        verseSelecterListBox.Items.AddRange(chapters);
-                        displaying = "chapter";
+                        _verseSelecterListBox.Items.Clear();
+                        _verseSelecterListBox.Items.AddRange(chapters);
+                        _displaying = "chapter";
                         break;
                     case "chapter":
-                        int chapterNumber = Convert.ToInt32(verseSelecterListBox.Text);
+                        int chapterNumber = Convert.ToInt32(_verseSelecterListBox.Text);
                         int numberOfVerses = _backend.CurrentVerses(_verseReference.StartBook, chapterNumber).Count;
                         string[] verses = new string[numberOfVerses];
                         for (int i = 0; i < numberOfVerses; i++)
@@ -117,17 +120,17 @@ namespace Fast_Script
                         _verseReference.StartChapter = chapterNumber;
 
                         // update ListBox with verses
-                        verseSelecterListBox.Items.Clear();
-                        verseSelecterListBox.Items.AddRange(verses);
-                        displaying = "verse";
+                        _verseSelecterListBox.Items.Clear();
+                        _verseSelecterListBox.Items.AddRange(verses);
+                        _displaying = VERSE;
                         break;
-                    case "verse": // only one selected
-                        _verseReference.StartVerse = Convert.ToInt32(verseSelecterListBox.
+                    case VERSE: // only one selected
+                        _verseReference.StartVerse = Convert.ToInt32(_verseSelecterListBox.
                             SelectedItems[0]);
 
                         //execute add verse
                         AddToList(_verseReference);
-                        resetForm();
+                        ResetForm();
                         break;
                 }
             }
@@ -144,7 +147,7 @@ namespace Fast_Script
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            resetForm();
+            ResetForm();
         }
     }
 }
