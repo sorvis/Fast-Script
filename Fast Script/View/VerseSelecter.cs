@@ -66,7 +66,7 @@ namespace Fast_Script
 
         private void verseSelecterListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (MouseButtons != MouseButtons.Left) return;
+            if (MouseButtons != MouseButtons.None) return;
             ListBox.SelectedObjectCollection selectedItems =
                    _verseSelecterListBox.SelectedItems;
 
