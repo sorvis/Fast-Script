@@ -51,13 +51,19 @@ namespace Fast_Script
         }
         private string[] intToString(int[] number)
         {
-            string[] tempArray = new string[number.Count()];
-            for (int i = 0; i < number.Count(); i++)
-            {
-                tempArray[i] = Convert.ToString(number[i]);
-            }
-            return tempArray;
+            return number.Select(x => Convert.ToString(x)).ToArray();
         }
+
+        private void readFromVerseSelecter(Action<string> setStart, Action<string> setEnd)
+        {
+            var start = (string)_verseSelecterListBox.SelectedItems[0];
+            setStart(start);
+
+            var count = _verseSelecterListBox.SelectedItems.Count;
+            var end = (string)_verseSelecterListBox.SelectedItems[count -1];
+            setEnd(end);
+        }
+
         private void verseSelecterListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ListBox.SelectedObjectCollection selectedItems =
@@ -69,22 +75,13 @@ namespace Fast_Script
                 switch (_displaying)
                 {
                     case BOOK:
-                        _verseReference.StartBook = (string)_verseSelecterListBox.
-                            SelectedItems[0];
-                        _verseReference.EndBook = (string)_verseSelecterListBox.
-                            SelectedItems[selectedItems.Count-1];
+                        readFromVerseSelecter(x => _verseReference.StartBook = x, x => _verseReference.EndBook = x);
                         break;
                     case CHAPTER:
-                        _verseReference.StartChapter = Convert.ToInt32((string)_verseSelecterListBox.
-                            SelectedItems[0]);
-                        _verseReference.EndChapter = Convert.ToInt32((string)_verseSelecterListBox.
-                            SelectedItems[selectedItems.Count-1]);
+                        readFromVerseSelecter(x => _verseReference.StartChapter = Convert.ToInt32(x), x => _verseReference.EndChapter = Convert.ToInt32(x));
                         break;
                     case VERSE:
-                        _verseReference.StartVerse = Convert.ToInt32((string)_verseSelecterListBox.
-                            SelectedItems[0]);
-                        _verseReference.EndVerse = Convert.ToInt32((string)_verseSelecterListBox.
-                            SelectedItems[selectedItems.Count-1]);
+						readFromVerseSelecter(x => _verseReference.StartVerse = Convert.ToInt32(x), x => _verseReference.EndVerse = Convert.ToInt32(x));
                         break;
                 }
 
