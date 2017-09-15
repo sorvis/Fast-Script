@@ -66,6 +66,7 @@ namespace Fast_Script
 
         private void verseSelecterListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (MouseButtons != MouseButtons.Left) return;
             ListBox.SelectedObjectCollection selectedItems =
                    _verseSelecterListBox.SelectedItems;
 
@@ -102,9 +103,9 @@ namespace Fast_Script
                         // update ListBox with chapters
                         _verseSelecterListBox.Items.Clear();
                         _verseSelecterListBox.Items.AddRange(chapters);
-                        _displaying = "chapter";
+                        _displaying = CHAPTER;
                         break;
-                    case "chapter":
+                    case CHAPTER:
                         int chapterNumber = Convert.ToInt32(_verseSelecterListBox.Text);
                         int numberOfVerses = _backend.CurrentVerses(_verseReference.StartBook, chapterNumber).Count;
                         string[] verses = new string[numberOfVerses];
