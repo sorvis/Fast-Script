@@ -4,8 +4,11 @@ packages/
 *.pdb
 *.txt
 *.cache
+bin/
+obj/
 Debug/
 Debug\
+packages/
 Setup_FastScript/Setup_FastScript/Express/DVD-5/Reports/
 Setup_FastScript/Setup_FastScript/Express/DVD-5/LogFiles/
-
+environmentVariables.sh 

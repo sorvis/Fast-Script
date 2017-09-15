@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.Speech.Synthesis;
-using System.Speech.AudioFormat;
-using Yeti.MMedia;
-using Yeti.MMedia.Mp3;
-using WaveLib;
+//using System.Speech.Synthesis;
+//using System.Speech.AudioFormat;
+//using Yeti.MMedia;
+//using Yeti.MMedia.Mp3;
+//using WaveLib;
 using System.ComponentModel;
 using Orvis.Framework.Exception;
 
 namespace Fast_Script
 {
-    class AudioFileMaker
+    class AudioFileMaker : IAudioGenerator
     {
-        static public void MakeFileFromText(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
+        public void MakeFileFromText(string fileNameToCreate, string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
         {
             Stream audioStream = textToAudioStream(textToConvert, voiceName, voiceRate, worker);    // get audio stream of TTS
-            saveWaveStreamToMP3File(fileNameToCreate, worker, audioStream);    
+            //saveWaveStreamToMP3File(fileNameToCreate, worker, audioStream);    
             audioStream.Close();        // close audio stream
         }
         static private Stream textToAudioStream(string textToConvert, string voiceName, int voiceRate, BackgroundWorker worker)
         {
+            /*
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.SpeakProgress += delegate(object sender, SpeakProgressEventArgs e)
             { synth_SpeakProgress(sender, e, worker, textToConvert.Length); };
@@ -36,7 +37,10 @@ namespace Fast_Script
             audioStream.Position = 0;   // reset position for audio stream so it can be read
 
             return audioStream;
+            */
+            return new MemoryStream();
         }
+        /*
         static private void saveWaveStreamToMP3File(string fileNameToCreate, BackgroundWorker worker, Stream audioStream)
         {
             WaveStream waveStream = new WaveStream(audioStream);                    // read from stream
@@ -93,5 +97,6 @@ namespace Fast_Script
         {
             worker.ReportProgress((Convert.ToInt16((int)(((long)e.CharacterPosition*100)/charTotal)))/2); // divide by two so only 50% will be used up
         }
+        */
     }
 }
