@@ -1,4 +1,5 @@
 *.userprefs
+packages/
 *.suo
 *.pdb
 *.txt
